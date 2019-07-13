@@ -6,6 +6,11 @@ import Idiom from "./components/Idiom/Idiom";
 import Footer from "./components/Footer/Footer";
 
 class App extends Component {
+ 
+
+  componentDidMount(){
+    //call function to load the languages from the langugage API
+  }
   render() {
     return (
       <div className="App">
