@@ -1,5 +1,5 @@
 import React from "react";
-import "./Idiom.css";
+import "./idiom.css";
 
 function Idiom(props) {
     return (
