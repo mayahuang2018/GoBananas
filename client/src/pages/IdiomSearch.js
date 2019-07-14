@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../components/Footer";
 import NavBar from "../components/Navbar";
 
-function idiomSearch() {
+function IdiomSearch() {
   return (
     <div>
             <p>
@@ -15,4 +15,4 @@ function idiomSearch() {
   );
 }
 
-export default idiomSearch;
+export default IdiomSearch;
