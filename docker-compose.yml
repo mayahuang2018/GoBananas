@@ -1,18 +1,15 @@
 version: '3.1'
 services:
-  mongo-server:
-    image: mongo:latest
-    container_name: mongo-server
-    #command: --auth
-    #restart: always
-    # volumes:
-    #  - ./data/:/data/db
+  project3-server:
+    image: node:latest
+    container_name: project3-server
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-     - 27017:27017
-networks:
-  default:
-    external:
-      name: ga-tech
+     - 8080:8080
+    environment:
+      PORT: 4000
 
 # CLI Access:
 # docker-compose run --rm mongo-server mongo --host mongo-server
