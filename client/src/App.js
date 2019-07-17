@@ -4,9 +4,9 @@ import "./App.css";
 
 import Idiom from "./components/Idiom/Idiom";
 import Footer from "./components/Footer/Footer";
+import LanguageButton from "./components/LanguageButton/Language";
 
 class App extends Component {
- 
 
   componentDidMount(){
     //call function to load the languages from the langugage API
@@ -22,6 +22,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Idiom></Idiom>
+        <LanguageButton></LanguageButton>
         <Footer></Footer>
       </div>
     );
