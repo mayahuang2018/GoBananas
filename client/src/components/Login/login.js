@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
-class LoginForm extends Component {
+class Login extends Component {
     constructor() {
         super()
         this.state = {
@@ -57,7 +57,7 @@ class LoginForm extends Component {
                     <form>
                         <div>
                             <div className="login-form">
-                                <label className="form-label" for="username">Username</label>
+                                <label className="form-label" htmlFor="username">Username</label>
                                 <input className="form-input"
                                     type="text"
                                     id="username"
@@ -70,7 +70,7 @@ class LoginForm extends Component {
                         </div>
                         <div>
                             <div className="login-form">
-                                <label className="form-label" for="password">Password</label>
+                                <label className="form-label" htmlFor="password">Password</label>
                                 <input className="form-input"
                                     name="username"
                                     placeholder="Password"
@@ -91,7 +91,7 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm
+export default Login
 
 // needs a forgot username or password?
 // what is

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './Signup.css';
 
 class Signup extends Component {
     constructor() {
@@ -52,7 +53,7 @@ class Signup extends Component {
                 <form>
                     <div>
                         <div className="login-form">
-                            <label className="form-label" for="username">Username</label>
+                            <label className="form-label" htmlFor="username">Username</label>
                             <input className="form-input"
                                 type="text"
                                 id="username"
@@ -65,7 +66,7 @@ class Signup extends Component {
                     </div>
                     <div>
                         <div className="login-form">
-                            <label className="form-label" for="password">Password</label>
+                            <label className="form-label" htmlFor="password">Password</label>
                             <input className="form-input"
                                 placeholder="Password"
                                 type="password"
@@ -78,7 +79,7 @@ class Signup extends Component {
                     <div className="form-group">
                         <button className="btn"
                             onClick={this.handleSubmit}
-                            type="submit">Login</button>
+                            type="submit">Sign up</button>
                     </div>
                 </form>
             </div>
@@ -87,4 +88,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup
+export default Signup;

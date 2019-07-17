@@ -5,7 +5,7 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/abc"
+  "mongodb://localhost/project3"
 );
 
 const idioms = [
@@ -951,9 +951,9 @@ const idioms = [
   }
 ];
 
-db.Idioms
+db.idioms
   .remove({})
-  .then(() => db.idioms.collection.insertMany(seedsDB))
+  .then(() => db.idioms.collection.insertMany(idioms))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

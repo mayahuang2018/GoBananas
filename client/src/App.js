@@ -5,6 +5,8 @@ import "./App.css";
 import Idiom from "./components/Idiom/Idiom";
 import Footer from "./components/Footer/Footer";
 import LanguageButton from "./components/LanguageButton/Language";
+import Signup from "./components/Signup/Signup";
+import Login from "./components/Login/Login";
 
 class App extends Component {
 
@@ -23,7 +25,11 @@ class App extends Component {
         </p>
         <Idiom></Idiom>
         <LanguageButton></LanguageButton>
+        <Signup></Signup>
+        <Login></Login>
         <Footer></Footer>
+
+        
       </div>
     );
   }
