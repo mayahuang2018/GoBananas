@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const abc = require("./abc");
+const userRoutes = require("./users");
 
 // google routes
-router.use("/abc", abc);
+router.use("/users", userRoutes);
 
 module.exports = router;
