@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import NavBar from "../components/NavBar/NavBar.js";
+import NavBar from "../components/NavBar";
 import { Input, FormBtn } from "../components/LoginForm/LoginForm.js";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
@@ -81,6 +81,7 @@ class LoginPage extends Component {
                 Submit
               </FormBtn>
             </form>
+            <Footer></Footer>
               </div>
           )
       }
