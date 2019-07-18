@@ -1,13 +1,12 @@
 import React from "react";
-import "./NarBar.css";
+// import "./NarBar/NavBar.css";
 
-function NavBar(props) {
+function NavBar() {
     return (
         <div>
             <p> navbar test! </p>
         </div>
     );
-
 }
 
 export default NavBar; 

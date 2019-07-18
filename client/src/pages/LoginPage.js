@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import NavBar from "../components/NavBar";
-import LoginForm from "../components/LoginForm";
-import Footer from "../components/Footer";
+import NavBar from "../components/NavBar/NavBar.js";
+import { Input, FormBtn } from "../components/LoginForm/LoginForm.js";
+// import Footer from "../components/Footer";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
@@ -17,16 +17,17 @@ class LoginPage extends Component {
           redirectTo: null,
       }
       this.handleSubmit = this.handleSubmit.bind(this)
-      this.handleSubmit = this.handleChange.bind(this)
-  }
+      this.handleChange = this.handleChange.bind(this)
+  };
 
   handleChange = name => event => {
       this.setState({
           [name]: event.target.value
       })
-  }
+      console.log(event.target.value)
+  };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
       event.preventDefault()
       console.log('handleSubmit')
 
@@ -50,8 +51,7 @@ class LoginPage extends Component {
               console.log('login error: ')
               console.log('error')
           })
-  }
-
+  };
 
   render() {
       if (this.state.redirectTo) {
@@ -61,57 +61,30 @@ class LoginPage extends Component {
           return (
               <div>
                 <NavBar></NavBar>
-                  <form>
-                      <div>
-                          <div className="login-form">
-                              <label className="form-label" htmlFor="username">Username</label>
-                              <input className="form-input"
-                                  type="text"
-                                  id="username"
-                                  name="username"
-                                  placeholder="Username"
-                                  value={this.state.username}
-                                  onChange={this.handleChange}
-                              />
-                          </div>
-                      </div>
-                      <div>
-                          <div className="login-form">
-                              <label className="form-label" htmlFor="password">Password</label>
-                              <input className="form-input"
-                                  name="username"
-                                  placeholder="Password"
-                                  value={this.state.password}
-                                  onChange={this.handleChange}
-                              />
-                          </div>
-                      </div>
-                      <div className="form-group">
-                          <button className="btn"
-                              onClick={this.handleSubmit}
-                              type="submit">Login</button>
-                      </div>
-                  </form>
-                  <Footer></Footer>
+                <form>
+              <Input
+                value={this.state.username}
+                onChange={this.handleChange}
+                name="username"
+                placeholder="username (required)"
+              />
+              <Input
+                value={this.state.password}
+                onChange={this.handleChange}
+                name="password"
+                placeholder="password (required)"
+              />
+              <FormBtn
+                // disabled={!(this.state.username && this.state.password)}
+                onClick={this.handleSubmit}
+              >
+                Submit
+              </FormBtn>
+            </form>
               </div>
           )
       }
   }
-}
-
-export default LoginPage;
-
-
-class  LoginPage extends Component {
-  render() {
-  return (
-    <div>
-            <NavBar></NavBar>
-            <LoginForm></LoginForm>
-            <Footer></Footer>
-   </div>
-  );
-}
 }
 
 export default LoginPage;
