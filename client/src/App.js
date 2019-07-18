@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
-
 import Idiom from "./components/Idiom/Idiom";
 import Footer from "./components/Footer/Footer";
 import LanguageButton from "./components/LanguageButton/Language";
-import Signup from "./components/Signup/Signup";
-import Login from "./components/Login/Login";
 
 class App extends Component {
 
@@ -15,6 +12,7 @@ class App extends Component {
   }
   render() {
     return (
+      <div>
       <div className="App">
         <div className="App-header">
           <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/84539/preview.svg" className="App-logo" alt="logo" />
@@ -25,11 +23,9 @@ class App extends Component {
         </p>
         <Idiom></Idiom>
         <LanguageButton></LanguageButton>
-        <Signup></Signup>
-        <Login></Login>
         <Footer></Footer>
 
-        
+        </div>
       </div>
     );
   }
