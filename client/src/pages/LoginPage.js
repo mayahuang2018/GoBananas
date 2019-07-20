@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 import BananaLogo from "../components/BananaLogo";
 import Form from "../components/LForm";
+import NavBar from "../components/NavBar";
 
 
 class LoginPage extends Component {
@@ -67,7 +68,6 @@ class LoginPage extends Component {
               <div>
                 <NavBar/>
                 <BananaLogo />
-                <form>
                 {/* <form>
               <Input
                 value={this.state.username}
