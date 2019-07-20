@@ -1,15 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 import Footer from "../components/Footer";
-import NavBar from "../components/Navbar";
+import NavBar from "../components/NavBar";
 
-function IdiomSearch() {
+class IdiomSearchPage extends Component {
+  render() {
   return (
     <div>
-            <NavBar></NavBar>
-            
-            <Footer></Footer>
+            <NavBar />
+            <Footer />
    </div>
   );
 }
+}
 
-export default IdiomSearch;
+export default IdiomSearchPage;

@@ -1,7 +1,7 @@
 import React from "react";
-// import "./NarBar/NavBar.css";
+import "./NavBar.css";
 
-function NavBar() {
+function NavBar(props) {
     return (
         <div>
             <p> navbar test! </p>

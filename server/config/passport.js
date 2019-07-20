@@ -1,24 +1,21 @@
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-const bc = require("bcryptjs");
-const JWT = require('passport-jwt').Strategy;
-const ExtractJWT = require("passport-jwt").ExtractJwt
-const db = require("../models");
-
-
-module.exports = passport => {
+// const passport = require("passport");
+import { Strategy as LocalStrategy } from "passport-local";
+import { hashSync, genSaltSync, compareSync } from "bcryptjs";
+import { Strategy as JWTstrategy } from 'passport-jwt';
+import { ExtractJwt as ExtractJWT } from "passport-jwt";
+import { user as _user } from "../models";
 
     // serialize the user
-    // passport.serializeUser((user, cb) => {
-    //     console.log(user);
-    //     var userObj = { id: user.id, username: user.username, email: user.email };
-    //     console.log(userObj, "userObj");
-    //     cb(null, userObj);
-    // });
-    // // deserialize the user
-    // passport.deserializeUser((userObj, cb) => {
-    //     cb(null, userObj);
-    // });
+    passport.serializeUser((user, cb) => {
+        console.log(user);
+        var userObj = { id: user.id, username: user.username, email: user.email };
+        console.log(userObj, "userObj");
+        cb(null, userObj);
+    });
+    // deserialize the user
+    passport.deserializeUser((userObj, cb) => {
+        cb(null, userObj);
+    });
 
     // local signup strategy -- passport, search database to see if user already exists, and if not then add a user
     passport.use(
@@ -32,7 +29,7 @@ module.exports = passport => {
             (req, username, password, done) => {
                 // generates a hash for the password, and salt for the password
                 const generateHash = password => {
-                    return bc.hashSync(password, bc.genSaltSync(8), null);
+                    return hashSync(password, genSaltSync(8), null);
                 };
 
                 // store the user password as a hash
@@ -43,14 +40,14 @@ module.exports = passport => {
                     username: username,
                     email: req.body.email,
                     password: userPassword,
-                    firstname: req.body.firstname,
-                    lastname: req.body.lastname
+                    first_name: req.body.firstname,
+                    last_name: req.body.lastname
                 }
                 console.log(username);
 
                 // determin when to create a new user in the database table
                 // ideally this would have more robust rules for creating a new user
-                db.user.create(data)
+                _user.create(data)
                     .then(newUser => {
                         // console.log(newUser);
                         if (!newUser) {
@@ -83,16 +80,16 @@ module.exports = passport => {
                 // compares the password the user enters at login to the stored hashed password 
                 const isValidPassword = (userpass, password) => {
                     console.log(password, userpass)
-                    return bc.compareSync(password, userpass);
+                    return compareSync(password, userpass);
                 };
 
                 const generateHash = password => {
-                    return bc.hashSync(password, bc.genSaltSync(8), null);
+                    return hashSync(password, genSaltSync(8), null);
                 };
                 const userPassword = generateHash(password);
 
                 // looks to the database table to find a username
-                db.user.findOne({
+                _user.findOne({
                     where: {
                         username: req.body.username,
                         password: userPassword
@@ -117,11 +114,15 @@ module.exports = passport => {
         )
     );
 
+    const opts = {
+        jwtFromRequest: ExtractJWT.fromAuthHeaderWithSchema('JWT'),
+        secreteOrKey: jwtSecret.secret,
+    };
 
     passport.use(
         'jwt',
         new JWTstrategy(opts, (jwt_payload, done) => {
-            db.user.findOne({
+            _user.findOne({
                 where: {
                     username: jwt_payload.id,
                 }
@@ -137,5 +138,5 @@ module.exports = passport => {
         }), 
     );
 
-
-}
+export default PassportConfig
+// https://itnext.io/implementing-json-web-tokens-passport-js-in-a-javascript-application-with-react-b86b1f313436 - for JWT strategy

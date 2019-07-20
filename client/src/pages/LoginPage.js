@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "../components/NavBar";
-import { Input, FormBtn } from "../components/LoginForm/LoginForm.js";
+import { Input, FormBtn } from "../components/Loginform/index";
 import Footer from "../components/Footer";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
@@ -8,24 +8,29 @@ import axios from "axios";
 
 class LoginPage extends Component {
   
-    constructor() {
-      super()
-      this.state = {
+   state = {
           username: '',
           password: '',
           loggedIn: false,
           redirectTo: null,
       }
-      this.handleSubmit = this.handleSubmit.bind(this)
-      this.handleChange = this.handleChange.bind(this)
-  };
+    //   this.handleSubmit = this.handleSubmit.bind(this)
+    //   this.handleChange.bind(this)
 
-  handleChange = name => event => {
-      this.setState({
-          [name]: event.target.value
-      })
-      console.log(event.target.value)
-  };
+//   handleChange = name => event => {
+//       this.setState({
+//           [name]: event.target.value
+//       })
+//       console.log(event.target.value)
+//   };
+
+  handleChange = event => {
+      const { name, value } = event.target
+    this.setState({
+        [name]: value
+    })
+    console.log(event.target.value)
+};
 
   handleSubmit = event => {
       event.preventDefault()
@@ -64,13 +69,13 @@ class LoginPage extends Component {
                 <form>
               <Input
                 value={this.state.username}
-                onChange={this.handleChange}
+                onChange={this.handleChange.bind(this)}
                 name="username"
                 placeholder="username (required)"
               />
               <Input
                 value={this.state.password}
-                onChange={this.handleChange}
+                onChange={this.handleChange.bind(this)}
                 name="password"
                 placeholder="password (required)"
               />
