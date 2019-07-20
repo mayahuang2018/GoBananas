@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Input, FormBtn } from "../components/Loginform/index";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import BananaLogo from "../components/BananaLogo";
 import Form from "../components/LForm";
 
 
@@ -64,6 +65,9 @@ class LoginPage extends Component {
           // can change this to look however it needs to look
           return (
               <div>
+                <NavBar/>
+                <BananaLogo />
+                <form>
                 {/* <form>
               <Input
                 value={this.state.username}
