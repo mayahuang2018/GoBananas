@@ -1,29 +1,30 @@
-const db = require('../models');
+
 import passport from 'passport';
 
 module.exports = app => {
-    app.post('/signupUser', (req, res, next) => {
+    app.post('/api/Users', (req, res, next) => {
         passport.authenticate('signup', (err, user, info) => {
             if (err) {
                 console.log(err);
             }
             if (info != undefined) {
                 console.log(info.message);
-                res.send(info.message);
+                res.status(403).send(info.message);
             } else {
-                req.logIn(user, err => {
+                req.logIn(Users, err => {
+                    console.log(Users);
                     const data = {
                         first_name: req.body.first_name,
                         last_name: req.body.last_name,
                         email: req.body.email,
                         username: user.username,
                     };
-                    user.findOne({
+                    Users.findOne({
                         where: {
                             username: data.username
                         },
-                    }).then(user => {
-                        user
+                    }).then(Users => {
+                        Users
                             .update({
                                 first_name: data.first_name,
                                 last_name: data.last_name,

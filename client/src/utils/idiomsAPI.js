@@ -14,7 +14,7 @@ export default {
     return axios.delete("/api/idioms/" + id);
   },
   // Saves a book to the database
-  saveIdiom: function(bookData) {
-    return axios.post("/api/idioms", bookData);
+  saveIdiom: function(idiomData) {
+    return axios.post("/api/idioms", idiomData);
   }
 };

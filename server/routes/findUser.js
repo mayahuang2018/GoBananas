@@ -1,8 +1,9 @@
-const passport = require("passport");
+import { authenticate } from "passport";
+const router = require("express").Router();
 
-module.exports = app => {
-    app.get("/findUser", (req, res, next) => {
-        passport.authenticate('jwt', { session: false }, (err, user, info) => {
+    router.route("/")
+    app.get("/api/findUser", (req, res, next) => {
+        authenticate('jwt', { session: false }, (err, user, info) => {
             if(err) {
                 console.log(err);
             }
@@ -23,4 +24,5 @@ module.exports = app => {
             }
         }) (req, res, next);
     });
-};
+
+    module.exports = router;
