@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import NavBar from "../components/NavBar";
 import { Input, FormBtn } from "../components/Loginform/index";
-import Footer from "../components/Footer";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import Form from "../components/LForm";
 
 
 class LoginPage extends Component {
@@ -65,8 +64,7 @@ class LoginPage extends Component {
           // can change this to look however it needs to look
           return (
               <div>
-                <NavBar></NavBar>
-                <form>
+                {/* <form>
               <Input
                 value={this.state.username}
                 onChange={this.handleChange.bind(this)}
@@ -85,8 +83,8 @@ class LoginPage extends Component {
               >
                 Submit
               </FormBtn>
-            </form>
-            <Footer></Footer>
+            </form> */}
+            <Form />
               </div>
           )
       }

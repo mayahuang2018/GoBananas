@@ -5,6 +5,8 @@ import { Input, FormBtn } from "../components/Loginform/index";
 import Footer from "../components/Footer";
 // import { Redirect } from "react-router-dom";
 // import axios from "axios";
+import SignupForm from "../components/SignupForm"
+
 
 class SignupPage extends Component {
 
@@ -60,7 +62,7 @@ class SignupPage extends Component {
         // can change this to look however it needs to look
         return (
             <div>
-                <NavBar></NavBar>
+                {/* <NavBar></NavBar>
                 <form>
                     <Input
                         value={this.state.username}
@@ -99,7 +101,8 @@ class SignupPage extends Component {
                         Submit
                         </FormBtn>
                 </form>
-                <Footer></Footer>
+                <Footer></Footer> */}
+                <SignupForm />
             </div>
         )
     }
