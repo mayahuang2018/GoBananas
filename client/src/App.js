@@ -10,7 +10,7 @@ import SignupPage from "./pages/SignupPage.js"
 import Footer from "./components/Footer";
 // import BananaLogo from "./components/BananaLogo";
 import "./App.css";
-
+import TestPage from "./pages/TestPage";
 
 function App() {
   return (
