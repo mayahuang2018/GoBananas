@@ -9,6 +9,7 @@ import SignupPage from "./pages/SignupPage.js"
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
+
 function App() {
   return (
     <Router>
