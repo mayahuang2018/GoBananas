@@ -9,8 +9,8 @@ class TranslatePage extends Component{
   render(){
     return (
     <div>
-      <NavBar/>
-      <TranslatedDescription/>
+      <NavBar/> 
+      <TranslatedDescription/> Hilary
       <Footer/>
     </div>
     )
