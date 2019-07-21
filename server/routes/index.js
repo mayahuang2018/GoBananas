@@ -1,13 +1,13 @@
-import { join } from "path";
+const path = require( "path");
 const router = require("express").Router();
-import apiRoutes from "./api";
+const apiRoutes = require("./api");
 
 // API Routes
 router.use("/api", apiRoutes);
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {
-  res.sendFile(join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-export default router;
+module.exports = router;

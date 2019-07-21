@@ -1,9 +1,9 @@
-import db  from '../models';
-import secret from '../config/jwtConfig';
-import sign from "jsonwebtoken";
-import authenticate from "passport";
 
-export default app => {
+const secret = require('../../config/jwtConfig');
+const sign = require("jsonwebtoken");
+const authenticate = require("passport");
+
+module.exports = app => {
     app.get('/loginUser', (req, res, next) => {
         authenticate('login', (err, user, info) => {
             if (err) {

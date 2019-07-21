@@ -8,19 +8,20 @@ import LoginPage from "./pages/LoginPage.js";
 import SignupPage from "./pages/SignupPage.js"
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-// import BananaLogo from "./components/BananaLogo";
+import BananaLogo from "./components/BananaLogo";
 import "./App.css";
-import ControlledCarousel from "./pages/ControlledCarousel";
+import Carousel from "./pages/Carousel";
 
 function App() {
   return (
     <Router>
       <div>
         <NavBar />
+        <BananaLogo/>
         <Switch>
-          <Route exact path="/SignupPage" component={SignupPage} />
-          <Route exact path="/LoginPage" component={LoginPage} />
-          <Route exact path="/ControlledCarousel" component={ControlledCarousel} />
+          <Route path="/SignupPage" component={SignupPage} />
+          <Route path="/LoginPage" component={LoginPage} />
+          <Route path="/Carousel" component={Carousel} />
         </Switch>
         <Footer />
       </div>

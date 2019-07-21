@@ -1,43 +1,42 @@
 import React from "react";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-// import React, { useState } from 'react';
+// import Form from 'react-bootstrap/Form';
+// import Button from 'react-bootstrap/Button';
 
-function LForm(props) {
 
-    const [validated, setValidated] = React.useState(false);
+// function LForm(props) {
 
-    const handleSubmit = event => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropogation();
-        }
+//     const [validated, setValidated] = React.useState(false);
 
-        setValidated(true);
-    }
+//     const handleSubmit = event => {
+//         const form = event.currentTarget;
+//         if (form.checkValidity() === false) {
+//             event.preventDefault();
+//             event.stopPropogation();
+//         }
 
-    return (
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" required />
-                <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-    </Form.Text>
-            </Form.Group>
+//         setValidated(true);
+//     }
 
-            <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-  </Button>
-        </Form>
+//     return (
+//         <Form noValidate validated={validated} onSubmit={handleSubmit}>
+//             <Form.Group controlId="formBasicEmail">
+//                 <Form.Label>Email address</Form.Label>
+//                 <Form.Control type="email" placeholder="Enter email" required />
+//                 <Form.Text className="text-muted">
+//                     We'll never share your email with anyone else.
+//                 </Form.Text>
+//             </Form.Group>
+//             <Form.Group controlId="formBasicPassword">
+//                 <Form.Label>Password</Form.Label>
+//                 <Form.Control type="password" placeholder="Password" />
+//             </Form.Group>
+//             <Button variant="primary" type="submit" onClick={ handleSubmit() }>
+//                 Submit
+//   </Button>
+//         </Form>
 
-    )
-}
+//     )
+// }
 
 export default LForm;
 

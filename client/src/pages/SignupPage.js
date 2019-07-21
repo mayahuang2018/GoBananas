@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import API from "../utils/usersAPI";
-// import NavBar from "../components/NavBar";
-// import { Input, FormBtn } from "../components/Loginform/index";
-// import Footer from "../components/Footer";
-// import { Redirect } from "react-router-dom";
+import { Input, FormBtn } from "../components/LoginForm/index";
+import Footer from "../components/Footer";
+import { Redirect } from "react-router-dom";
 // import axios from "axios";
-import SignupForm from "../components/SignupForm"
+// import SignupForm from "../components/SignupForm"
 
 
 class SignupPage extends Component {
@@ -15,6 +14,7 @@ class SignupPage extends Component {
         last_name: "",
         username: "",
         password: "",
+        email: "",
         confirmPassword: "",
     };
 
@@ -43,7 +43,7 @@ class SignupPage extends Component {
                     if (!response.data.errmsg) {
                         console.log('successful signup')
                         this.setState({ //redirect to login page
-                            redirectTo: '/login'
+                            redirectTo: '/LoginPage'
                         })
                     } else {
                         console.log('username already taken')
@@ -56,13 +56,13 @@ class SignupPage extends Component {
         }
     }
     render() {
-        // if (this.state.redirectTo) {
-        //     return <Redirect to={{ pathname: this.state.redirectTo }} />
-        // } else {
+        if (this.state.redirectTo) {
+            return <Redirect to={{ pathname: this.state.redirectTo }} />
+        } else {
         // can change this to look however it needs to look
         return (
             <div>
-                {/* <NavBar></NavBar>
+                
                 <form>
                     <Input
                         value={this.state.username}
@@ -101,12 +101,12 @@ class SignupPage extends Component {
                         Submit
                         </FormBtn>
                 </form>
-                <Footer></Footer> */}
-                <SignupForm />
+                <Footer></Footer>
+                {/* <SignupForm /> */}
             </div>
         )
     }
 }
+}
 
-
-export default SignupPage;
+export default SignupPage

@@ -1,8 +1,9 @@
 
-import passport from 'passport';
+const passport = require('passport');
+const router = require("express").Router();
+const Users = require("../../models/users");
 
-module.exports = app => {
-    app.post('/api/Users', (req, res, next) => {
+    router.post('/api/Users', (req, res, next) => {
         passport.authenticate('signup', (err, user, info) => {
             if (err) {
                 console.log(err);
@@ -39,4 +40,5 @@ module.exports = app => {
             }
         })(req, res, next);
     });
-};
+
+    module.exports = router;

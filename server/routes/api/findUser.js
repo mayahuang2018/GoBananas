@@ -1,8 +1,9 @@
-import { authenticate } from "passport";
+const authenticate = require ("passport");
 const router = require("express").Router();
+const Users = require("../../models/users");
 
-    router.route("/")
-    app.get("/api/findUser", (req, res, next) => {
+    router.route("/");
+    router.get("/api/project3", (req, res, next) => {
         authenticate('jwt', { session: false }, (err, user, info) => {
             if(err) {
                 console.log(err);
@@ -11,7 +12,7 @@ const router = require("express").Router();
                 console.log(info.message);
                 res.send(info.message);
             } else {
-                console.log('user found in db from route');
+                console.log('user found in db');
                 res.status(200).send({
                     auth: true,
                     first_name: user.first_name,
