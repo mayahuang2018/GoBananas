@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Input, FormBtn } from "../components/Loginform/index";
+// import { Input, FormBtn } from "../components/Loginform/index";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
-import BananaLogo from "../components/BananaLogo";
-import Form from "../components/LForm";
-import NavBar from "../components/NavBar";
+// import BananaLogo from "../components/BananaLogo";
+import LForm from "../components/LForm";
+// import NavBar from "../components/NavBar";
 
 
 class LoginPage extends Component {
@@ -66,8 +66,8 @@ class LoginPage extends Component {
           // can change this to look however it needs to look
           return (
               <div>
-                <NavBar/>
-                <BananaLogo />
+                {/* <NavBar/>
+                <BananaLogo /> */}
                 {/* <form>
               <Input
                 value={this.state.username}
@@ -88,7 +88,7 @@ class LoginPage extends Component {
                 Submit
               </FormBtn>
             </form> */}
-            <Form />
+            <LForm />
               </div>
           )
       }

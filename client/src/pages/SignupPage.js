@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import API from "../utils/usersAPI";
-import NavBar from "../components/NavBar";
-import { Input, FormBtn } from "../components/Loginform/index";
-import Footer from "../components/Footer";
+// import NavBar from "../components/NavBar";
+// import { Input, FormBtn } from "../components/Loginform/index";
+// import Footer from "../components/Footer";
 // import { Redirect } from "react-router-dom";
 // import axios from "axios";
 import SignupForm from "../components/SignupForm"
