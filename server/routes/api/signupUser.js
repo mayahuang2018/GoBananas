@@ -19,6 +19,7 @@ const Users = require("../../models/Users");
                         last_name: req.body.last_name,
                         email: req.body.email,
                         username: user.username,
+                        password: user.password
                     };
                     Users.findOne({
                         where: {
