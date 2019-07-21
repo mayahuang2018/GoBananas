@@ -48,7 +48,7 @@ module.exports = passport => {
 
                 // determin when to create a new user in the database table
                 // ideally this would have more robust rules for creating a new user
-                db.user.create(data)
+                db.Users.create(data)
                     .then(newUser => {
                         // console.log(newUser);
                         if (!newUser) {
@@ -89,7 +89,7 @@ module.exports = passport => {
                 const userPassword = generateHash(password);
 
                 // looks to the database table to find a username
-                db.user.findOne({
+                db.Users.findOne({
                         where: {
                             username: req.body.username,
                             // password: userPassword
@@ -127,11 +127,14 @@ module.exports = passport => {
     passport.use(
         'jwt',
         new JWTstrategy(opts, (jwt_payload, done) => {
-            _user.findOne({
+            Users.findOne({
                 where: {
                     username: jwt_payload.id,
                 }
             }).then(user => {
+                if (err) {
+                    return done (err, false);
+                }
                 if (user) {
                     console.log('user exists');
                     done(null, user);

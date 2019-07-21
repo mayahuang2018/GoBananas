@@ -1,6 +1,6 @@
 const authenticate = require ("passport");
 const router = require("express").Router();
-const Users = require("../../models/users");
+const Users = require("../../models/Users");
 
     router.route("/");
     router.get("/api/project3", (req, res, next) => {
