@@ -13,11 +13,11 @@ const UsersSeed = [
     username: "tester",
     email: "testy@tester.com",
     password: "123"
-  },
+  }]
 
 db.goBananas
   .remove({})
-  .then(() => db.Book.collection.insertMany(bookSeed))
+  .then(() => db.Users.collection.insertMany(UsersSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
