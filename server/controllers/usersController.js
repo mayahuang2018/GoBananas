@@ -1,5 +1,5 @@
 const passport = require('passport');
-const db = require('../models');
+const users = require('../models/Users');
 
 // Defining methods for the booksController
 module.exports = {
@@ -33,9 +33,8 @@ module.exports = {
         if (info != undefined) {
             console.log(info.message);
             res.send(info.message);
-        } else {
-            req.logIn(user, err => {
-                findOne({
+        } else { 
+                users.findOne({
                     where: {
                         username: user.username,
                     },
@@ -47,7 +46,6 @@ module.exports = {
                         message: "user exists and is logged in",
                     });
                 });
-            });
         }
     })(req, res, next);
   },
@@ -64,30 +62,31 @@ module.exports = {
           first_name: req.body.first_name,
           last_name: req.body.last_name,
           email: req.body.email,
-          username: user.username,
-          password: user.password
-        };
-        Users.create({
+          username: req.body.username,
+          password: req.body.password
+        }; 
+        users.create({
           data 
         })
           .then(() => {
             console.log('user create in db');
             res.json(data);
             res.status(200).send({ message: 'user created' });
-          });
-      }
+          })
+          .catch(err => res.status(422).json(err)); 
+      }   
     })(req, res, next);
   },
   update: function (req, res) {
-    db.Users
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.users
+      .updateOne({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function (req, res) {
-    db.Users
+    db.users
       .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
+      .then(dbModel => dbModel.deleteOne())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

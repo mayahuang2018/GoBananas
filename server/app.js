@@ -16,14 +16,15 @@ app.use(
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
- 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/goBananas", { useNewUrlParser: true });
 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/goBananas", { useNewUrlParser: true });
+mongoose.set('userNewUrlParser', true);
+mongoose.set('useCreateIndex', true);
+  
 app.use(passport.initialize());
 app.use(passport.session());
 require("./config/passport")(passport);
 app.use("/api", router);
-
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

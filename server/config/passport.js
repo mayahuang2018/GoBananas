@@ -40,10 +40,10 @@ module.exports = passport => {
                 // store the registration info as a variable
                 const data = {
                     username: username,
-                    email: req.body.email,
-                    password: userPassword,
                     first_name: req.body.first_name,
-                    last_name: req.body.last_name
+                    last_name: req.body.last_name,
+                    email: req.body.email,
+                    password: userPassword                    
                 }
                 console.log(username);
 

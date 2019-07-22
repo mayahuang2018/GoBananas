@@ -16,7 +16,7 @@ class SignupPage extends Component {
         password: "",
         email: "",
         confirmPassword: "",
-    };
+    };  
 
     handleChange = event => {
         const { name, value } = event.target
@@ -25,7 +25,7 @@ class SignupPage extends Component {
         });
         console.log(event.target.value);
     };
-
+ 
     handleSubmit = event => {
         event.preventDefault();
         console.log('username: ')
@@ -90,8 +90,8 @@ class SignupPage extends Component {
                     <Input
                         value={this.state.password}
                         onChange={this.handleChange.bind(this)}
-                        name="confirmPassword"
-                        placeholder="confirm password (required)"
+                        name="email"
+                        placeholder="email (required)"
                     />
                     <FormBtn
                         // disabled={!(this.state.username && this.state.password)}
