@@ -16,6 +16,7 @@ class SignupPage extends Component {
         password: "",
         email: "",
         confirmPassword: "",
+        redirectTo: null,
     };  
 
     handleChange = event => {
@@ -40,14 +41,12 @@ class SignupPage extends Component {
             })
                 .then(response => {
                     console.log(response, "response")
-                    if (!response) {
+                    if (response) {
                         console.log('successful signup')
                         this.setState({ //redirect to login page
                             redirectTo: '/LoginPage'
                         })
-                    } else {
-                        console.log('username already taken')
-                    }
+                    } 
                 }).catch(error => {
                     console.log('signup error: ')
                     console.log(error)
