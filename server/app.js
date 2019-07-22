@@ -1,29 +1,32 @@
 const express = require("express");
+const session = require('express-session')
 const passport = require("passport");
-require("./config/passport")(passport);
-
-const db = require("./models");
-const path = require("path")
 
 const mongoose = require("mongoose");
-const routes = require("./routes/index");
+const router = require("./routes/api/index");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(
+  session({ secret: "blahblahblah", resave: true, saveUninitialized: true })
+);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use("/api", routes);
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/goBananas", { useNewUrlParser: true });
+
+app.use(passport.initialize());
+app.use(passport.session());
+require("./config/passport")(passport);
+app.use("/api", router);
 
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+// https://github.com/rishipr/mern-auth/blob/master/server.js

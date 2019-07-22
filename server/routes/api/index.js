@@ -5,7 +5,8 @@ const signupUserRoutes = require("./signupUser");
 
 // routes
 router.use("/findUser", findUserRoutes);
-router.use("/loginUser", loginUserRoutes);
-router.use("/signupUser", signupUserRoutes);
+router.use("/login", loginUserRoutes);
+router.use("/signup", signupUserRoutes);
 
 module.exports = router;
+

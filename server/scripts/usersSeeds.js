@@ -3,10 +3,10 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/project3"
+  "mongodb://localhost/goBananas"
 );
 
-const UsersSeed = [
+const usersSeeds = [
   {
     first_name: "test",
     last_name: "testy",
@@ -15,9 +15,9 @@ const UsersSeed = [
     password: "123"
   }]
 
-db.goBananas
+db.users
   .remove({})
-  .then(() => db.Users.collection.insertMany(UsersSeed))
+  .then(() => db.users.collection.insertMany(usersSeeds))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

@@ -61,8 +61,7 @@ class SignupPage extends Component {
         } else {
         // can change this to look however it needs to look
         return (
-            <div>
-                
+            <div>  
                 <form>
                     <Input
                         value={this.state.username}

@@ -1,31 +1,32 @@
 // const passport = require("passport");
 const bc = require("bcryptjs");
 const LocalStrategy = require("passport-local").Strategy;
-const db = require("../models");
 const JWTstrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
+const Users = require("../models/Users");
+const keys = require("../config/jwtConfig")
 
 module.exports = passport => {
 
-// serialize the user
-// passport.serializeUser((user, cb) => {
-//     console.log(user);
-//     var userObj = { id: user.id, username: user.username, email: user.email };
-//     console.log(userObj, "userObj");
-//     cb(null, userObj);
-// });
-// // deserialize the user
-// passport.deserializeUser((userObj, cb) => {
-//     cb(null, userObj);
-// });
+    // serialize the user
+    passport.serializeUser((user, cb) => {
+        console.log(user);
+        var userObj = { id: user.id, username: user.username, email: user.email };
+        console.log(userObj, "userObj");
+        cb(null, userObj);
+    });
+    // deserialize the user
+    passport.deserializeUser((userObj, cb) => {
+        cb(null, userObj);
+    });
 
     // local signup strategy -- passport, search database to see if user already exists, and if not then add a user
     passport.use(
         'local-signup',
         new LocalStrategy({
-                usernameField: 'username',
-                passReqToCallback: true
-            },
+            usernameField: 'username',
+            passReqToCallback: true
+        },
 
             (req, username, password, done) => {
                 // generates a hash for the password, and salt for the password
@@ -48,7 +49,7 @@ module.exports = passport => {
 
                 // determin when to create a new user in the database table
                 // ideally this would have more robust rules for creating a new user
-                db.Users.create(data)
+                Users.create(data)
                     .then(newUser => {
                         // console.log(newUser);
                         if (!newUser) {
@@ -69,11 +70,11 @@ module.exports = passport => {
     passport.use(
         'local-login',
         new LocalStrategy({
-                // by default, local strategy uses username and password
-                usernameField: 'username',
-                passwordField: 'password',
-                passReqToCallback: true // allows us to pass back the entire request to the callback
-            },
+            // by default, local strategy uses username and password
+            usernameField: 'username',
+            passwordField: 'password',
+            passReqToCallback: true // allows us to pass back the entire request to the callback
+        },
 
             (req, username, password, done) => {
 
@@ -88,52 +89,45 @@ module.exports = passport => {
                 };
                 const userPassword = generateHash(password);
 
-                // looks to the database table to find a username
-                db.Users.findOne({
-                        where: {
-                            username: req.body.username,
-                            // password: userPassword
-                        }
-                    }).then((user => {
-                        if (!user) {
-                            console.log("not a user");
-                            console.log({
-                                message: "Please signup for an account."
-                            });
-                            return done(null, {message: "some message"});   
-                        };
-                        if (!isValidPassword(user.password, password)) {
-                            return done(null, {
-                                message: "Oops, wrong password!"
-                            });
-                        }
-                     
-                        const userinfo = user.get();
-                        console.log(userinfo, "yay!");
-                        return done(null, userinfo);
-                    })
-                    )}
+                // looks to the db collection to find a username
+                Users.findOne({
+                    where: {
+                        username: req.body.username,
+                        password: userPassword
+                    }
+                }).then((user => {
+                    if (!user) {
+                        console.log("not a user");
+                        console.log({
+                            message: "Please signup for an account."
+                        });
+                        return done(null, { message: "some message" });
+                    };
+                    if (!isValidPassword(user.password, password)) {
+                        return done(null, {
+                            message: "Oops, wrong password!"
+                        });
+                    }
+
+                    const userinfo = user.get();
+                    console.log(userinfo, "yay!");
+                    return done(null, userinfo);
+                })
+                )
+            }
         )
     );
 
     const opts = {}
-    opts.jwtFromRequest = ExtractJWT.fromAuthHeaderWithScheme("JWT");
-    opts.secretOrKey = "secret";
-    // const opts = {
-    //     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken('JWT'),
-    //     secreteOrKey: "jwtSecret.secret",
-    // };
+    opts.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken("JWT");
+    opts.secretOrKey = keys.secret
 
     passport.use(
         'jwt',
         new JWTstrategy(opts, (jwt_payload, done) => {
-            Users.findOne({
-                where: {
-                    username: jwt_payload.id,
-                }
-            }).then(user => {
+            Users.findOne({ id: jwt_payload.sub }, function (err, user) {
                 if (err) {
-                    return done (err, false);
+                    return done(err, false);
                 }
                 if (user) {
                     console.log('user exists');
@@ -142,12 +136,13 @@ module.exports = passport => {
                     console.log("not a user");
                     done(null, false)
                 }
-            });  
-        }), 
+            })
+        })
     );
+
 
 
 }
 
 
-// https://itnext.io/implementing-json-web-tokens-passport-js-in-a-javascript-application-with-react-b86b1f313436 - for JWT strategy
+

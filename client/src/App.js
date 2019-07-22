@@ -19,9 +19,10 @@ function App() {
         <NavBar />
         <BananaLogo/>
         <Switch>
-          <Route path="/SignupPage" component={SignupPage} />
-          <Route path="/LoginPage" component={LoginPage} />
-          <Route path="/Carousel" component={Carousel} />
+          {/* <Route exact path="/" component={} /> */}
+          <Route exact path="/SignupPage" component={SignupPage} />
+          <Route exact path="/LoginPage" component={LoginPage} />
+          <Route exact path="/Carousel" component={Carousel} />
         </Switch>
         <Footer />
       </div>
