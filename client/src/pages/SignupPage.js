@@ -39,8 +39,8 @@ class SignupPage extends Component {
                 password: this.state.password
             })
                 .then(response => {
-                    console.log(response)
-                    if (!response.data.errmsg) {
+                    console.log(response, "response")
+                    if (!response) {
                         console.log('successful signup')
                         this.setState({ //redirect to login page
                             redirectTo: '/LoginPage'
@@ -88,7 +88,7 @@ class SignupPage extends Component {
                         placeholder="password (required)"
                     />
                     <Input
-                        value={this.state.password}
+                        value={this.state.email}
                         onChange={this.handleChange.bind(this)}
                         name="email"
                         placeholder="email (required)"

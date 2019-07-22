@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Input, FormBtn } from "../components/LoginForm/index";
 import { Redirect } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import API from "../utils/usersAPI";
 
 class LoginPage extends Component {
   
@@ -32,27 +33,29 @@ class LoginPage extends Component {
   handleSubmit = event => {
       event.preventDefault()
       console.log('handleSubmit')
+    if(this.state.username) {
+      API.getUsers({
+        usernmae: this.state.username
+    })
+        .then(response => {
+            console.log('login response: ')
+            console.log('response')
+            if (response.status === 200) {
+                this.setState({
+                    loggedIn: true,
+                    username: response.data.username
+                })
+                this.setState({
+                    redirectTo: '/Carousel'
+                })
+            }
+        }).catch(error => {
+            console.log('login error: ')
+            console.log(error)
+        })
 
-      axios.post('user/login', {
-          usernmae: this.state.username,
-          password: this.state.password
-      })
-          .then(response => {
-              console.log('login response: ')
-              console.log('response')
-              if (response.status === 200) {
-                  this.props.updateUser({
-                      loggedIn: true,
-                      username: response.data.username
-                  })
-                  this.setState({
-                      redirectTo: '/'
-                  })
-              }
-          }).catch(error => {
-              console.log('login error: ')
-              console.log('error')
-          })
+    }
+     
   };
 
   render() {

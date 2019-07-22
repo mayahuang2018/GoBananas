@@ -14,18 +14,13 @@ module.exports = {
         } else {
             console.log('user found in db');
             res.status(200).send({
-                auth: true,
-                first_name: user.first_name,
-                last_name: user.last_name,
-                email: user.email,
-                username: user.username,
-                password: user.password,
-                message: "user exists in db",
+                loggedIn: true,
+                user: req.user,                
             });
         }
     })(req, res, next);
   },
-  findById: (req, res, next) => {
+  findOne: (req, res, next) => {
     passport.authenticate('local-login', (err, user, info) => {
         if (err) {
             console.log(err);
@@ -45,7 +40,8 @@ module.exports = {
                         token: token,
                         message: "user exists and is logged in",
                     });
-                });
+                })
+                .catch(err => console.log(err.response, "100"));
         }
     })(req, res, next);
   },
@@ -69,11 +65,11 @@ module.exports = {
           data 
         })
           .then(() => {
-            console.log('user create in db');
+            console.log(data);
             res.json(data);
             res.status(200).send({ message: 'user created' });
           })
-          .catch(err => res.status(422).json(err)); 
+          .catch(err => console.log(err.res, "100")); 
       }   
     })(req, res, next);
   },
