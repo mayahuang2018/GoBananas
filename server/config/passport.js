@@ -27,7 +27,7 @@ module.exports = passport => {
             usernameField: 'username',
             passReqToCallback: true
         },
-
+ 
             (req, username, password, done) => {
                 // generates a hash for the password, and salt for the password
                 const generateHash = password => {
@@ -36,14 +36,14 @@ module.exports = passport => {
 
                 // store the user password as a hash
                 const userPassword = generateHash(password);
-                console.log(userPassword);
+                console.log(userPassword, "password");
                 // store the registration info as a variable
                 const data = {
                     username: username,
                     email: req.body.email,
                     password: userPassword,
-                    firstname: req.body.firstname,
-                    lastname: req.body.lastname
+                    first_name: req.body.first_name,
+                    last_name: req.body.last_name
                 }
                 console.log(username);
 

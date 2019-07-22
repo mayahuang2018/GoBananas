@@ -2,6 +2,6 @@ const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
 
 router.route("/")
-    .get(usersController.findById)
+    .post(usersController.findById)
 
-module.exports = router
+module.exports = router;

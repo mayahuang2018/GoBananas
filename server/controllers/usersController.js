@@ -67,11 +67,12 @@ module.exports = {
           username: user.username,
           password: user.password
         };
-        Users.save({
-          data
+        Users.create({
+          data 
         })
           .then(() => {
             console.log('user create in db');
+            res.json(data);
             res.status(200).send({ message: 'user created' });
           });
       }
