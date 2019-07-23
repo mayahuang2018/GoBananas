@@ -14,12 +14,12 @@ class Signup extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
-    handleChange(event) {
+    handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
-    handleSubmit(event) {
+    handleSubmit = event => {
         console.log('sign-up handleSubmit, username: ')
         console.log(this.state.username)
         event.preventDefault()
@@ -72,13 +72,13 @@ class Signup extends Component {
                                 type="password"
                                 name="password"
                                 value={this.state.password}
-                                onChange={this.handleChange}
+                                onChange={this.handleChange()}
                             />
                         </div>
                     </div>
                     <div className="form-group">
                         <button className="btn"
-                            onClick={this.handleSubmit}
+                            onClick={this.handleSubmit()}
                             type="submit">Sign up</button>
                     </div>
                 </form>

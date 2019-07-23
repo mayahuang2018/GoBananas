@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import API from "../utils/usersAPI";
-import NavBar from "../components/NavBar";
-import { Input, FormBtn } from "../components/Loginform/index";
+import { Input, FormBtn } from "../components/LoginForm/index";
 import Footer from "../components/Footer";
-// import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 // import axios from "axios";
-import SignupForm from "../components/SignupForm"
+// import SignupForm from "../components/SignupForm"
 
 
 class SignupPage extends Component {
@@ -15,8 +14,10 @@ class SignupPage extends Component {
         last_name: "",
         username: "",
         password: "",
+        email: "",
         confirmPassword: "",
-    };
+        redirectTo: null,
+    };  
 
     handleChange = event => {
         const { name, value } = event.target
@@ -25,7 +26,7 @@ class SignupPage extends Component {
         });
         console.log(event.target.value);
     };
-
+ 
     handleSubmit = event => {
         event.preventDefault();
         console.log('username: ')
@@ -39,30 +40,23 @@ class SignupPage extends Component {
                 password: this.state.password
             })
                 .then(response => {
-                    console.log(response)
-                    if (!response.data.errmsg) {
-                        console.log('successful signup')
+                    console.log(response, "response");
+                    if (response) {
+                        console.log('successful signup');
                         this.setState({ //redirect to login page
-                            redirectTo: '/login'
+                            redirectTo: '/LoginPage'
                         })
-                    } else {
-                        console.log('username already taken')
-                    }
-                }).catch(error => {
-                    console.log('signup error: ')
-                    console.log(error)
-
-                })
+                    } 
+                }).catch(error => console.log('signup error: ', error))
         }
     }
     render() {
-        // if (this.state.redirectTo) {
-        //     return <Redirect to={{ pathname: this.state.redirectTo }} />
-        // } else {
+        if (this.state.redirectTo) {
+            return <Redirect to={{ pathname: this.state.redirectTo }} />
+        } else {
         // can change this to look however it needs to look
         return (
-            <div>
-                {/* <NavBar></NavBar>
+            <div>  
                 <form>
                     <Input
                         value={this.state.username}
@@ -89,10 +83,10 @@ class SignupPage extends Component {
                         placeholder="password (required)"
                     />
                     <Input
-                        value={this.state.password}
+                        value={this.state.email}
                         onChange={this.handleChange.bind(this)}
-                        name="confirmPassword"
-                        placeholder="confirm password (required)"
+                        name="email"
+                        placeholder="email (required)"
                     />
                     <FormBtn
                         // disabled={!(this.state.username && this.state.password)}
@@ -101,12 +95,12 @@ class SignupPage extends Component {
                         Submit
                         </FormBtn>
                 </form>
-                <Footer></Footer> */}
-                <SignupForm />
+                <Footer></Footer>
+                {/* <SignupForm /> */}
             </div>
         )
     }
 }
+}
 
-
-export default SignupPage;
+export default SignupPage
