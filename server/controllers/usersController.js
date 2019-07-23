@@ -1,6 +1,7 @@
 const passport = require('passport');
 const users = require('../models/Users');
-const bc = require("bcryptjs")
+const bc = require("bcryptjs");
+const keys = require("../config/jwtConfig");
 
 // Defining methods for the booksController
 module.exports = {
@@ -25,31 +26,41 @@ module.exports = {
   findOne: (req, res, next) => {
     console.log("login route");
     passport.authenticate('local-login', (err, username, info) => {
-      console.log("authenticating");
-      console.log(username);
-      if (err) {
-        console.log(err);
-      }
+      if (err) { console.log(err); }
       if (info != undefined) {
         console.log(info.message);
-        res.send(info.message);
+         return res.send(info.message);
       } else {
-        users.findOne({
-          where: {
-            username: username,
-          },
-        }).then(user => {
-          const token = ({ id: users.username }, secret);
-          return res.status(200).send({
-            auth: true,
-            token: token,
-            message: "user exists and is logged in",
-          });
-        })
-          .catch(err => console.log(err, "200"));
+
+        // const isValidPassword = (userpass, password) => {
+        //   console.log(password, userpass)
+        //   return bc.compareSync(password, userpass);
+        // };
+
+        // const generateHash = password => {
+        //   return bc.hashSync(password, bc.genSaltSync(8), null);
+        // };
+        // generateHash(req.body.password);
+
+        // if (isValidPassword(req.body.password)) {
+          users.findOne({
+            where: {
+              username: username,
+            },
+          }).then(keys => {
+            const token = ({ id: users.username }, keys);
+            return res.status(200).send({
+              auth: true,
+              token: token,
+              message: "user exists and is logged in",
+            });
+          })
+            .catch(err => console.log(err, "200"));
+        }
       }
-    })(req, res, next);
+    )(req, res, next)
   },
+
   create: (req, res, password) => {
     console.log("say nothing!");
 

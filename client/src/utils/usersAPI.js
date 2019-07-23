@@ -7,8 +7,8 @@ export default {
     return axios.post("/api/login", {username: username, password: password});// + username);
   },
   // all users for jwt
-  getUser: function(id) {
-    return axios.get("/api/findUser/");
+  getUser: function(username) {
+    return axios.get("/api/findUser", {username: username});
   },
   // Deletes the user with the given id
   deleteUser: function(id) {

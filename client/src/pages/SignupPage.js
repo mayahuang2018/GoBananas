@@ -40,18 +40,14 @@ class SignupPage extends Component {
                 password: this.state.password
             })
                 .then(response => {
-                    console.log(response, "response")
+                    console.log(response, "response");
                     if (response) {
-                        console.log('successful signup')
+                        console.log('successful signup');
                         this.setState({ //redirect to login page
                             redirectTo: '/LoginPage'
                         })
                     } 
-                }).catch(error => {
-                    console.log('signup error: ')
-                    console.log(error)
-
-                })
+                }).catch(error => console.log('signup error: ', error))
         }
     }
     render() {

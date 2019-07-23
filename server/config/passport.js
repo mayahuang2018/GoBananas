@@ -1,10 +1,10 @@
 // const passport = require("passport");
 const bc = require("bcryptjs");
 const LocalStrategy = require("passport-local").Strategy;
+const Users = require("../models/Users");
 const JWTstrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
-const Users = require("../models/Users");
-const keys = require("../config/jwtConfig")
+const keys = require("../config/jwtConfig");
 
 module.exports = passport => {
 
@@ -14,6 +14,7 @@ module.exports = passport => {
         var userObj = {
             id: user.id,
             username: user.username,
+            password: user.password,
             email: user.email
         };
         console.log(userObj, "userObj");
@@ -74,54 +75,49 @@ module.exports = passport => {
     passport.use(
         'local-login',
         new LocalStrategy({
-                // by default, local strategy uses username and password
-                usernameField: 'username',
-                passwordField: 'password',
-                passReqToCallback: true // allows us to pass back the entire request to the callback
-            },
+            // by default, local strategy uses username and password
+            usernameField: 'username',
+            passwordField: 'password',
+            passReqToCallback: true // allows us to pass back the entire request to the callback
+        },
 
-            (req, username, password, done) => {
+            (req, userpass, password, done) => {
 
                 // compares the password the user enters at login to the stored hashed password 
                 const isValidPassword = (userpass, password) => {
                     console.log(password, userpass)
                     return bc.compareSync(password, userpass);
                 };
-
+                
                 const generateHash = password => {
                     return bc.hashSync(password, bc.genSaltSync(8), null);
                 };
                 const userPassword = generateHash(password);
+                
+                
 
                 // looks to the db collection to find a username
-                Users.findOne({
-                    where: {
-                        username: username,
-                        password: userPassword
-                    }
-                }).then((user => {
-                    if (!user) {
-                        console.log("not a user");
-                        console.log({
-                            message: "Please signup for an account."
-                        });
-                        return done(null, {
-                            message: "some message"
-                        });
-                    };
-                    if (!isValidPassword(user.password, password)) {
-                        return done(null, {
-                            message: "Oops, wrong password!"
-                        });
-                    }
+                Users.findOne({ username: req.body.username, password: userPassword }, (err, user) => {
+                    if (err) { return done(err); } 
 
-                    const userinfo = user.get();
-                    console.log(userinfo, "yay!");
-                    return done(null, userinfo);
-                }))
+                    if (!user) {
+                        return done(null, false, {
+                                message: "some message"
+                            });
+                        }
+                    
+                    if (!isValidPassword(user.password, password)) {
+                        
+                        return done(null, false, {
+                                message: "Oops, wrong password!"
+                            });
+                        }
+                        // const userinfo = user.get();
+                        // console.log(userinfo, "yay!");
+                        // return done(null, userinfo);
+                });
             }
-        )
-    );
+        ));
 
     const opts = {}
     opts.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken("JWT");
@@ -130,9 +126,10 @@ module.exports = passport => {
     passport.use(
         'jwt',
         new JWTstrategy(opts, (jwt_payload, done) => {
+            console.log(jwt_payload)
             Users.findOne({
                 id: jwt_payload.sub
-            }, function (err, user) {
+            }, (err, user) => {
                 if (err) {
                     return done(err, false);
                 }
