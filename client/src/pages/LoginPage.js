@@ -34,7 +34,7 @@ class LoginPage extends Component {
       event.preventDefault()
       console.log('handleSubmit')
     if(this.state.username) {
-      API.getUsers(this.state.username)
+      API.getUsers(this.state.username, this.state.password)
         .then(response => {
             console.log('login response: ')
             console.log('response')

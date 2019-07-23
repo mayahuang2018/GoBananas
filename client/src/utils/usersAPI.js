@@ -18,6 +18,5 @@ export default {
   saveUser: function(usersData) {
     console.log(usersData)
     return axios.post("/api/signup", usersData);
-  
   }
 };
