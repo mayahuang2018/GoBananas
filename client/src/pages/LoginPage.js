@@ -34,9 +34,7 @@ class LoginPage extends Component {
       event.preventDefault()
       console.log('handleSubmit')
     if(this.state.username) {
-      API.getUsers({
-        usernmae: this.state.username
-    })
+      API.getUsers(this.state.username)
         .then(response => {
             console.log('login response: ')
             console.log('response')

@@ -21,6 +21,7 @@ module.exports = {
     })(req, res, next);
   },
   findOne: (req, res, next) => {
+    console.log("login route");
     passport.authenticate('local-login', (err, user, info) => {
       if (err) {
         console.log(err);
@@ -31,11 +32,11 @@ module.exports = {
       } else {
         users.findOne({
           where: {
-            username: user.username,
+            username: username,
           },
         }).then(user => {
           const token = sign({ id: user.username }, secret);
-          res.status(200).send({
+          return res.status(200).send({
             auth: true,
             token: token,
             message: "user exists and is logged in",

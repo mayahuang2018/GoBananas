@@ -2,9 +2,9 @@ import axios from "axios";
 
 export default {
   // get particular users for login
-  getUsers: function(username) {
+  getUsers: function(username, password) {
     console.log(username);
-    return axios.get("/api/login/" + username);
+    return axios.post("/api/login", {username: username, password: password});// + username);
   },
   // all users for jwt
   getUser: function(id) {
