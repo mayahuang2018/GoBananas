@@ -39,7 +39,7 @@ module.exports = {
             username: username,
           },
         }).then(user => {
-          const token = sign({ id: user.username }, secret);
+          const token = ({ id: users.username }, secret);
           return res.status(200).send({
             auth: true,
             token: token,
@@ -50,24 +50,25 @@ module.exports = {
       }
     })(req, res, next);
   },
-  create: (req, res) => {
+  create: (req, res, password) => {
     console.log("say nothing!");
 
-    // const generateHash = password => {
-    //   return bc.hashSync(password, bc.genSaltSync(8), null);
-    // };
+    const generateHash = password => {
+      return bc.hashSync(password, bc.genSaltSync(8), null);
+    };
 
-    // // store the user password as a hash
-    // const userPassword = generateHash(password);
-    // console.log(userPassword, "password");
+    // store the user password as a hash
+    const userPassword = generateHash(req.body.password);
+    console.log(userPassword, "password");
 
     const data = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
       username: req.body.username,
-      password: req.body.password
+      password: userPassword
     };
+
     users.create(
       data
     )
