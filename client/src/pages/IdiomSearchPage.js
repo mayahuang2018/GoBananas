@@ -6,7 +6,8 @@ class IdiomSearchPage extends Component {
   render() {
   return (
     <div>
-            <NavBar />
+            <NavBar />        
+            <SearchInput />
             <Footer />
    </div>
   );
