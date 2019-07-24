@@ -2,7 +2,7 @@ const passport = require('passport');
 const users = require('../models/Users');
 const bc = require("bcryptjs");
 const keys = require("../config/jwtConfig");
-
+// fixed
 // Defining methods for the booksController
 module.exports = {
   findAll: (req, res, next) => {
