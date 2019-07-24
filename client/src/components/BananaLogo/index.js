@@ -5,7 +5,7 @@ import React from "react";
 
 function BananaLogo(props) {
     return (
-        <div>
+        <div id="bananaBackground">
             <div className="container">
                 <div className="justify-content-md-center">
                     < div className="col xs lg2"></div>
