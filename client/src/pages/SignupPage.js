@@ -44,6 +44,7 @@ class SignupPage extends Component {
                     if (response) {
                         console.log('successful signup');
                         this.setState({ //redirect to login page
+                            // loggedin: true,
                             redirectTo: '/LoginPage'
                         })
                     } 
