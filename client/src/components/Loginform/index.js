@@ -1,5 +1,5 @@
-import React from './node_modules/react';
-import './LoginForm.css';
+import React from 'react';
+import './Loginform.css';
 
 // This file exports the Input, TextArea, and FormBtn components
 

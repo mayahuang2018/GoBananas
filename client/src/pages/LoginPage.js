@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Input, FormBtn } from "../components/LoginForm/index";
+import { Input, FormBtn } from "../components/Loginform/index";
 import { Redirect } from "react-router-dom";
 // import axios from "axios";
 import API from "../utils/usersAPI";
