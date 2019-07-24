@@ -83,6 +83,7 @@ class SignupPage extends Component {
                         value={this.state.password}
                         onChange={this.handleChange}
                         name="password"
+                        type="password"
                         placeholder="password (required)"
                     />
                     <Input

@@ -49,10 +49,8 @@ class LoginPage extends Component {
     } else {
       // can change this to look however it needs to look
       return (
-        <div>
-       
+        <div>       
         <BananaLogo/>
-
           <form>
           <p class="form-text text-muted">Already have a account? Login here.</p>
             <Input
@@ -65,6 +63,7 @@ class LoginPage extends Component {
               value={this.state.password}
               onChange={this.handleChange}
               name="password"
+              type="password"
               placeholder="password (required)"
             />
             <FormBtn
