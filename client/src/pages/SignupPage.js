@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/usersAPI";
-import { Input, FormBtn } from "../components/LoginForm/index";
+import { Input, FormBtn } from "../components/Loginform/index";
 import Footer from "../components/Footer";
 import { Redirect } from "react-router-dom";
 // import axios from "axios";
