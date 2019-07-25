@@ -14,6 +14,7 @@ export function Input(props) {
 export function FormBtn(props) {
   return (
     <button {...props}  className='btn bg-warning text-dark'>
+
       {props.children}
     </button>
   );
