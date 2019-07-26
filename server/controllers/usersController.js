@@ -1,28 +1,28 @@
 const passport = require('passport');
 const users = require('../models/Users');
 const bc = require("bcryptjs");
-const keys = require("../config/jwtConfig");
+const token = require("../config/jwtConfig");
 
 // Defining methods for the booksController
 module.exports = {
-  findAll: (req, res, next) => {
-    console.log("jwt route");
-    passport.authenticate('jwt', { session: false }, (err, user, info) => {
-      if (err) {
-        console.log(err);
-      }
-      if (info != undefined) {
-        console.log(info.message);
-        return res.send(info.message);
-      } else {
-        console.log('user found in db');
-        return res.status(200).send({
-          loggedIn: true,
-          user: req.user,
-        });
-      }
-    })(req, res, next);
-  },
+  // findAll: (req, res, next) => {
+  //   console.log("jwt route");
+  //   passport.authenticate('jwt', { session: false }, (err, user, info) => {
+  //     if (err) {
+  //       console.log(err);
+  //     }
+  //     if (info != undefined) {
+  //       console.log(info.message);
+  //       return res.send(info.message);
+  //     } else {
+  //       console.log('user found in db');
+  //       return res.status(200).send({
+  //         loggedIn: true,
+  //         user: req.user,
+  //       });
+  //     }
+  //   })(req, res, next);
+  // },
   findOne: (req, res, next) => {
     console.log("login route");
     passport.authenticate('local-login', (err, username, info) => {
@@ -32,22 +32,29 @@ module.exports = {
          return res.send(info.message);
       } else {
 
-        // const isValidPassword = (userpass, password) => {
-        //   console.log(password, userpass)
-        //   return bc.compareSync(password, userpass);
-        // };
-
-        // const generateHash = password => {
-        //   return bc.hashSync(password, bc.genSaltSync(8), null);
-        // };
-        // generateHash(req.body.password);
-
-        // if (isValidPassword(req.body.password)) {
           users.findOne({
             where: {
               username: username,
             },
-          }).then(keys => {
+          }).then((req, res, next) => {
+            console.log("jwt route");
+            passport.authenticate('jwt', { session: false }, (err, user, info) => {
+              if (err) {
+                console.log(err);
+              }
+              if (info != undefined) {
+                console.log(info.message);
+                return res.send(info.message);
+              } else {
+                console.log('user found in db');
+                return res.status(200).send({
+                  loggedIn: true,
+                  user: req.username,
+                });
+              }
+            })(req, res, next);
+          },
+          ).then(keys => {
             const token = ({ id: users.username }, keys);
             return res.status(200).send({
               auth: true,
