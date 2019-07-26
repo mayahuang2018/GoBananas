@@ -1,5 +1,5 @@
 import React from 'react';
-import './LoginForm.css';
+import './Loginform.css';
 
 // This file exports the Input, TextArea, and FormBtn components
 
@@ -21,3 +21,4 @@ export function FormBtn(props) {
     </button>
   );
 }
+// up to date
