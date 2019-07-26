@@ -3,6 +3,7 @@ import API from "../utils/usersAPI";
 import { Input, FormBtn } from "../components/Loginform/index";
 import Footer from "../components/Footer";
 import { Redirect } from "react-router-dom";
+import BananaLogo from "../components/BananaLogo";
 // import axios from "axios";
 // import SignupForm from "../components/SignupForm"
 
@@ -58,7 +59,9 @@ class SignupPage extends Component {
         // can change this to look however it needs to look
         return (
             <div>  
-                <form>
+                <BananaLogo/>
+            <form>
+            <p class="form-text text-muted">First Step: Create Your Account!</p>
                     <Input
                         value={this.state.username}
                         onChange={this.handleChange}
@@ -81,6 +84,7 @@ class SignupPage extends Component {
                         value={this.state.password}
                         onChange={this.handleChange}
                         name="password"
+                        type="password"
                         placeholder="password (required)"
                     />
                     <Input
@@ -89,15 +93,18 @@ class SignupPage extends Component {
                         name="email"
                         placeholder="email (required)"
                     />
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    
                     <FormBtn
                         // disabled={!(this.state.username && this.state.password)}
                         onClick={this.handleSubmit}
                     >
                         Submit
                         </FormBtn>
+                    <hr></hr>
                 </form>
                 <Footer></Footer>
-                {/* <SignupForm /> */}
+                
             </div>
         )
     }

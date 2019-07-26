@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar"
 import Footer from "../components/Footer";
 // import LanguageButton from "../components/LanguageButton/Language.js"
 // import Idiom from "../components/Idiom";
+import LanguageButton from "../components/LanguageButton"
 import TranslatedDescription from "../components/TranslatedDescription";
 
 class TranslatePage extends Component{
@@ -10,7 +11,8 @@ class TranslatePage extends Component{
     return (
     <div>
       <NavBar/> 
-      <TranslatedDescription/> Hilary
+      <LanguageButton />
+      <TranslatedDescription/> 
       <Footer/>
     </div>
     )

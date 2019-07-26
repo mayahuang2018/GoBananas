@@ -1,7 +1,9 @@
 const passport = require('passport');
 const users = require('../models/Users');
 const bc = require("bcryptjs");
-const token = require("../config/jwtConfig");
+
+const keys = require("../config/jwtConfig");
+// fixed
 
 // Defining methods for the booksController
 module.exports = {
