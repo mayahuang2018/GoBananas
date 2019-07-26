@@ -1,6 +1,7 @@
 #FROM node:latest
 FROM node:11.3.0-alpine
 
+
 WORKDIR /app
 
 # Getting server dependencies for image
@@ -32,4 +33,4 @@ RUN rm -fr /app/public/* && \
 RUN rm -fr /client
 
 # Start server for containers
-CMD npm start
+CMD yarn start
