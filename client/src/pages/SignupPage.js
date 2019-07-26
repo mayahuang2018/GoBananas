@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import API from "../../utils/usersAPI";
-import { Input, FormBtn } from "../../components/Loginform/index";
-import Footer from "../../components/Footer";
+import API from "../utils/usersAPI";
+import { Input, FormBtn } from "../components/Loginform/index";
+import Footer from "../components/Footer";
 import { Redirect } from "react-router-dom";
-import BananaLogo from "../../components/BananaLogo";
+import BananaLogo from "../components/BananaLogo";
 // import axios from "axios";
 // import SignupForm from "../components/SignupForm"
-import "./SignupPage.css";
+// import "./SignupPage.css";
 
 
 class SignupPage extends Component {
@@ -102,7 +102,7 @@ class SignupPage extends Component {
                     >
                         Submit
                         </FormBtn>
-                    <hr></hr>
+            
                 </form>
                 <Footer></Footer>
                 

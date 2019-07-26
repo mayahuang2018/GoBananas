@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Input, FormBtn } from "../../components/Loginform/index";
+import { Input, FormBtn } from "../components/Loginform/index";
 import { Redirect } from "react-router-dom";
 // import axios from "axios";
-import API from "../../utils/usersAPI";
-import BananaLogo from "../../components/BananaLogo";
-import "./LoginPage.css";
+import API from "../utils/usersAPI";
+import BananaLogo from "../components/BananaLogo/index";
+// import "./LoginPage.css";
 
 class LoginPage extends Component {
 

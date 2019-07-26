@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import LoginPage from "./pages/LoginPage/LoginPage";
+import LoginPage from "./pages/LoginPage";
 // import TranslatePage from "./pages/TranslatePage.js"
 // import IdiomSearchPage from "./pages/IdiomSearchPage.js";
-import SignupPage from "./pages/SignupPage/SignupPage";
+import SignupPage from "./pages/SignupPage";
 // import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 // import BananaLogo from "./components/BananaLogo";
 import "./App.css";
-import Carousel from "./pages/Carousel/Carousel";
+import Carousel from "./pages/Carousel";
 
 function App() {
   return (
