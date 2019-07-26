@@ -3,3 +3,42 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.Carousel {
+    background:
+    url('./images/004.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size:cover;
+    
+    background-size:cover;
+    
+    /* font-family: 'Righteous', cursive; */
+    font-family: 'Literata', serif;
+    
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+  
+
+}
+
+.StartPage,.SignupForm,.Login{
+
+    background:
+    url('./images/001.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size:cover;
+    
+    
+    background-size:cover;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+     
+
+}
