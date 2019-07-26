@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 
-.Carousel {
+.CarouselPage,.IdiomSearchPage,.TranslatePage {
     background:
     url('./images/004.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -40,4 +40,10 @@ body {
     text-align: center;
      
 
+}
+
+.card{
+  background-color:rgba(255,255,255,0.8);
+  margin:1% 25% 5% 25% ;
+  padding:50px;
 }

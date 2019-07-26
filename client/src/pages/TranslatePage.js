@@ -5,12 +5,14 @@ import Footer from "../components/Footer";
 // import Idiom from "../components/Idiom";
 import LanguageButton from "../components/LanguageButton"
 import TranslatedDescription from "../components/TranslatedDescription";
+import BananaLogo from "../components/BananaLogo";
 
 class TranslatePage extends Component{
   render(){
     return (
-    <div>
+    <div className="TranslatePage">
       <NavBar/> 
+      <BananaLogo />
       <LanguageButton />
       <TranslatedDescription/> 
       <Footer/>

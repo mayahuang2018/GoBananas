@@ -1,0 +1,22 @@
+/* button {
+    margin: 5% auto auto auto;
+    padding:10px;
+  }
+
+  
+ form { text-align: center;
+    margin: 5% 30% 5% 30% ;
+    background-color:rgba(255,255,255,0.7);
+    padding: 40px;
+  
+  } */
+
+ body{
+    font-family: 'Righteous', cursive;
+    /* font-family: 'Literata', serif; */
+    
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+  }
