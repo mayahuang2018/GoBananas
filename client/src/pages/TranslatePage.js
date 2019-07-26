@@ -12,7 +12,7 @@ class TranslatePage extends Component{
     <div>
       <NavBar/> 
       <LanguageButton />
-      <TranslatedDescription/> Hilary
+      <TranslatedDescription/> 
       <Footer/>
     </div>
     )
