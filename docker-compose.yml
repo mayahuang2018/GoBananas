@@ -1,15 +1,16 @@
 version: '3.1'
 services:
   project3-server:
-    image: project3:latest
+    image: gobananas:latest
     container_name: project3-server
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-     - 3000:3000
+     - 4000:4000
     environment:
       PORT: 4000
+      NODE_ENV: production
 
 # CLI Access:
 # docker-compose run --rm mongo-server mongo --host mongo-server

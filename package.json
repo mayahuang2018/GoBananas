@@ -1,7 +1,10 @@
 {
-  "name": "project3",
+  "name": "gobananas",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "10.16.0"
+  },
   "main": "app.js",
   "scripts": {
     "build": "docker build --rm -t gobananas:latest .",
