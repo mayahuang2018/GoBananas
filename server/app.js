@@ -13,8 +13,10 @@ app.use(
   session({ secret: "blahblahblah", resave: true, saveUninitialized: true })
 );
 
+app.use("/api", router);
+
 if (process.env.NODE_ENV === "production") {
-  app.use('/',express.static("public"));
+  app.use('*',express.static("public"));
 }
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/goBananas", { useNewUrlParser: true });
@@ -26,7 +28,7 @@ mongoose.set('useCreateIndex', true);
 app.use(passport.initialize());
 app.use(passport.session());
 require("./config/passport")(passport);
-app.use("/api", router);
+
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
