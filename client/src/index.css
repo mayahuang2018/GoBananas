@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 
-.Carousel {
+.CarouselPage,.IdiomSearchPage,.TranslatePage {
     background:
     url('./images/004.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;

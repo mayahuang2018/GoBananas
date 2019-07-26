@@ -7,7 +7,7 @@ import Carousel from "../components/Carousel";
 class CardSave extends Component {
   render() {
   return (
-    <div>
+    <div className ="CarouselPage">
       <NavBar />
             <Carousel />  
             <Footer /> 

@@ -21,7 +21,7 @@ function App() {
           <Route exact path ="/IdiomSearchPage" component={IdiomSearchPage} />
           {/* <Route exact path ="/ProfilePage" component={ProfilePage} /> */}
           <Route exact path="/Carousel" component={Carousel} />
-          <Route exact path="/StartPage" component={StartPage} />
+          <Route exact path="/" component={StartPage} />
           <Route exact path="/TranslatePage" component={TranslatePage} />
         </Switch>
         <Footer />
