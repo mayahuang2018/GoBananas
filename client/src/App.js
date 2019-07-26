@@ -4,7 +4,7 @@ import LoginPage from "./pages/LoginPage.js";
 import TranslatePage from "./pages/TranslatePage.js"
 import IdiomSearchPage from "./pages/IdiomSearchPage.js";
 import SignupPage from "./pages/SignupPage.js";
-import StartPage from "./pages/IdiomSearchPage";
+import StartPage from "./pages/StartPage";
 // import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import "./App.css";
