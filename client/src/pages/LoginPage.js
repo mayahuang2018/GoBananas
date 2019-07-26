@@ -3,7 +3,8 @@ import { Input, FormBtn } from "../components/Loginform/index";
 import { Redirect } from "react-router-dom";
 // import axios from "axios";
 import API from "../utils/usersAPI";
-import BananaLogo from "../components/BananaLogo";
+import BananaLogo from "../components/BananaLogo/index";
+// import "./LoginPage.css";
 
 class LoginPage extends Component {
 
@@ -49,7 +50,7 @@ class LoginPage extends Component {
     } else {
       // can change this to look however it needs to look
       return (
-        <div>       
+        <div className="Login">       
         <BananaLogo/>
           <form>
           <p class="form-text text-muted">Already have a account? Login here.</p>
@@ -80,6 +81,7 @@ class LoginPage extends Component {
     }
   }
 }
+
 
 export default LoginPage;
 

@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 import BananaLogo from "../components/BananaLogo";
 // import axios from "axios";
 // import SignupForm from "../components/SignupForm"
+// import "./SignupPage.css";
 
 
 class SignupPage extends Component {
@@ -58,7 +59,7 @@ class SignupPage extends Component {
         } else {
         // can change this to look however it needs to look
         return (
-            <div>  
+            <div className="SignupForm">  
                 <BananaLogo/>
             <form>
             <p class="form-text text-muted">First Step: Create Your Account!</p>
@@ -101,7 +102,7 @@ class SignupPage extends Component {
                     >
                         Submit
                         </FormBtn>
-                    <hr></hr>
+            
                 </form>
                 <Footer></Footer>
                 
