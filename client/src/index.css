@@ -34,6 +34,8 @@ body {
     
     background-size:cover;
 
+    /* font-family: 'Literata', serif; */
+
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -43,7 +45,8 @@ body {
 }
 
 .card{
-  background-color:rgba(255,255,255,0.8);
+  background-color:rgba(53, 52, 52, 0.534);
+  color:rgba(250, 211, 83, 0.918);
   margin:1% 25% 5% 25% ;
   padding:50px;
 }

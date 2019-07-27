@@ -1,15 +1,25 @@
 import React from "react";
+import "./Searchinput.css"
+
 
 function SearchInput(props) {
     return (
-        <div className="container">
             <div className="SearchInput">
                 <div id={props.id}>
-                    <input type="text" placeholder="Enter an idiom here..."></input>
-                        </div>
+                <div className="input-group mb-3">
+       
+                        <input type="search results=5 name=s" class="form-control" placeholder="Enter an idiom here..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        </input> 
+                        <div className="input-group-append">
+                         <button className="btn bg-warning text-dark" type="button">Go!
+                        </button>
+                         </div>
+                          
+                    </div>
                 </div>
             </div>
-            );
-        }
-        
-export default SearchInput; 
+    
+                );
+            }
+            
+    export default SearchInput; 
