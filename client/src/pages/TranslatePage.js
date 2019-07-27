@@ -17,8 +17,6 @@ class TranslatePage extends Component {
     translatedIdiom: '',
   };
 
-  
-
    loadLanguages = () =>{
     console.log(this.state); 
     API.getlanguages()
@@ -28,15 +26,21 @@ class TranslatePage extends Component {
       
     }
 
-  handleClick = (event, value) => {
+  handleClick = (event) => {
     event.preventDefault();
     console.log("This button was clicked.");
     console.log({languages: this.state.languages, languageCode: this.state.languageCode})
+    // rest of my function
+    // Click button =
+    // 1. take idion choose
+    // 2. tkae the langauge code
+    // 3. send to MS api for translate - axios call
+    // 4. show/display the translated idiom
+// 
     
     
-    
-    this.setState({languageCode: value});
-    console.log(this.setState({languageCode: value}))
+    // this.setState({languageCode: value});
+    // console.log(this.setState({languageCode: value}))
   };
 
   render() {
@@ -47,7 +51,7 @@ class TranslatePage extends Component {
         <OriginalIdiom />
         <LanguageButton
           value={this.state.languageCode}
-          onClick={this.handleClick}
+          onClick={this.handleClick()}
         />
         <TranslatedDescription
           value={this.state.translatedIdiom} />
