@@ -53,7 +53,7 @@ class LoginPage extends Component {
         <div className="Login">       
         <BananaLogo/>
           <form>
-          <p class="form-text text-muted">Already have a account? Login here.</p>
+          <p className="form-text text-muted">Already have a account? Login here.</p>
             <Input
               value={this.state.username}
               onChange={this.handleChange}
