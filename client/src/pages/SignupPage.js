@@ -62,7 +62,7 @@ class SignupPage extends Component {
             <div className="SignupForm">  
                 <BananaLogo/>
             <form>
-            <p class="form-text text-muted">First Step: Create Your Account!</p>
+            <p className="form-text text-muted">First Step: Create Your Account!</p>
                     <Input
                         value={this.state.username}
                         onChange={this.handleChange}
@@ -94,7 +94,7 @@ class SignupPage extends Component {
                         name="email"
                         placeholder="email (required)"
                     />
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                     
                     <FormBtn
                         // disabled={!(this.state.username && this.state.password)}
