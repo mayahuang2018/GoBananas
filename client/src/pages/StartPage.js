@@ -10,7 +10,7 @@ class StartPage extends Component {
        <div >
        <h5 >Welcome to GoBananas...</h5>
        <p >Search for English idioms and save your favourite ones.</p>
-       <a href="/SignupPage" className="btn text-white bg-warning">Create your account !</a>
+       <a href="/SignupPage" className="btn text-dark bg-warning">Create your account !</a>
        <p></p>
         </div>
        <hr></hr>
