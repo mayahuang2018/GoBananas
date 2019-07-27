@@ -36,7 +36,7 @@ class TranslatePage extends Component {
     // 2. tkae the langauge code
     // 3. send to MS api for translate - axios call
     // 4. show/display the translated idiom
-
+// 
     
     
     // this.setState({languageCode: value});
