@@ -23,7 +23,7 @@ class TranslatePage extends Component {
     console.log(this.state); 
     API.getlanguages()
      .then(res=>
-      this.setState({languages: res.data, languageCode: , language: ""})
+      this.setState({languages: res.data, languageCode: "", language: ""})
       ).catch(err => console.log(err));
       
     }
