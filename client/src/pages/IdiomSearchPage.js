@@ -4,6 +4,8 @@ import NavBar from "../components/NavBar";
 // import { Input, FormBtn } from "../components/Loginform/index";
 import BananaLogo from "../components/BananaLogo";
 import SearchInput from "../components/Searchinput";
+import SearchResult from "../components/Searchresult";
+
 
 
 class IdiomSearchPage extends Component {
@@ -13,6 +15,7 @@ class IdiomSearchPage extends Component {
         <NavBar />
         <BananaLogo />
         <SearchInput />
+        <SearchResult />
         <Footer />
       </div>
     );

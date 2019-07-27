@@ -14,14 +14,14 @@ function LanguageButton(props) {
     return (
         <div>
 
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div className="dropdown">
+                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Language
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" type="button" {...props}>English</button>
-                    <button class="dropdown-item" type="button">Spanish</button>
-                    <button class="dropdown-item" type="button">Chinese</button>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button className="dropdown-item" type="button" {...props} value="en">English</button>
+                    <button className="dropdown-item" type="button" {...props} value="es">Spanish</button>
+                    <button className="dropdown-item" type="button" {...props} value="zh-Hans">Chinese</button>
                 </div>
             </div>
 
@@ -30,3 +30,4 @@ function LanguageButton(props) {
 };
 
 export default LanguageButton;
+
