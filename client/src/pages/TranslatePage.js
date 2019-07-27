@@ -16,16 +16,25 @@ class TranslatePage extends Component {
     originalIdiom: '',
     translatedIdiom: '',
   };
+
+  
+
    loadLanguages = () =>{
-     API.getlanguages()
+    console.log(this.state); 
+    API.getlanguages()
      .then(res=>
-      this.setState({languages: res.data, languageCode: "", language: ""}))
-   }
+      this.setState({languages: res.data, languageCode: , language: ""})
+      ).catch(err => console.log(err));
+      
+    }
 
   handleClick = (event, value) => {
     event.preventDefault();
     console.log("This button was clicked.");
     console.log({languages: this.state.languages, languageCode: this.state.languageCode})
+    
+    
+    
     this.setState({languageCode: value});
     console.log(this.setState({languageCode: value}))
   };
