@@ -11,7 +11,7 @@
   
   } */
 
- body{
+.App-header{
     font-family: 'Righteous', cursive;
     /* font-family: 'Literata', serif; */
     
@@ -20,3 +20,7 @@
     flex-direction: column;
     text-align: center;
   }
+
+.App-logo{
+  text-align: center;
+}

@@ -6,7 +6,7 @@ class StartPage extends Component {
   return (
     <div className ="StartPage">
         <BananaLogo/>
-        <div className="card text-center">
+        <div className="card startCard text-center">
        <div >
        <h5 >Welcome to GoBananas...</h5>
        <p >Search for English idioms and save your favourite ones.</p>
