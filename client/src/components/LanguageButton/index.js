@@ -1,10 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { Route, withRouter } from 'react-router-dom';
+// import ReactDOM from "react-dom";
+// import { Route, withRouter } from 'react-router-dom';
 import "./Language.css";
-import langList from "./languages.js";
+// import language from "./languages.js";
 
-import Dropdown from 'react-dropdown';
+// import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 // const defaultOption = langList[0];
