@@ -8,11 +8,11 @@ mongoose.connect(
 
 const usersSeeds = [
   {
-    first_name: "test",
-    last_name: "testy",
-    username: "tester",
+    first_name: "testingtesting",
+    last_name: "testytesty",
+    username: "tester1",
     email: "testy@tester.com",
-    password: "123"
+    password: "1234567890"
   }]
 
 db.users

@@ -1,12 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const IdiomsSchema = new Schema({
-    idiom: { type: String, required: true, trim: true },
-    idiom: { type: String, required: true, trim: true },
+const idiomsSchema = new Schema({
     idiom: { type: String, required: true, trim: true },
 });
 
-const Idioms = mongoose.model("Idioms", IdiomsSchema);
+const idioms = mongoose.model("Idioms", idiomsSchema);
 
-module.exports = Idioms;
+module.exports = idioms;

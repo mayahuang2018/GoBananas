@@ -7,7 +7,7 @@ mongoose.connect(
 );
 
 
-const langList = [
+const languages = [
     {
       "Language": "Afrikaans",
       "Language code": "af"
