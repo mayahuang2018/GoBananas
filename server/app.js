@@ -18,11 +18,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 require("./config/passport")(passport);
 
+app.use("/api", router);
+
 if (process.env.NODE_ENV === "production") {
   app.use('*', express.static("public"));
 }
 
-app.use("/api", router);
+
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/goBananas", { useNewUrlParser: true });
 mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_t906tgsp:pr9oig0jc05d6lcd9br4b6i3pf@ds113169.mlab.com:13169/heroku_t906tgsp", { useNewUrlParser: true });
 
