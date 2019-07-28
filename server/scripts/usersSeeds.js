@@ -16,9 +16,9 @@ const usersSeeds = [
     password: "1234567890"
   }]
 
-db.users
+db.Users
   .deleteMany({})
-  .then(() => db.users.collection.insertMany(usersSeeds))
+  .then(() => db.Users.collection.insertMany(usersSeeds))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

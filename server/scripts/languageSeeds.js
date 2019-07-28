@@ -8,7 +8,7 @@ mongoose.connect(
 );
 
 
-const languages = [
+const languageSeeds = [
     {
       "Language": "Afrikaans",
       "Language code": "af"
@@ -267,9 +267,9 @@ const languages = [
     }
    ];
   
-   db.languages
+   db.Languages
    .remove({})
-   .then(() => db.languages.collection.insertMany(languages))
+   .then(() => db.Languages.collection.insertMany(languageSeeds))
    .then(data => {
      console.log(data.result.n + " records inserted!");
      process.exit(0);
