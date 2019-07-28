@@ -27,7 +27,6 @@ function LanguageButton(props) {
 
         </div >
     );
-
 };
 
 export default LanguageButton;
