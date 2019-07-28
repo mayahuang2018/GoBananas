@@ -8,7 +8,7 @@ import LanguageButton from "../components/LanguageButton"
 import TranslatedDescription from "../components/TranslatedDescription";
 import BananaLogo from "../components/BananaLogo";
 import OriginalIdiom from "../components/OriginalIdiom";
-import languages from "../../../server/scripts/languages.json"
+import languages from "../../../server/scripts/languageSeeds.js/index.js"
 
 class TranslatePage extends Component {
 
