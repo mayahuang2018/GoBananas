@@ -1,6 +1,6 @@
 module.exports = {
     Users: require("./Users"),
-    idioms: require("./idioms"),
-    languages: require("./languages")
+    Idioms: require("./idioms"),
+    Languages: require("./languages")
   };
   

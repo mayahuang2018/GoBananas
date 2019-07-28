@@ -31,18 +31,6 @@ module.exports = {
         console.log(info.message);
          return res.send(info.message);
       } else {
-
-        // const isValidPassword = (userpass, password) => {
-        //   console.log(password, userpass)
-        //   return bc.compareSync(password, userpass);
-        // };
-
-        // const generateHash = password => {
-        //   return bc.hashSync(password, bc.genSaltSync(8), null);
-        // };
-        // generateHash(req.body.password);
-
-        // if (isValidPassword(req.body.password)) {
           users.findOne({
             where: {
               username: username,
@@ -86,7 +74,7 @@ module.exports = {
       .then(() => {
         console.log("then", data);
         //must return response
-        return res.status(200).json({ success: true });
+        return res.status(200).json({ success: "true" });
       })
       .catch(err => console.log(err, "100"));
   },

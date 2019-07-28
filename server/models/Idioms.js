@@ -5,6 +5,6 @@ const idiomsSchema = new Schema({
     idiom: { type: String, required: true, trim: true },
 });
 
-const idioms = mongoose.model("Idioms", idiomsSchema);
+const Idioms = mongoose.model("Idioms", idiomsSchema);
 
-module.exports = idioms;
+module.exports = Idioms;
