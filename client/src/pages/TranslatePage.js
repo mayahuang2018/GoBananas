@@ -8,23 +8,30 @@ import LanguageButton from "../components/LanguageButton"
 import TranslatedDescription from "../components/TranslatedDescription";
 import BananaLogo from "../components/BananaLogo";
 import OriginalIdiom from "../components/OriginalIdiom";
+import languages from "../../../server/scripts/languages.json"
 
 class TranslatePage extends Component {
-  state = {
-    languages: [],
-    languageCode: '',
-    originalIdiom: '',
-    translatedIdiom: '',
-  };
 
-   loadLanguages = () =>{
-    console.log(this.state); 
-    API.getlanguages()
-     .then(res=>
-      this.setState({languages: res.data, languageCode: "", language: ""})
-      ).catch(err => console.log(err));
+  renderDropDown = () => {
+    let lanugages = {
+      array: []
+    };
+
+    for (var i=0)
+  }
+
+  //  loadLanguages = () =>{
+  //   console.log(this.state); 
+  //   API.getlanguages()
+  //    .then(res=>
+  //     this.setState({languages: res.data, languageCode: "", language: ""})
       
-    }
+  //     ).catch(err => console.log(err));
+   
+  //   }
+
+
+
 
   handleClick = (event) => {
     event.preventDefault();
@@ -51,7 +58,7 @@ class TranslatePage extends Component {
         <OriginalIdiom />
         <LanguageButton
           value={this.state.languageCode}
-          onClick={this.handleClick()}
+          onClick={this.handleClick}
         />
         <TranslatedDescription
           value={this.state.translatedIdiom} />
