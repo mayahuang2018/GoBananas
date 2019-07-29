@@ -23,7 +23,7 @@ body {
 
 }
 
-.StartPage,.SignupForm,.Login{
+.CarouselPage,.StartPage,.SignupForm,.Login{
 
     background:
     url('./images/001.jpg') no-repeat center center fixed;
