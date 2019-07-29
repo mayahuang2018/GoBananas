@@ -1,0 +1,36 @@
+.SavedIdiom{
+    width:450px;
+    height:200px;
+    position:relative;
+    perspective:500;
+    -webkit-perspective:500;
+}
+.SavedIdiom div{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#fff;
+    -webkit-perspective:10000;
+    backface-visibility:hidden;
+    -webkit-transition: all 2s;
+    -moz-transition: all 2s;
+    -ms-transition: all 2s;
+    -o-transition: all 2s;
+}
+.SavedIdiom .front{
+    padding:50px;
+    background:rgb(255, 228, 108);
+}
+.SavedIdiom .back{
+    padding:10px;
+    background:rgb(250, 114, 89);
+    -webkit-transform:rotateY(-180deg);
+}
+.SavedIdiom:hover .front{
+    -webkit-transform:rotateY(-180deg);
+}
+.SavedIdiom:hover .back{
+    -webkit-transform:rotateY(-360deg);
+} 
