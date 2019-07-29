@@ -7,7 +7,7 @@ function SavedIdiomCard(props) {
             <div className="SavedIdiom">
 
 <div className="front">Idiom</div>
-<div className="back">Explaination</div>
+<div className="back">Explanation</div>
                 
             </div>    
                 );
