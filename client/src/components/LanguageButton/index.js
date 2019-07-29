@@ -19,9 +19,10 @@ function LanguageButton(props) {
                     Language
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button className="dropdown-item" type="button" {...props} value="en">English</button>
-                    <button className="dropdown-item" type="button" {...props} value="es">Spanish</button>
-                    <button className="dropdown-item" type="button" {...props} value="zh-Hans">Chinese</button>
+                    <button className="dropdown-item" type="button" id={props.id} value={props.value}></button>
+
+                    {/* <button className="dropdown-item" type="button" {...props} value="es">Spanish</button>
+                    <button className="dropdown-item" type="button" {...props} value="zh-Hans">Chinese</button> */}
                 </div>
             </div>
 

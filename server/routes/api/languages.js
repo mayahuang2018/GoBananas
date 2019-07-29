@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const languagesController = require("../../controllers/languagesController");
 
-router.route("/").post(languagesController.findAll)
+router.route("/").get(languagesController.findAll)
 
 module.exports = router;  

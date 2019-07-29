@@ -17,20 +17,20 @@ state = {
   // languageCodePicked: this.state.languageCodePicked, //which language code to use to send to MS translate
 }
 
-componentDidMount() {
-  API.getLanguagesAll(this.state.language, this.state.languageCode)
-  .then(res => {
+componentDidMount() { //when the page loads... do this
+  API.getLanguagesAll(this.state.language, this.state.languageCode) //get language&codes from db
+  .then(res => { //then console log that we have the languages, and set the languages to a variable, use the variable to set the state property
     console.log("got langauges from api");
     const buttonLanguages = res.data;
     this.setState({ buttonLanguages });
   })
 };
 
-handleClick = (event, id) => {
+handleClick = (event, id) => { //when I click the button, I want to do these things
   event.preventDefault();
-  console.log("clicked");
-  let pickedLanguage = this.state.languages.find(i => i.id === id)
-
+  console.log("clicked"); //let me know it is clicked
+  let pickedLanguage = this.state.buttonLanguages.find(i => i.id === id) //let me know which language I picked
+  console.log(this.state.buttonLanguages);
   if (pickedLanguage.clicked === true) {
     // console.log(this)
 
@@ -57,10 +57,14 @@ handleClick = (event, id) => {
         <NavBar />
         <BananaLogo />
         <OriginalIdiom />
+        {this.state.buttonLanguages.map(languageChoices => (
         <LanguageButton
+          id={languageChoices.id}  
+          key={languageChoices.id}
           value={this.state.languageCode}
           onClick={this.handleClick}
         />
+        ))}
         <TranslatedDescription
           value={this.state.translatedIdiom} />
         <Footer />
