@@ -10,52 +10,61 @@ import BananaLogo from "../components/BananaLogo";
 import OriginalIdiom from "../components/OriginalIdiom";
 
 class TranslatePage extends Component {
-  state = {
-    languages: [],
-    languageCode: '',
-    originalIdiom: '',
-    translatedIdiom: '',
-  };
 
-   loadLanguages = () =>{
-    console.log(this.state); 
-    API.getlanguages()
-     .then(res=>
-      this.setState({languages: res.data, languageCode: "", language: ""})
-      ).catch(err => console.log(err));
-      
-    }
+state = {
+  buttonLanguages: [], //language to populate the buttons
+  clicked: false, //if state clicked = true then will do axios to MS translate with this language
+  // languageCodePicked: this.state.languageCodePicked, //which language code to use to send to MS translate
+}
 
-  handleClick = (event) => {
-    event.preventDefault();
-    console.log("This button was clicked.");
-    console.log({languages: this.state.languages, languageCode: this.state.languageCode})
-    // rest of my function
-    // Click button =
-    // 1. take idion choose
-    // 2. tkae the langauge code
+componentDidMount() {
+  API.getLanguagesAll(this.state.language, this.state.languageCode)
+  .then(res => {
+    console.log("got langauges from api");
+    const buttonLanguages = res.data;
+    this.setState({ buttonLanguages });
+  })
+};
+
+handleClick = (event, id) => {
+  event.preventDefault();
+  console.log("clicked");
+  let pickedLanguage = this.state.languages.find(i => i.id === id)
+
+  if (pickedLanguage.clicked === true) {
+    // console.log(this)
+
+    // 1. take idiom choosen
+    // 2. take the langauge code
     // 3. send to MS api for translate - axios call
     // 4. show/display the translated idiom
-// 
+  }
+}
+
+// languageCodePicked = () => {
+//  fetch("../utils/languagesAPI.js")
+//  .then(response => response.json)
+//  .then(languages => console.log(JSON.stringify(languages)))
+//  .catch(err => console.log(err))
+// }
+
     
-    
-    // this.setState({languageCode: value});
-    // console.log(this.setState({languageCode: value}))
-  };
 
   render() {
     return (
       <div className="TranslatePage">
+       
         <NavBar />
         <BananaLogo />
         <OriginalIdiom />
         <LanguageButton
           value={this.state.languageCode}
-          onClick={this.handleClick()}
+          onClick={this.handleClick}
         />
         <TranslatedDescription
           value={this.state.translatedIdiom} />
         <Footer />
+        
       </div>
     );
   }
