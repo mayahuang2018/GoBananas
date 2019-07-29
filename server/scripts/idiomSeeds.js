@@ -4,11 +4,10 @@ const db = require("../models");
 mongoose.connect(
   process.env.MONGODB_URI ||
   "mongodb://localhost/goBananas"
+  // "mongodb://heroku_t906tgsp:pr9oig0jc05d6lcd9br4b6i3pf@ds113169.mlab.com:13169/heroku_t906tgsp"
 );
 
-// does this work!?
-
-const idioms = [
+const idiomSeeds = [
   [
     {
       "idiom": "A BIRD IN THE HAND IS WORTH TWO IN THE BUSH",
@@ -196,312 +195,312 @@ const idioms = [
       "translation": " "
     },
     {
-      "idiom": "BREAK A LEG �",
+      "idiom": "BREAK A LEG",
       "meaning": "A superstitious way to say 'good luck' without saying 'good luck', but rather the opposite.",
       "translation": " "
     },
     {
-      "idiom": "BUY A LEMON �",
+      "idiom": "BUY A LEMON",
       "meaning": "To purchase a vehicle that constantly gives problems or stops running after you drive it away.",
       "translation": " "
     },
     {
-      "idiom": "CAN'T CUT THE MUSTARD  �",
+      "idiom": "CAN'T CUT THE MUSTARD ",
       "meaning": "Someone who isn't adequate enough to compete or participate.",
       "translation": " "
     },
     {
-      "idiom": "CAST IRON STOMACH �",
+      "idiom": "CAST IRON STOMACH",
       "meaning": "Someone who has no problems, complications or ill effects with eating anything or drinking anything.",
       "translation": " "
     },
     {
-      "idiom": "CHARLEY HORSE �",
-      "meaning": "Stiffness in the leg / a leg cramp.�",
+      "idiom": "CHARLEY HORSE",
+      "meaning": "Stiffness in the leg / a leg cramp",
       "translation": " "
     },
     {
-      "idiom": "CHEW SOMEONE OUT �",
+      "idiom": "CHEW SOMEONE OUT",
       "meaning": "Verbally scold someone.",
       "translation": " "
     },
     {
-      "idiom": "CHIP ON HIS SHOULDER �",
+      "idiom": "CHIP ON HIS SHOULDER",
       "meaning": "Angry today about something that occurred in the past.",
       "translation": " "
     },
     {
-      "idiom": "CHOW DOWN �",
+      "idiom": "CHOW DOWN",
       "meaning": "To eat.",
       "translation": " "
     },
     {
-      "idiom": "CLOSE BUT NO CIGAR �",
-      "meaning": "To be very near and almost accomplish a goal, but fall short.�",
+      "idiom": "CLOSE BUT NO CIGAR",
+      "meaning": "To be very near and almost accomplish a goal, but fall short",
       "translation": " "
     },
     {
-      "idiom": "COME HELL OR HIGH WATER �",
+      "idiom": "COME HELL OR HIGH WATER",
       "meaning": "Any difficult situation or obstacle.",
       "translation": " "
     },
     {
-      "idiom": "CRACK SOMEONE UP �",
+      "idiom": "CRACK SOMEONE UP",
       "meaning": "To make someone laugh.",
       "translation": " "
     },
     {
-      "idiom": "CROSS YOUR FINGERS �",
+      "idiom": "CROSS YOUR FINGERS",
       "meaning": "To hope that something happens the way you want it to.",
       "translation": " "
     },
     {
-      "idiom": "CRY OVER SPILT MILK �",
+      "idiom": "CRY OVER SPILT MILK",
       "meaning": "When you complain about a loss from the past.",
       "translation": " "
     },
     {
-      "idiom": "CRY WOLF �",
+      "idiom": "CRY WOLF",
       "meaning": "Intentionally raise a false alarm.",
       "translation": " "
     },
     {
-      "idiom": "CUP OF JOE �",
+      "idiom": "CUP OF JOE",
       "meaning": "A cup of coffee.",
       "translation": " "
     },
     {
-      "idiom": "CURIOSITY KILLED THE CAT �",
+      "idiom": "CURIOSITY KILLED THE CAT",
       "meaning": "Being Inquisitive can lead you into a dangerous situation.",
       "translation": " "
     },
     {
-      "idiom": "CUT TO THE CHASE �",
+      "idiom": "CUT TO THE CHASE",
       "meaning": "Leave out all the unnecessary details and just get to the point.",
       "translation": " "
     },
     {
-      "idiom": "DARK HORSE �",
+      "idiom": "DARK HORSE",
       "meaning": "One who was previously unknown and is now prominent.",
       "translation": " "
     },
     {
-      "idiom": "DEAD RINGER �",
+      "idiom": "DEAD RINGER",
       "meaning": "One hundrend percent (100%) identical. a duplicate.",
       "translation": " "
     },
     {
-      "idiom": "DEVIL'S ADVOCATE �",
+      "idiom": "DEVIL'S ADVOCATE",
       "meaning": "Someone who takes a position for the sake of argument without believing in that side of the argument. It can also mean one who presents a counter argument for a position they do believe in, to another debater.",
       "translation": " "
     },
     {
-      "idiom": "DOG DAYS OF SUMMER �",
+      "idiom": "DOG DAYS OF SUMMER",
       "meaning": "The hottest days of the summer season.",
       "translation": " "
     },
     {
-      "idiom": "DON'T COUNT YOUR CHICKENS BEFORE THEY HATCH �",
-      "meaning": "Don't rely on it until you�re sure of it.",
+      "idiom": "DON'T COUNT YOUR CHICKENS BEFORE THEY HATCH",
+      "meaning": "Don't rely on it until yore sure of it.",
       "translation": " "
     },
     {
-      "idiom": "DON'T LOOK A GIFT HORSE IN THE MOUTH �",
+      "idiom": "DON'T LOOK A GIFT HORSE IN THE MOUTH",
       "meaning": "When someone gives you a gift, don't be ungrateful.",
       "translation": " "
     },
     {
-      "idiom": "DON'T PUT ALL YOUR EGGS IN ONE BASKET �",
+      "idiom": "DON'T PUT ALL YOUR EGGS IN ONE BASKET",
       "meaning": "Do not put all your resources in one possibility.",
       "translation": " "
     },
     {
-      "idiom": "DOOZY �",
+      "idiom": "DOOZY",
       "meaning": "Something outstanding.",
       "translation": " "
     },
     {
-      "idiom": "DOWN TO THE WIRE �",
+      "idiom": "DOWN TO THE WIRE",
       "meaning": "Something that ends at the last minute or last few seconds.",
       "translation": " "
     },
     {
-      "idiom": "DRASTIC TIMES CALL FOR DRASTIC MEASURES �",
+      "idiom": "DRASTIC TIMES CALL FOR DRASTIC MEASURES",
       "meaning": "When you are extremely desperate you need to take extremely desperate actions.",
       "translation": " "
     },
     {
-      "idiom": "DRINK LIKE A FISH �",
+      "idiom": "DRINK LIKE A FISH",
       "meaning": "To drink very heavily.",
       "translation": " "
     },
     {
-      "idiom": "DRIVE SOMEONE UP THE WALL �",
+      "idiom": "DRIVE SOMEONE UP THE WALL",
       "meaning": "To irritate and/or annoy very much.",
       "translation": " "
     },
     {
-      "idiom": "DROPPING LIKE FLIES �",
+      "idiom": "DROPPING LIKE FLIES",
       "meaning": "A large number of people either falling ill or dying.",
       "translation": " "
     },
     {
-      "idiom": "DRY RUN �",
+      "idiom": "DRY RUN",
       "meaning": "Rehearsal.",
       "translation": " "
     },
     {
-      "idiom": "EIGHTY SIX �",
+      "idiom": "EIGHTY SIX",
       "meaning": "A certain item is no longer available. or this idiom can also mean, to throw away.",
       "translation": " "
     },
     {
-      "idiom": "ELVIS HAS LEFT THE BUILDING �",
+      "idiom": "ELVIS HAS LEFT THE BUILDING",
       "meaning": "The show has come to an end. It's all over.",
       "translation": " "
     },
     {
-      "idiom": "EVERY CLOUD HAS A SILVER LINING �",
+      "idiom": "EVERY CLOUD HAS A SILVER LINING",
       "meaning": "Be optimistic, even difficult times will lead to better days.",
       "translation": " "
     },
     {
-      "idiom": "EVERYTHING BUT THE KITCHEN SINK �",
+      "idiom": "EVERYTHING BUT THE KITCHEN SINK",
       "meaning": "Almost everything and anything has been included.",
       "translation": " "
     },
     {
-      "idiom": "EXCUSE MY FRENCH �",
+      "idiom": "EXCUSE MY FRENCH",
       "meaning": "Please forgive me for cussing.",
       "translation": " "
     },
     {
-      "idiom": "COCK AND BULL STORY �",
+      "idiom": "COCK AND BULL STORY",
       "meaning": "An unbelievable tale.",
       "translation": " "
     },
     {
-      "idiom": "FEEDING FRENZY �",
-      "meaning": "An aggressive attack on someone by a group.�",
+      "idiom": "FEEDING FRENZY",
+      "meaning": "An aggressive attack on someone by a group",
       "translation": " "
     },
     {
-      "idiom": "FIELD DAY �",
-      "meaning": "An enjoyable day or circumstance.�",
+      "idiom": "FIELD DAY",
+      "meaning": "An enjoyable day or circumstance",
       "translation": " "
     },
     {
-      "idiom": "FINDING YOUR FEET �",
-      "meaning": "To become more comfortable in whatever you are doing.�",
+      "idiom": "FINDING YOUR FEET",
+      "meaning": "To become more comfortable in whatever you are doing",
       "translation": " "
     },
     {
-      "idiom": "FINGER LICKIN' GOOD �",
-      "meaning": "A very tasty food or meal.�",
+      "idiom": "FINGER LICKIN' GOOD",
+      "meaning": "A very tasty food or meal",
       "translation": " "
     },
     {
-      "idiom": "FIXED IN YOUR WAYS �",
-      "meaning": "Not willing or wanting to change from your normal way of doing something.�",
+      "idiom": "FIXED IN YOUR WAYS",
+      "meaning": "Not willing or wanting to change from your normal way of doing something",
       "translation": " "
     },
     {
-      "idiom": "FLASH IN THE PAN �",
-      "meaning": "Something that shows potential or looks promising in the beginning but fails to deliver anything in the end.�",
+      "idiom": "FLASH IN THE PAN",
+      "meaning": "Something that shows potential or looks promising in the beginning but fails to deliver anything in the end",
       "translation": " "
     },
     {
-      "idiom": "FLEA MARKET �",
-      "meaning": "A swap meet. a place where people gather to buy and sell inexpensive goods.�",
+      "idiom": "FLEA MARKET",
+      "meaning": "A swap meet. a place where people gather to buy and sell inexpensive goods",
       "translation": " "
     },
     {
-      "idiom": "FLESH AND BLOOD �",
-      "meaning": "This idiom can mean living material of which people are made of, or it can refer to someone's family.�",
+      "idiom": "FLESH AND BLOOD",
+      "meaning": "This idiom can mean living material of which people are made of, or it can refer to someone's family",
       "translation": " "
     },
     {
-      "idiom": "FLIP THE BIRD �",
-      "meaning": "To raise your middle finger at someone.�",
+      "idiom": "FLIP THE BIRD",
+      "meaning": "To raise your middle finger at someone",
       "translation": " "
     },
     {
-      "idiom": "FOAM AT THE MOUTH �",
-      "meaning": "To be enraged and show it.�",
+      "idiom": "FOAM AT THE MOUTH",
+      "meaning": "To be enraged and show it",
       "translation": " "
     },
     {
-      "idiom": "FOOLS' GOLD �",
-      "meaning": "Iron pyrites, a worthless rock that resembles real gold.�",
+      "idiom": "FOOLS' GOLD",
+      "meaning": "Iron pyrites, a worthless rock that resembles real gold",
       "translation": " "
     },
     {
-      "idiom": "FRENCH KISS �",
-      "meaning": "An open mouth kiss where tongues touch.�",
+      "idiom": "FRENCH KISS",
+      "meaning": "An open mouth kiss where tongues touch",
       "translation": " "
     },
     {
-      "idiom": "FROM RAGS TO RICHES �",
+      "idiom": "FROM RAGS TO RICHES",
       "meaning": "To go from being very poor to being very wealthy.",
       "translation": " "
     },
     {
-      "idiom": "FUDDY-DUDDY �",
-      "meaning": "An old-fashioned and foolish type of person.�",
+      "idiom": "FUDDY-DUDDY",
+      "meaning": "An old-fashioned and foolish type of person",
       "translation": " "
     },
     {
-      "idiom": "FULL MONTY �",
+      "idiom": "FULL MONTY",
       "meaning": "This idiom can mean either, \"the whole thing\" or \"completely nude\".",
       "translation": " "
     },
     {
-      "idiom": "FUNNY FARM �",
+      "idiom": "FUNNY FARM",
       "meaning": "A mental institutional facility.",
       "translation": " "
     },
     {
-      "idiom": "GET DOWN TO BRASS TACKS �",
+      "idiom": "GET DOWN TO BRASS TACKS",
       "meaning": "To become serious about something.",
       "translation": " "
     },
     {
-      "idiom": "GET OVER IT �",
+      "idiom": "GET OVER IT",
       "meaning": "To move beyond something that is bothering you.",
       "translation": " "
     },
     {
-      "idiom": "GET UP ON THE WRONG SIDE OF THE BED �",
-      "meaning": "Someone who is having a horrible day.�",
+      "idiom": "GET UP ON THE WRONG SIDE OF THE BED",
+      "meaning": "Someone who is having a horrible day",
       "translation": " "
     },
     {
-      "idiom": "GET YOUR WALKING PAPERS �",
+      "idiom": "GET YOUR WALKING PAPERS",
       "meaning": "Get fired from a job.",
       "translation": " "
     },
     {
-      "idiom": "GIVE HIM THE SLIP �",
-      "meaning": "To get away from. to escape.�",
+      "idiom": "GIVE HIM THE SLIP",
+      "meaning": "To get away from. to escape",
       "translation": " "
     },
     {
-      "idiom": "GO DOWN LIKE A LEAD BALLOON �",
+      "idiom": "GO DOWN LIKE A LEAD BALLOON",
       "meaning": "To be received badly by an audience.",
       "translation": " "
     },
     {
-      "idiom": "GO FOR BROKE �",
+      "idiom": "GO FOR BROKE",
       "meaning": "To gamble everything you have.",
       "translation": " "
     },
     {
-      "idiom": "GO OUT ON A LIMB �",
+      "idiom": "GO OUT ON A LIMB",
       "meaning": "Put yourself in a tough position in order to support someone/something.",
       "translation": " "
     },
     {
-      "idiom": "GO THE EXTRA MILE �",
+      "idiom": "GO THE EXTRA MILE",
       "meaning": "Going above and beyond whatever is required for the task at hand.",
       "translation": " "
     },
@@ -511,457 +510,457 @@ const idioms = [
       "translation": " "
     },
     {
-      "idiom": "GRAVEYARD SHIFT �",
+      "idiom": "GRAVEYARD SHIFT",
       "meaning": "Working hours from about 12 00 am to 8 00 am. the time of the day when most other people are sleeping.",
       "translation": " "
     },
     {
-      "idiom": "GREAT MINDS THINK ALIKE �",
+      "idiom": "GREAT MINDS THINK ALIKE",
       "meaning": "Intelligent people think like each other.",
       "translation": " "
     },
     {
-      "idiom": "GREEN ROOM �",
+      "idiom": "GREEN ROOM",
       "meaning": "The waiting room, especially for those who are about to go on a tv or radio show.",
       "translation": " "
     },
     {
-      "idiom": "GUT FEELING �",
-      "meaning": "A personal intuition you get, especially when feel something may not be right.�",
+      "idiom": "GUT FEELING",
+      "meaning": "A personal intuition you get, especially when feel something may not be right",
       "translation": " "
     },
     {
-      "idiom": "HASTE MAKES WASTE �",
-      "meaning": "Quickly doing things results in a poor ending.�",
+      "idiom": "HASTE MAKES WASTE",
+      "meaning": "Quickly doing things results in a poor ending",
       "translation": " "
     },
     {
-      "idiom": "HAT TRICK �",
-      "meaning": "When one player scores three goals in the same hockey game. This idiom can also mean three scores in any other sport, such as 3 homeruns, 3 touchdowns, 3 soccer goals, etc.�",
+      "idiom": "HAT TRICK",
+      "meaning": "When one player scores three goals in the same hockey game. This idiom can also mean three scores in any other sport, such as 3 homeruns, 3 touchdowns, 3 soccer goals, etc",
       "translation": " "
     },
     {
-      "idiom": "HAVE AN AXE TO GRIND �",
-      "meaning": "To have a dispute with someone.�",
+      "idiom": "HAVE AN AXE TO GRIND",
+      "meaning": "To have a dispute with someone",
       "translation": " "
     },
     {
-      "idiom": "HE LOST HIS HEAD �",
-      "meaning": "Angry and overcome by emotions.�",
+      "idiom": "HE LOST HIS HEAD",
+      "meaning": "Angry and overcome by emotions",
       "translation": " "
     },
     {
-      "idiom": "HEAD OVER HEELS �",
-      "meaning": "Very excited and/or joyful, especially when in love.�",
+      "idiom": "HEAD OVER HEELS",
+      "meaning": "Very excited and/or joyful, especially when in love",
       "translation": " "
     },
     {
-      "idiom": "HELL IN A HANDBASKET �",
-      "meaning": "Deteriorating and headed for complete disaster.�",
+      "idiom": "HELL IN A HANDBASKET",
+      "meaning": "Deteriorating and headed for complete disaster",
       "translation": " "
     },
     {
-      "idiom": "HIGH FIVE �",
-      "meaning": "Slapping palms above each others heads as celebration gesture.�",
+      "idiom": "HIGH FIVE",
+      "meaning": "Slapping palms above each others heads as celebration gesture",
       "translation": " "
     },
     {
-      "idiom": "HIGH ON THE HOG �",
+      "idiom": "HIGH ON THE HOG",
       "meaning": "Living in luxury.",
       "translation": " "
     },
     {
-      "idiom": "HIT THE BOOKS �",
-      "meaning": "To study, especially for a test or exam.�",
+      "idiom": "HIT THE BOOKS",
+      "meaning": "To study, especially for a test or exam",
       "translation": " "
     },
     {
-      "idiom": "HIT THE HAY �",
-      "meaning": "Go to bed or go to sleep.�",
+      "idiom": "HIT THE HAY",
+      "meaning": "Go to bed or go to sleep",
       "translation": " "
     },
     {
-      "idiom": "HIT THE NAIL ON THE HEAD �",
-      "meaning": "Do something exactly right or say something exactly right.�",
+      "idiom": "HIT THE NAIL ON THE HEAD",
+      "meaning": "Do something exactly right or say something exactly right",
       "translation": " "
     },
     {
-      "idiom": "HIT THE SACK �",
+      "idiom": "HIT THE SACK",
       "meaning": "Go to bed or go to sleep.",
       "translation": " "
     },
     {
-      "idiom": "HOCUS POCUS �",
+      "idiom": "HOCUS POCUS",
       "meaning": "In general, a term used in magic or trickery.",
       "translation": " "
     },
     {
-      "idiom": "HOLD YOUR HORSES �",
+      "idiom": "HOLD YOUR HORSES",
       "meaning": "Be patient.",
       "translation": " "
     },
     {
-      "idiom": "ICING ON THE CAKE �",
+      "idiom": "ICING ON THE CAKE",
       "meaning": "When you already have it good and get something on top of what you already have.",
       "translation": " "
     },
     {
-      "idiom": "IDLE HANDS ARE THE DEVIL'S TOOLS �",
+      "idiom": "IDLE HANDS ARE THE DEVIL'S TOOLS",
       "meaning": "You are more likely to get in trouble if you have nothing to do.",
       "translation": " "
     },
     {
-      "idiom": "IF IT'S NOT ONE THING, IT'S ANOTHER �",
+      "idiom": "IF IT'S NOT ONE THING, IT'S ANOTHER",
       "meaning": "When one thing goes wrong, then another, and another...",
       "translation": " "
     },
     {
-      "idiom": "IN LIKE FLYNN �",
+      "idiom": "IN LIKE FLYNN",
       "meaning": "To be easily successful, especially when sexual or romantic.",
       "translation": " "
     },
     {
-      "idiom": "IN THE BAG �",
+      "idiom": "IN THE BAG",
       "meaning": "To have something secured.",
       "translation": " "
     },
     {
-      "idiom": "IN THE BUFF �",
+      "idiom": "IN THE BUFF",
       "meaning": "Nude.",
       "translation": " "
     },
     {
-      "idiom": "IN THE HEAT OF THE MOMENT �",
+      "idiom": "IN THE HEAT OF THE MOMENT",
       "meaning": "Overwhelmed by what is happening in the moment.",
       "translation": " "
     },
     {
-      "idiom": "IN YOUR FACE �",
+      "idiom": "IN YOUR FACE",
       "meaning": "An aggressive and bold confrontation.",
       "translation": " "
     },
     {
-      "idiom": "IT TAKES TWO TO TANGO �",
+      "idiom": "IT TAKES TWO TO TANGO",
       "meaning": "A two person conflict where both people are at fault.",
       "translation": " "
     },
     {
-      "idiom": "IT'S A SMALL WORLD �",
+      "idiom": "IT'S A SMALL WORLD",
       "meaning": "You frequently see the same people in different places.",
       "translation": " "
     },
     {
-      "idiom": "ITS ANYONE'S CALL �",
+      "idiom": "ITS ANYONE'S CALL",
       "meaning": "A competition where the outcome is difficult to judge or predict.",
       "translation": " "
     },
     {
-      "idiom": "IVY LEAGUE �",
+      "idiom": "IVY LEAGUE",
       "meaning": "Since 1954 the Ivy League has been the following universities  Columbia, Brown, Cornell, Dartmouth, Yale, Pennsylvania, Princeton, and Harvard.",
       "translation": " "
     },
     {
-      "idiom": "JAYWALK �",
+      "idiom": "JAYWALK",
       "meaning": "Crossing the street (from the middle) without using the crosswalk.",
       "translation": " "
     },
     {
-      "idiom": "JOSHING ME �",
+      "idiom": "JOSHING ME",
       "meaning": "Tricking me.",
       "translation": " "
     },
     {
-      "idiom": "KEEP AN EYE ON HIM �",
+      "idiom": "KEEP AN EYE ON HIM",
       "meaning": "You should carefully watch him.",
       "translation": " "
     },
     {
-      "idiom": "KEEP BODY AND SOUL TOGETHER �",
+      "idiom": "KEEP BODY AND SOUL TOGETHER",
       "meaning": "To earn a sufficient amount of money in order to keep yourself alive .",
       "translation": " "
     },
     {
-      "idiom": "KEEP YOUR CHIN UP �",
+      "idiom": "KEEP YOUR CHIN UP",
       "meaning": "To remain joyful in a tough situation.",
       "translation": " "
     },
     {
-      "idiom": "KICK THE BUCKET �",
+      "idiom": "KICK THE BUCKET",
       "meaning": "Die.",
       "translation": " "
     },
     {
-      "idiom": "KITTY-CORNER �",
+      "idiom": "KITTY-CORNER",
       "meaning": "Diagonally across. Sometimes called Catty-Corner as well.",
       "translation": " "
     },
     {
-      "idiom": "KNEE JERK REACTION �",
+      "idiom": "KNEE JERK REACTION",
       "meaning": "A quick and automatic response.",
       "translation": " "
     },
     {
-      "idiom": "KNOCK ON WOOD �",
+      "idiom": "KNOCK ON WOOD",
       "meaning": "Knuckle tapping on wood in order to avoid some bad luck.",
       "translation": " "
     },
     {
-      "idiom": "KNOW THE ROPES �",
+      "idiom": "KNOW THE ROPES",
       "meaning": "To understand the details.",
       "translation": " "
     },
     {
-      "idiom": "LAST BUT NOT LEAST �",
+      "idiom": "LAST BUT NOT LEAST",
       "meaning": "An introduction phrase to let the audience know that the last person mentioned is no less important than those introduced before him/her.",
       "translation": " "
     },
     {
-      "idiom": "LEND ME YOUR EAR �",
+      "idiom": "LEND ME YOUR EAR",
       "meaning": "To politely ask for someone's full attention.",
       "translation": " "
     },
     {
-      "idiom": "LET BYGONES BE BYGONES �",
+      "idiom": "LET BYGONES BE BYGONES",
       "meaning": "To forget about a disagreement or argument.",
       "translation": " "
     },
     {
-      "idiom": "LET SLEEPING DOGS LIE �",
+      "idiom": "LET SLEEPING DOGS LIE",
       "meaning": "To avoid restarting a conflict.",
       "translation": " "
     },
     {
-      "idiom": "LET THE CAT OUT OF THE BAG �",
+      "idiom": "LET THE CAT OUT OF THE BAG",
       "meaning": "To share a secret that wasn't supposed to be shared.",
       "translation": " "
     },
     {
-      "idiom": "LEVEL PLAYING FIELD �",
+      "idiom": "LEVEL PLAYING FIELD",
       "meaning": "A fair competition where no side has an advantage.",
       "translation": " "
     },
     {
-      "idiom": "LIKE A CHICKEN WITH ITS HEAD CUT OFF �",
+      "idiom": "LIKE A CHICKEN WITH ITS HEAD CUT OFF",
       "meaning": "To act in a frenzied manner.",
       "translation": " "
     },
     {
-      "idiom": "LIQUOR SOMEONE UP �",
+      "idiom": "LIQUOR SOMEONE UP",
       "meaning": "To get someone drunk.",
       "translation": " "
     },
     {
-      "idiom": "LONG IN THE TOOTH �",
+      "idiom": "LONG IN THE TOOTH",
       "meaning": "Old people (or horses).",
       "translation": " "
     },
     {
-      "idiom": "LOOSE CANNON �",
+      "idiom": "LOOSE CANNON",
       "meaning": "Someone who is unpredictable and can cause damage if not kept in check.",
       "translation": " "
     },
     {
-      "idiom": "MAKE NO BONES ABOUT �",
+      "idiom": "MAKE NO BONES ABOUT",
       "meaning": "To state a fact so there are no doubts or objections.",
       "translation": " "
     },
     {
-      "idiom": "METHOD TO MY MADNESS �",
+      "idiom": "METHOD TO MY MADNESS",
       "meaning": "Strange or crazy actions that appear meaningless but in the end are done for a good reason.",
       "translation": " "
     },
     {
-      "idiom": "MUMBO JUMBO �",
+      "idiom": "MUMBO JUMBO",
       "meaning": "Nonsense or meaningless speech.",
       "translation": " "
     },
     {
-      "idiom": "MUM'S THE WORD �",
+      "idiom": "MUM'S THE WORD",
       "meaning": "To keep quiet. to say nothing.",
       "translation": " "
     },
     {
-      "idiom": "NEST EGG �",
+      "idiom": "NEST EGG",
       "meaning": "Savings set aside for future use.",
       "translation": " "
     },
     {
-      "idiom": "NEVER BITE THE HAND THAT FEEDS YOU �",
+      "idiom": "NEVER BITE THE HAND THAT FEEDS YOU",
       "meaning": "Don't hurt anyone that helps you.",
       "translation": " "
     },
     {
-      "idiom": "NEW KID ON THE BLOCK �",
+      "idiom": "NEW KID ON THE BLOCK",
       "meaning": "Someone new to the group or area.",
       "translation": " "
     },
     {
-      "idiom": "NEW YORK MINUTE �",
+      "idiom": "NEW YORK MINUTE",
       "meaning": "A minute that seems to go by quickly, especially in a fast paced environment.",
       "translation": " "
     },
     {
-      "idiom": "NO DICE �",
+      "idiom": "NO DICE",
       "meaning": "To not agree. to not accept a proposition.",
       "translation": " "
     },
     {
-      "idiom": "NO ROOM TO SWING A CAT �",
+      "idiom": "NO ROOM TO SWING A CAT",
       "meaning": "An unusually small or confined space.",
       "translation": " "
     },
     {
-      "idiom": "NOT PLAYING WITH A FULL DECK �",
+      "idiom": "NOT PLAYING WITH A FULL DECK",
       "meaning": "Someone who lacks intelligence.",
       "translation": " "
     },
     {
-      "idiom": "OFF ON THE WRONG FOOT �",
+      "idiom": "OFF ON THE WRONG FOOT",
       "meaning": "Getting a bad start on a relationship or task.",
       "translation": " "
     },
     {
-      "idiom": "OFF THE HOOK �",
+      "idiom": "OFF THE HOOK",
       "meaning": "No longer have to deal with a tough situation.",
       "translation": " "
     },
     {
-      "idiom": "OFF THE RECORD �",
+      "idiom": "OFF THE RECORD",
       "meaning": "Something said in confidence that the one speaking doesn't want attributed to him/her.",
       "translation": " "
     },
     {
-      "idiom": "ON PINS AND NEEDLES �",
+      "idiom": "ON PINS AND NEEDLES",
       "meaning": "Anxious or nervous, especially in anticipation of something.",
       "translation": " "
     },
     {
-      "idiom": "ON THE FENCE �",
+      "idiom": "ON THE FENCE",
       "meaning": "Undecided.",
       "translation": " "
     },
     {
-      "idiom": "ON THE SAME PAGE �",
+      "idiom": "ON THE SAME PAGE",
       "meaning": "When multiple people all agree on the same thing.",
       "translation": " "
     },
     {
-      "idiom": "OUT OF THE BLUE �",
+      "idiom": "OUT OF THE BLUE",
       "meaning": "Something that suddenly and unexpectedly occurs.",
       "translation": " "
     },
     {
-      "idiom": "OUT ON A LIMB �",
+      "idiom": "OUT ON A LIMB",
       "meaning": "When someone puts themselves in a risky situation.",
       "translation": " "
     },
     {
-      "idiom": "OUT ON THE TOWN �",
+      "idiom": "OUT ON THE TOWN",
       "meaning": "To enjoy yourself by going out.",
       "translation": " "
     },
     {
-      "idiom": "OVER MY DEAD BODY �",
+      "idiom": "OVER MY DEAD BODY",
       "meaning": "When you absolutely will not allow something to happen.",
       "translation": " "
     },
     {
-      "idiom": "OVER THE TOP �",
+      "idiom": "OVER THE TOP",
       "meaning": "Very excessive.",
       "translation": " "
     },
     {
-      "idiom": "PASS THE BUCK �",
+      "idiom": "PASS THE BUCK",
       "meaning": "Avoid responsibility by giving it to someone else.",
       "translation": " "
     },
     {
-      "idiom": "PEDAL TO THE METAL �",
+      "idiom": "PEDAL TO THE METAL",
       "meaning": "To go full speed, especially while driving a vehicle.",
       "translation": " "
     },
     {
-      "idiom": "PEEPING TOM �",
+      "idiom": "PEEPING TOM",
       "meaning": "Someone who observes people in the nude or sexually active people, mainly for his own gratification.",
       "translation": " "
     },
     {
-      "idiom": "PICK UP YOUR EARS �",
+      "idiom": "PICK UP YOUR EARS",
       "meaning": "To listen very carefully.",
       "translation": " "
     },
     {
-      "idiom": "PIG IN A POKE �",
+      "idiom": "PIG IN A POKE",
       "meaning": "A deal that is made without first examining it.",
       "translation": " "
     },
     {
-      "idiom": "PIG OUT  �",
+      "idiom": "PIG OUT ",
       "meaning": "To eat a lot and eat it quickly.",
       "translation": " "
     },
     {
-      "idiom": "PIPE DOWN �",
+      "idiom": "PIPE DOWN",
       "meaning": "To shut-up or be quiet.",
       "translation": " "
     },
     {
-      "idiom": "PRACTICE MAKES PERFECT �",
+      "idiom": "PRACTICE MAKES PERFECT",
       "meaning": "By constantly practicing, you will become better.",
       "translation": " "
     },
     {
-      "idiom": "PULL THE PLUG �",
+      "idiom": "PULL THE PLUG",
       "meaning": "To stop something. to bring something to an end.",
       "translation": " "
     },
     {
-      "idiom": "PULLING YOUR LEG �",
+      "idiom": "PULLING YOUR LEG",
       "meaning": "Tricking someone as a joke.",
       "translation": " "
     },
     {
-      "idiom": "PUT A SOCK IN IT �",
+      "idiom": "PUT A SOCK IN IT",
       "meaning": "To tell noisy person or a group to be quiet.",
       "translation": " "
     },
     {
-      "idiom": "RAINCHECK �",
+      "idiom": "RAINCHECK",
       "meaning": "An offer or deal that is declined right now but willing to accept later.",
       "translation": " "
     },
     {
-      "idiom": "RAINING CATS AND DOGS �",
+      "idiom": "RAINING CATS AND DOGS",
       "meaning": "A very loud and noisy rain storm.",
       "translation": " "
     },
     {
-      "idiom": "RING FENCING �",
+      "idiom": "RING FENCING",
       "meaning": "Separated usual judgement to guarantee protection, especially project funds.",
       "translation": " "
     },
     {
-      "idiom": "RISE AND SHINE �",
+      "idiom": "RISE AND SHINE",
       "meaning": "Time to get out of bed and get ready for work/school.",
       "translation": " "
     },
     {
-      "idiom": "ROME WAS NOT BUILT IN ONE DAY �",
-      "meaning": "If you want something to be completely properly, then it�s going to take time.",
+      "idiom": "ROME WAS NOT BUILT IN ONE DAY",
+      "meaning": "If you want something to be completely properly, then is going to take time.",
       "translation": " "
     },
     {
-      "idiom": "RULE OF THUMB �",
+      "idiom": "RULE OF THUMB",
       "meaning": "A rough estimate.",
       "translation": " "
     },
     {
-      "idiom": "RUN OUT OF STEAM �",
+      "idiom": "RUN OUT OF STEAM",
       "meaning": "To be completely out of energy.",
       "translation": " "
     },
     {
-      "idiom": "SAVED BY THE BELL �",
+      "idiom": "SAVED BY THE BELL",
       "meaning": "Saved at the last possible moment.",
       "translation": " "
     },
@@ -971,42 +970,42 @@ const idioms = [
       "translation": " "
     },
     {
-      "idiom": "SCOT-FREE �",
+      "idiom": "SCOT-FREE",
       "meaning": "To escape and not have to pay.",
       "translation": " "
     },
     {
-      "idiom": "SICK AS A DOG �",
+      "idiom": "SICK AS A DOG",
       "meaning": "To be very sick (with the flu or a cold).",
       "translation": " "
     },
     {
-      "idiom": "SITTING SHOTGUN �",
+      "idiom": "SITTING SHOTGUN",
       "meaning": "Riding in the front passenger seat of a car.",
       "translation": " "
     },
     {
-      "idiom": "SIXTH SENSE �",
+      "idiom": "SIXTH SENSE",
       "meaning": "A paranormal sense that allows you to communicate with the dead.",
       "translation": " "
     },
     {
-      "idiom": "SKID ROW �",
+      "idiom": "SKID ROW",
       "meaning": "The rundown area of a city where the homeless and drug users live.",
       "translation": " "
     },
     {
-      "idiom": "SMELL A RAT �",
+      "idiom": "SMELL A RAT",
       "meaning": "To detect someone in the group is betraying the others.",
       "translation": " "
     },
     {
-      "idiom": "SMELL SOMETHING FISHY �",
+      "idiom": "SMELL SOMETHING FISHY",
       "meaning": "Detecting that something isn't right and there might be a reason for it.",
       "translation": " "
     },
     {
-      "idiom": "SON OF A GUN �",
+      "idiom": "SON OF A GUN",
       "meaning": "A scamp.",
       "translation": " "
     },
@@ -1016,181 +1015,181 @@ const idioms = [
       "translation": " "
     },
     {
-      "idiom": "SPITTING IMAGE �",
+      "idiom": "SPITTING IMAGE",
       "meaning": "The exact likeness or kind.",
       "translation": " "
     },
     {
-      "idiom": "START FROM SCRATCH �",
+      "idiom": "START FROM SCRATCH",
       "meaning": "To do it all over again from the beginning.",
       "translation": " "
     },
     {
-      "idiom": "THE BALL IS IN YOUR COURT �",
+      "idiom": "THE BALL IS IN YOUR COURT",
       "meaning": "It is your decision this time.",
       "translation": " "
     },
     {
-      "idiom": "THE BEST OF BOTH WORLDS �",
+      "idiom": "THE BEST OF BOTH WORLDS",
       "meaning": "There are two choices and you have them both.",
       "translation": " "
     },
     {
-      "idiom": "THE BIGGER THEY ARE THE HARDER THEY FALL �",
+      "idiom": "THE BIGGER THEY ARE THE HARDER THEY FALL",
       "meaning": "While the bigger and stronger opponent might be a lot more difficult to beat, when you do they suffer a much bigger loss.",
       "translation": " "
     },
     {
-      "idiom": "THE LAST STRAW �",
+      "idiom": "THE LAST STRAW",
       "meaning": "When one small burden after another creates an unbearable situation, the last straw is the last small burden that one can take.",
       "translation": " "
     },
     {
-      "idiom": "THE WHOLE NINE YARDS �",
+      "idiom": "THE WHOLE NINE YARDS",
       "meaning": "Everything. All of it.",
       "translation": " "
     },
     {
-      "idiom": "THIRD TIMES A CHARM �",
+      "idiom": "THIRD TIMES A CHARM",
       "meaning": "After no success the first two times, the third try is a lucky one.",
       "translation": " "
     },
     {
-      "idiom": "TIE THE KNOT �",
+      "idiom": "TIE THE KNOT",
       "meaning": "To get married.",
       "translation": " "
     },
     {
-      "idiom": "TIL THE COWS COME HOME �",
+      "idiom": "TIL THE COWS COME HOME",
       "meaning": "A long time.",
       "translation": " "
     },
     {
-      "idiom": "TO MAKE A LONG STORY SHORT �",
+      "idiom": "TO MAKE A LONG STORY SHORT",
       "meaning": "Something someone would say during a long and boring story in order to keep his/her audience from losing attention. Usually the story isn't shortened.",
       "translation": " "
     },
     {
-      "idiom": "TO STEAL SOMEONE'S THUNDER �",
+      "idiom": "TO STEAL SOMEONE'S THUNDER",
       "meaning": "To take the credit for something someone else did.",
       "translation": " "
     },
     {
-      "idiom": "TONGUE-IN-CHEEK �",
+      "idiom": "TONGUE-IN-CHEEK",
       "meaning": "Humor, not to be taken serious.",
       "translation": " "
     },
     {
-      "idiom": "TURN A BLIND EYE �",
+      "idiom": "TURN A BLIND EYE",
       "meaning": "Refuse to acknowledge something you know is real or legit.",
       "translation": " "
     },
     {
-      "idiom": "TWENTY THREE SKIDOO �",
+      "idiom": "TWENTY THREE SKIDOO",
       "meaning": "To be turned away.",
       "translation": " "
     },
     {
-      "idiom": "UNDER THE WEATHER �",
+      "idiom": "UNDER THE WEATHER",
       "meaning": "Feeling ill or sick.",
       "translation": " "
     },
     {
-      "idiom": "UP A BLIND ALLEY �",
+      "idiom": "UP A BLIND ALLEY",
       "meaning": "Going down a course of action that leads to a bad outcome.",
       "translation": " "
     },
     {
-      "idiom": "USE YOUR LOAF �",
+      "idiom": "USE YOUR LOAF",
       "meaning": "Use your head. Think smart.",
       "translation": " "
     },
     {
-      "idiom": "VAN GOGH'S EAR FOR MUSIC �",
+      "idiom": "VAN GOGH'S EAR FOR MUSIC",
       "meaning": "Tone deaf.",
       "translation": " "
     },
     {
-      "idiom": "VARIETY IS THE SPICE OF LIFE �",
+      "idiom": "VARIETY IS THE SPICE OF LIFE",
       "meaning": "The more experiences you try the more exciting life can be.",
       "translation": " "
     },
     {
-      "idiom": "WAG THE DOG �",
+      "idiom": "WAG THE DOG",
       "meaning": "A diversion away from something of greater importance.",
       "translation": " "
     },
     {
-      "idiom": "WATER UNDER THE BRIDGE �",
+      "idiom": "WATER UNDER THE BRIDGE",
       "meaning": "Anything from the past that isn't significant or important anymore.",
       "translation": " "
     },
     {
-      "idiom": "WEAR YOUR HEART ON YOUR SLEEVE �",
+      "idiom": "WEAR YOUR HEART ON YOUR SLEEVE",
       "meaning": "To openly and freely express your emotions.",
       "translation": " "
     },
     {
-      "idiom": "WHEN IT RAINS, IT POURS �",
+      "idiom": "WHEN IT RAINS, IT POURS",
       "meaning": "Since it rarely rains, when it does it will be a huge storm.",
       "translation": " "
     },
     {
-      "idiom": "WHEN PIGS FLY  �",
+      "idiom": "WHEN PIGS FLY ",
       "meaning": "Something that will never ever happen.",
       "translation": " "
     },
     {
-      "idiom": "WILD AND WOOLY �",
+      "idiom": "WILD AND WOOLY",
       "meaning": "Uncultured and without laws.",
       "translation": " "
     },
     {
-      "idiom": "WINE AND DINE �",
+      "idiom": "WINE AND DINE",
       "meaning": "When somebody is treated to an expensive meal.",
       "translation": " "
     },
     {
-      "idiom": "WITHOUT A DOUBT �",
+      "idiom": "WITHOUT A DOUBT",
       "meaning": "For certain.",
       "translation": " "
     },
     {
-      "idiom": "X MARKS THE SPOT �",
+      "idiom": "X MARKS THE SPOT",
       "meaning": "A phrase that is said when someone finds something he/she has been looking for.",
       "translation": " "
     },
     {
-      "idiom": "YOU ARE WHAT YOU EAT �",
+      "idiom": "YOU ARE WHAT YOU EAT",
       "meaning": "In order to stay healthy you must eat healthy foods.",
       "translation": " "
     },
     {
-      "idiom": "YOU CAN'T JUDGE A BOOK BY ITS COVER �",
+      "idiom": "YOU CAN'T JUDGE A BOOK BY ITS COVER",
       "meaning": "Decisions shouldn't be made primarily on appearance.",
       "translation": " "
     },
     {
-      "idiom": "YOU CAN'T TAKE IT WITH YOU �",
+      "idiom": "YOU CAN'T TAKE IT WITH YOU",
       "meaning": "Enjoy what you have and not what you don't have, since when you die you cannot take things (such as money) with you.",
       "translation": " "
     },
     {
-      "idiom": "YOUR GUESS IS AS GOOD AS MINE �",
+      "idiom": "YOUR GUESS IS AS GOOD AS MINE",
       "meaning": "I have no idea.",
       "translation": " "
     },
     {
-      "idiom": "ZERO TOLERANCE �",
+      "idiom": "ZERO TOLERANCE",
       "meaning": "No crime or law breaking big or small will be overlooked.",
       "translation": " "
     }
   ]
 ];
 
-db.idioms
+db.Idioms
   .remove({})
-  .then(() => db.idioms.collection.insertMany(idioms))
+  .then(() => db.Idioms.collection.insertMany(idiomSeeds))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

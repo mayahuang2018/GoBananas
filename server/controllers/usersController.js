@@ -1,30 +1,28 @@
 const passport = require('passport');
 const users = require('../models/Users');
 const bc = require("bcryptjs");
-
 const keys = require("../config/jwtConfig");
 // fixed
-
 // Defining methods for the booksController
 module.exports = {
-  // findAll: (req, res, next) => {
-  //   console.log("jwt route");
-  //   passport.authenticate('jwt', { session: false }, (err, user, info) => {
-  //     if (err) {
-  //       console.log(err);
-  //     }
-  //     if (info != undefined) {
-  //       console.log(info.message);
-  //       return res.send(info.message);
-  //     } else {
-  //       console.log('user found in db');
-  //       return res.status(200).send({
-  //         loggedIn: true,
-  //         user: req.user,
-  //       });
-  //     }
-  //   })(req, res, next);
-  // },
+  findAll: (req, res, next) => {
+    console.log("jwt route");
+    passport.authenticate('jwt', { session: false }, (err, user, info) => {
+      if (err) {
+        console.log(err);
+      }
+      if (info != undefined) {
+        console.log(info.message);
+        return res.send(info.message);
+      } else {
+        console.log('user found in db');
+        return res.status(200).send({
+          loggedIn: true,
+          user: req.user,
+        });
+      }
+    })(req, res, next);
+  },
   findOne: (req, res, next) => {
     console.log("login route");
     passport.authenticate('local-login', (err, username, info) => {
@@ -33,30 +31,11 @@ module.exports = {
         console.log(info.message);
          return res.send(info.message);
       } else {
-
           users.findOne({
             where: {
               username: username,
             },
-          }).then((req, res, next) => {
-            console.log("jwt route");
-            passport.authenticate('jwt', { session: false }, (err, user, info) => {
-              if (err) {
-                console.log(err);
-              }
-              if (info != undefined) {
-                console.log(info.message);
-                return res.send(info.message);
-              } else {
-                console.log('user found in db');
-                return res.status(200).send({
-                  loggedIn: true,
-                  user: req.username,
-                });
-              }
-            })(req, res, next);
-          },
-          ).then(keys => {
+          }).then(keys => {
             const token = ({ id: users.username }, keys);
             return res.status(200).send({
               auth: true,
@@ -95,7 +74,7 @@ module.exports = {
       .then(() => {
         console.log("then", data);
         //must return response
-        return res.status(200).json({ success: true });
+        return res.status(200).json({ success: "true" });
       })
       .catch(err => console.log(err, "100"));
   },

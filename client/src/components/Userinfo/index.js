@@ -5,7 +5,7 @@ import "./Userinfo.css"
 function UserInfoSection(props) {
     return (
         <div className="UserInfoSection">
-
+      
             <div class="card userCard text-white bg-dark mb-3">     
                 <div class="card-body">
                     <h5 class="card-title">User Name</h5>
@@ -13,12 +13,11 @@ function UserInfoSection(props) {
                 </div> 
                 <div class="container">
             <SavedIdiomCard />
-            </div>
+                </div>
 
             </div>
             
-     
-        </div>
+      </div>
 
     );
 }
