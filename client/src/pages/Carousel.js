@@ -10,8 +10,8 @@ class CardSave extends Component {
   return (
     <div className ="CarouselPage">
       <NavBar />
-            {/* <Carousel />  */}
             <UserInfoSection /> 
+             {/* <Carousel />  */}
             <Footer /> 
    </div>
   );
