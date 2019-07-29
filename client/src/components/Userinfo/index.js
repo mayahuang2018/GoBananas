@@ -1,5 +1,6 @@
 import React from "react";
 import SavedIdiomCard from "../Savedidiom/index"
+import Carousel from "../Carousel/index";
 import "./Userinfo.css"
 
 function UserInfoSection(props) {
@@ -15,6 +16,7 @@ function UserInfoSection(props) {
             </div>
             <div class="container">
             <SavedIdiomCard />
+            {/* <Carousel /> */}
             </div>
             
       </div>

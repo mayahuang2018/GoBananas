@@ -1,25 +1,44 @@
-import React from "react";
+import React,{Component} from "react";
 import "./Searchinput.css"
+import propTypes from "prop-types"
 
 
-function SearchInput(props) {
+export default class SearchInput extends Component  {
+
+    static propTypes ={
+        setSearchName:propTypes.func.isRequired
+    }
+
+    search = () => {
+        //得到输入的关键词 get the search idiom that user input
+        const searchName = this.input.value.trim()
+        if (searchName) {
+            //搜索 search
+            this.props.setSearchName(searchName)
+        }
+
+      
+
+    }
+
+    render(){
     return (
             <div className="SearchInput">
-                <div id={props.id}>
+                {/* <div id={props.id}> */}
                 <div className="input-group mb-3">
        
-                        <input type="search results=5 name=s" class="form-control" placeholder="Enter an idiom here..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="search results=5 name=s" className="form-control" placeholder="Enter an idiom here..." ref={input => this.input =input}>
                         </input> 
                         <div className="input-group-append">
-                         <button className="btn bg-warning text-dark" type="button">Go!
+                         <button onClick={this.search} className="btn bg-warning text-dark" type="button">Go!
                         </button>
                          </div>
                           
                     </div>
-                </div>
+                {/* </div> */}
             </div>
     
                 );
             }
             
-    export default SearchInput; 
+    }
