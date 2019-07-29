@@ -21,11 +21,13 @@
 }
 .SavedIdiom .front{
     padding:50px;
-    background:rgb(255, 228, 108);
+    background:rgb(253, 206, 77);
+    
 }
 .SavedIdiom .back{
     padding:10px;
-    background:rgb(250, 114, 89);
+    background:rgb(253, 117, 83);
+    color:white;
     -webkit-transform:rotateY(-180deg);
 }
 .SavedIdiom:hover .front{
