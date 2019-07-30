@@ -9,13 +9,23 @@ import SearchResult from "../components/Searchresult";
 
 
 class IdiomSearchPage extends Component {
+
+  state = {
+    searchIdiom: ''
+  }
+
+  setSearchIdiom = (searchIdiom) =>{
+    //更新状态 update search idiom
+    this.setState({searchIdiom});
+  }
+
   render() {
     return (
       <div className="IdiomSearchPage"> 
         <NavBar />
         <BananaLogo />
-        <SearchInput />
-        <SearchResult />
+        <SearchInput setSearchIdiom={this.setSearchIdiom}/>
+        <SearchResult searchIdiom={this.state.searchIdiom}/>
         <Footer />
       </div>
     );
