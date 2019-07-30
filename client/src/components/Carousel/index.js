@@ -1,4 +1,5 @@
 import React from "react";
+import SavedIdiomCard from "../Savedidiom/index"
 import "./Carousel.css";
 
 function Carousel(props) {
@@ -7,7 +8,7 @@ function Carousel(props) {
             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img className="d-block w-100" src="..." alt="First slide"></img>
+                   < SavedIdiomCard />
                     </div>
                     <div className="carousel-item">
                         <img className="d-block w-100" src="..." alt="Second slide"></img>
