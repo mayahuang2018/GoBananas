@@ -6,7 +6,7 @@ import axios from "axios"
 export default class SearchResult extends Component{
 
     static propTypes ={
-        searchName: propTypes.string.isRequired
+        searchIdiom: propTypes.string.isRequired
     }
 
     state = {
@@ -20,7 +20,7 @@ export default class SearchResult extends Component{
     componentWillReceiveProps (newProps){
 
        //指定了新的成语，需要发请求. get a new idiom
-       const {searchName} = newProps
+       const {searchIdiom} = newProps
 
        //更新状态（请求中). set loading...
        this.setState({
@@ -29,7 +29,7 @@ export default class SearchResult extends Component{
        })
 
        //发ajax请求
-       axios.get("../../../static/idiom.json").then(response => {
+       axios.get("./idiom.json").then(response => {
            //get idiom
            const result = response.data
            console.log(result)
@@ -55,10 +55,10 @@ export default class SearchResult extends Component{
 
 render(){
     const{initView,loading,idioms,errorMasg} = this.state
-    const {searchName} = this.props
+    const {searchIdiom} = this.props
 
     if (initView){
-        return <h3>Enter an idiom and look for the explanation:{searchName}</h3>
+        return <h3>Enter an idiom and look for the explanation...{searchIdiom}</h3>
     }else if (loading){
         return <h3>loading...</h3>
     }else if(errorMasg){

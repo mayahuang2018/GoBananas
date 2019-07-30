@@ -6,15 +6,15 @@ import propTypes from "prop-types"
 export default class SearchInput extends Component  {
 
     static propTypes ={
-        setSearchName:propTypes.func.isRequired
+        setSearchIdiom:propTypes.func.isRequired
     }
 
     search = () => {
-        //得到输入的关键词 get the search idiom that user input
-        const searchName = this.input.value.trim()
-        if (searchName) {
+        //得到输入的关键词 get the search idiom that user input 改大写
+        const searchIdiom = this.input.value.trim()
+        if (searchIdiom) {
             //搜索 search
-            this.props.setSearchName(searchName)
+            this.props.setSearchIdiom(searchIdiom)
         }
 
       

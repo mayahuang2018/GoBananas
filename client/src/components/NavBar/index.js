@@ -6,7 +6,7 @@ function NavBar(props) {
 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
   <a className="navbar-brand  float-right" href="/IdiomSearchPage">GoBananas</a>
 
-  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+  <div id="navbarSupportedContent">
     <ul className="navbar-nav">
       <li className="nav-item active">
         {/* <button onClick = {foo}>执行操作 Perform Action</ button> */}
