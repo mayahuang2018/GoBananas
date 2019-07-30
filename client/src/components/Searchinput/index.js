@@ -11,7 +11,7 @@ export default class SearchInput extends Component  {
 
     search = () => {
         //得到输入的关键词 get the search idiom that user input 改大写
-        const searchIdiom = this.input.value.trim()
+        const searchIdiom = this.input.value.trim().toUpperCase()
         if (searchIdiom) {
             //搜索 search
             this.props.setSearchIdiom(searchIdiom)

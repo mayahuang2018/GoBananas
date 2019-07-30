@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import propTypes from "prop-types"
 import axios from "axios"
-// import "./Searchresult.css"
+import "./Searchresult.css"
 
 export default class SearchResult extends Component{
 
@@ -29,16 +29,22 @@ export default class SearchResult extends Component{
        })
 
        //发ajax请求
-       axios.get("./idiom.json").then(response => {
+       const url = "./idiom.json"
+       axios.get(url).then(response => {
+       //client/src/components/Searchresult/index.js
+       //client/public/idiom.json
            //get idiom
            const result = response.data
            console.log(result)
-
+           const idioms = result.idioms.map(idioms=>{
+               return{idiom:idioms.idiom, meaning:idioms.meaning}
+           })
+           console.log(result.idioms)
            // set stste "idioms"
            this.setState({
             initView:false,
             loading:false,
-            //idioms 
+            idioms 
            })
 
        })
@@ -67,8 +73,8 @@ render(){
         return (
             <div className="SearchResult">
                 {
-                    idioms.map((idiom,index) => (
-                    <div className="card col-6" key={index}>
+                    idioms.map((idioms,index) => (
+                    <div className="card rearchCard col-6" key={index}>
                     <div className="card-body">
                       <h5 className="card-title">{idioms.idiom}</h5>
                       <p className="card-text">{idioms.meaning}</p>

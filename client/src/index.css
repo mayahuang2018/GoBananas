@@ -5,7 +5,7 @@ body {
 
 .IdiomSearchPage,.TranslatePage {
     background:
-    url('./images/004.jpg') no-repeat center center fixed;
+    url('./images/003.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size:cover;
@@ -49,4 +49,10 @@ body {
   color:rgba(250, 211, 83, 0.918);
   margin:1% 25% 5% 25% ;
   padding:50px;
+}
+
+.rearchCard{
+  background-color:rgba(53, 52, 52, 0.849);
+  color:rgba(250, 211, 83, 0.918);
+  margin:10px;
 }
