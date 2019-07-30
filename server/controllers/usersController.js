@@ -21,13 +21,25 @@ module.exports = {
           user: req.user,
         });
       }
-    })(req, res, next);
+    })(req, res, next)
+    .then(keys => {
+        const token = ({ id: users.username }, keys);
+        return res.status(200).send({
+          auth: true,
+          token: token,
+          message: "user exists and is logged in",
+        });
+      })
+    .catch(err => "err");
   },
+
+  // 
+
   findOne: (req, res, next) => {
     console.log("login route");
     passport.authenticate('local-login', (err, username, info) => {
-      if (err) { console.log(err); }
-      if (info != undefined) {
+      if (err) { console.log(err) }
+      else if (info != undefined) {
         console.log(info.message);
          return res.send(info.message);
       } else {
@@ -35,13 +47,6 @@ module.exports = {
             where: {
               username: username,
             },
-          }).then(keys => {
-            const token = ({ id: users.username }, keys);
-            return res.status(200).send({
-              auth: true,
-              token: token,
-              message: "user exists and is logged in",
-            });
           })
             .catch(err => console.log(err, "200"));
         }
