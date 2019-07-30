@@ -11,259 +11,259 @@ mongoose.connect(
 const languageSeeds = [
     {
       "Language": "Afrikaans",
-      "Language code": "af"
+      "Language_code": "af"
     },
     {
       "Language": "Arabic",
-      "Language code": "ar"
+      "Language_code": "ar"
     },
     {
       "Language": "Bangla",
-      "Language code": "bn"
+      "Language_code": "bn"
     },
     {
       "Language": "Bosnian (Latin)",
-      "Language code": "bs"
+      "Language_code": "bs"
     },
     {
       "Language": "Bulgarian",
-      "Language code": "bg"
+      "Language_code": "bg"
     },
     {
       "Language": "Cantonese (Traditional)",
-      "Language code": "yue"
+      "Language_code": "yue"
     },
     {
       "Language": "Catalan",
-      "Language code": "ca"
+      "Language_code": "ca"
     },
     {
       "Language": "Chinese Simplified",
-      "Language code": "zh-Hans"
+      "Language_code": "zh-Hans"
     },
     {
       "Language": "Chinese Traditional",
-      "Language code": "zh-Hant"
+      "Language_code": "zh-Hant"
     },
     {
       "Language": "Croatian",
-      "Language code": "hr"
+      "Language_code": "hr"
     },
     {
       "Language": "Czech",
-      "Language code": "cs"
+      "Language_code": "cs"
     },
     {
       "Language": "Danish",
-      "Language code": "da"
+      "Language_code": "da"
     },
     {
       "Language": "Dutch",
-      "Language code": "nl"
+      "Language_code": "nl"
     },
     {
       "Language": "English",
-      "Language code": "en"
+      "Language_code": "en"
     },
     {
       "Language": "Estonian",
-      "Language code": "et"
+      "Language_code": "et"
     },
     {
       "Language": "Fijian",
-      "Language code": "fj"
+      "Language_code": "fj"
     },
     {
       "Language": "Filipino",
-      "Language code": "fil"
+      "Language_code": "fil"
     },
     {
       "Language": "Finnish",
-      "Language code": "fi"
+      "Language_code": "fi"
     },
     {
       "Language": "French",
-      "Language code": "fr"
+      "Language_code": "fr"
     },
     {
       "Language": "German",
-      "Language code": "de"
+      "Language_code": "de"
     },
     {
       "Language": "Greek",
-      "Language code": "el"
+      "Language_code": "el"
     },
     {
       "Language": "Haitian Creole",
-      "Language code": "ht"
+      "Language_code": "ht"
     },
     {
       "Language": "Hebrew",
-      "Language code": "he"
+      "Language_code": "he"
     },
     {
       "Language": "Hindi",
-      "Language code": "hi"
+      "Language_code": "hi"
     },
     {
       "Language": "Hmong Daw",
-      "Language code": "mww"
+      "Language_code": "mww"
     },
     {
       "Language": "Hungarian",
-      "Language code": "hu"
+      "Language_code": "hu"
     },
     {
       "Language": "Icelandic",
-      "Language code": "is"
+      "Language_code": "is"
     },
     {
       "Language": "Indonesian",
-      "Language code": "id"
+      "Language_code": "id"
     },
     {
       "Language": "Italian",
-      "Language code": "it"
+      "Language_code": "it"
     },
     {
       "Language": "Japanese",
-      "Language code": "ja"
+      "Language_code": "ja"
     },
     {
       "Language": "Kiswahili",
-      "Language code": "sw"
+      "Language_code": "sw"
     },
     {
       "Language": "Klingon",
-      "Language code": "tlh"
+      "Language_code": "tlh"
     },
     {
       "Language": "Klingon (plqaD)",
-      "Language code": "tlh-Qaak"
+      "Language_code": "tlh-Qaak"
     },
     {
       "Language": "Korean",
-      "Language code": "ko"
+      "Language_code": "ko"
     },
     {
       "Language": "Latvian",
-      "Language code": "lv"
+      "Language_code": "lv"
     },
     {
       "Language": "Lithuanian",
-      "Language code": "lt"
+      "Language_code": "lt"
     },
     {
       "Language": "Malagasy",
-      "Language code": "mg"
+      "Language_code": "mg"
     },
     {
       "Language": "Malay",
-      "Language code": "ms"
+      "Language_code": "ms"
     },
     {
       "Language": "Maltese",
-      "Language code": "mt"
+      "Language_code": "mt"
     },
     {
       "Language": "Norwegian",
-      "Language code": "nb"
+      "Language_code": "nb"
     },
     {
       "Language": "Persian",
-      "Language code": "fa"
+      "Language_code": "fa"
     },
     {
       "Language": "Polish",
-      "Language code": "pl"
+      "Language_code": "pl"
     },
     {
       "Language": "Portuguese",
-      "Language code": "pt"
+      "Language_code": "pt"
     },
     {
       "Language": "Queretaro Otomi",
-      "Language code": "otq"
+      "Language_code": "otq"
     },
     {
       "Language": "Romanian",
-      "Language code": "ro"
+      "Language_code": "ro"
     },
     {
       "Language": "Russian",
-      "Language code": "ru"
+      "Language_code": "ru"
     },
     {
       "Language": "Samoan",
-      "Language code": "sm"
+      "Language_code": "sm"
     },
     {
       "Language": "Serbian (Cyrillic)",
-      "Language code": "sr-Cyrl"
+      "Language_code": "sr-Cyrl"
     },
     {
       "Language": "Serbian (Latin)",
-      "Language code": "sr-Latn"
+      "Language_code": "sr-Latn"
     },
     {
       "Language": "Slovak",
-      "Language code": "sk"
+      "Language_code": "sk"
     },
     {
       "Language": "Slovenian",
-      "Language code": "sl"
+      "Language_code": "sl"
     },
     {
       "Language": "Spanish",
-      "Language code": "es"
+      "Language_code": "es"
     },
     {
       "Language": "Swedish",
-      "Language code": "sv"
+      "Language_code": "sv"
     },
     {
       "Language": "Tahitian",
-      "Language code": "ty"
+      "Language_code": "ty"
     },
     {
       "Language": "Tamil",
-      "Language code": "ta"
+      "Language_code": "ta"
     },
     {
       "Language": "Telugu",
-      "Language code": "te"
+      "Language_code": "te"
     },
     {
       "Language": "Thai",
-      "Language code": "th"
+      "Language_code": "th"
     },
     {
       "Language": "Tongan",
-      "Language code": "to"
+      "Language_code": "to"
     },
     {
       "Language": "Turkish",
-      "Language code": "tr"
+      "Language_code": "tr"
     },
     {
       "Language": "Ukrainian",
-      "Language code": "uk"
+      "Language_code": "uk"
     },
     {
       "Language": "Urdu",
-      "Language code": "ur"
+      "Language_code": "ur"
     },
     {
       "Language": "Vietnamese",
-      "Language code": "vi"
+      "Language_code": "vi"
     },
     {
       "Language": "Welsh",
-      "Language code": "cy"
+      "Language_code": "cy"
     },
     {
       "Language": "Yucatec Maya",
-      "Language code": "yua"
+      "Language_code": "yua"
     }
    ]
 

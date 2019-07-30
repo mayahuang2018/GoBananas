@@ -23,10 +23,8 @@ require("./config/passport")(passport);
 
 if (process.env.NODE_ENV === "development") {
   app.use(express.static(path.join(_dirname, "client/build")));
-}
-
-if (process.env.NODE_ENV === "production") {
-  app.use('*', express.static("public"));
+} else if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(_dirname, "public")));
 }
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/goBananas", { useNewUrlParser: true });
