@@ -2,7 +2,9 @@ const router = require("express").Router();
 const idiomsController = require("../../controllers/idiomsController");
 
 router.route("/")
-.post(idiomsController.findAll)
+.get(idiomsController.findAll)
+.post(idiomsController.create);
+
 
 module.exports = router;  
 
