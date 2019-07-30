@@ -30,7 +30,7 @@ module.exports = {
           message: "user exists and is logged in",
         });
       })
-    .catch(err => "err");
+    .catch(err => {err, "err"});
   },
 
   // 
