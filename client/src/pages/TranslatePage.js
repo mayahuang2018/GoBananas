@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer";
-import API from "../utils/languagesAPI";
+// import API from "../utils/languagesAPI";
 // import LanguageButton from "../components/LanguageButton/Language.js"
 // import Idiom from "../components/Idiom";
 import LanguageButton from "../components/LanguageButton"
@@ -12,25 +12,26 @@ import OriginalIdiom from "../components/OriginalIdiom";
 class TranslatePage extends Component {
 
 state = {
-  buttonLanguages: [], //language to populate the buttons
+  buttonLanguagesArray: [], //language to populate the buttons
   clicked: false, //if state clicked = true then will do axios to MS translate with this language
   // languageCodePicked: this.state.languageCodePicked, //which language code to use to send to MS translate
 }
 
-componentDidMount() {
-  API.getLanguagesAll(this.state.language, this.state.languageCode)
-  .then(res => {
-    console.log("got langauges from api");
-    const buttonLanguages = res.data;
-    this.setState({ buttonLanguages });
-  })
-};
+// componentDidMount() { //when the page loads... do this
+//   API.getLanguagesAll() //get language&codes from db
+//   .then(res => { //then console log that we have the languages, and set the languages to a variable, use the variable to set the state property
+//     console.log("got langauges from api");
+//     const buttonLanguagesArray = res.data;
+//     this.setState({ buttonLanguagesArray });
+//   })
+// };
 
-handleClick = (event, id) => {
+handleClick = (event, id) => { //when I click the button, I want to do these things
   event.preventDefault();
-  console.log("clicked");
-  let pickedLanguage = this.state.languages.find(i => i.id === id)
+  console.log("clicked"); //let me know it is clicked
 
+  let pickedLanguage = this.state.buttonLanguages.find(i => i.id === id) //let me know which language I picked
+  console.log(this.state.buttonLanguages);
   if (pickedLanguage.clicked === true) {
     // console.log(this)
 
@@ -48,8 +49,6 @@ handleClick = (event, id) => {
 //  .catch(err => console.log(err))
 // }
 
-    
-
   render() {
     return (
       <div className="TranslatePage">
@@ -57,10 +56,7 @@ handleClick = (event, id) => {
         <NavBar />
         <BananaLogo />
         <OriginalIdiom />
-        <LanguageButton
-          value={this.state.languageCode}
-          onClick={this.handleClick}
-        />
+        <LanguageButton />
         <TranslatedDescription
           value={this.state.translatedIdiom} />
         <Footer />
