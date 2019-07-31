@@ -10,12 +10,12 @@ export default class SearchInput extends Component  {
     }
 
     search = () => {
-        //得到输入的关键词 get the search idiom that user input 改大写
+        //得到输入的关键词 get the search idiom that user input 
         const searchIdiom = this.input.value.trim().toUpperCase()
         if (searchIdiom) {
             //搜索 search
             this.props.setSearchIdiom(searchIdiom)
-        }
+        }     
 
     }
 
@@ -23,8 +23,7 @@ export default class SearchInput extends Component  {
     return (
             <div className="SearchInput">
                 {/* <div id={props.id}> */}
-                <div className="input-group mb-3">
-       
+                <div className="input-group mb-3">     
                         <input type="search results=5 name=s" className="form-control" placeholder="Enter an idiom here..." ref={input => this.input =input}>
                         </input> 
                         <div className="input-group-append">
