@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-// import ReactDOM from "react-dom";
-// import { Route, withRouter } from 'react-router-dom';
 import "./Language.css";
 import API from "../../utils/languagesAPI"
 import 'react-dropdown/style.css';
-// import LanugageChoice from "./LanguageChoice"
-
 
 class LanguageButton extends Component {
 
