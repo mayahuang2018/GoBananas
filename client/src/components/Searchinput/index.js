@@ -25,9 +25,7 @@ export default class SearchInput extends Component  {
                 {/* <div id={props.id}> */}
                 <div className="input-group mb-3">
        
-
                         <input type="search results=5 name=s" className="form-control" placeholder="Enter an idiom here..." ref={input => this.input =input}>
-
                         </input> 
                         <div className="input-group-append">
                          <button onClick={this.search} className="btn bg-warning text-dark" type="button">Go!

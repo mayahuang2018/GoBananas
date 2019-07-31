@@ -1,7 +1,11 @@
 import React, {Component} from "react";
 import propTypes from "prop-types"
 import "./Searchresult.css"
+
+import LanguageButton from"../LanguageButton"
+
 import API from "../../utils/idiomsAPI"
+
 
 export default class SearchResult extends Component{
 
@@ -18,42 +22,51 @@ export default class SearchResult extends Component{
 
     //当组建接收到新的属性时回调. call back when the component receive a new idiom
     componentWillReceiveProps (newProps){
+        debugger;
+        console.log(newProps);
 
        //指定了新的成语，需要发请求. get a new idiom
-    //    const {searchIdiom} = newProps
+       //const {searchIdiom} = newProps
+
 
        //更新状态（请求中). set loading...
        this.setState({
         initView:false,
-        loading:true 
+        loading:false,
+        idioms: newProps.searchResults
        })
 
        //发ajax请求
-    //    const url = "./idiom.json"
-       API.getIdioms().then(response => {
-       //client/src/components/Searchresult/index.js
-       //client/public/idiom.json
-           //get idiom
-           const result = response.data
-           console.log("result", result)
-           const idioms = result
-        // console.log(result.idioms)
-           // set stste "idioms"
-           this.setState({
-            initView:false,
-            loading:false,
-            idioms 
-           })
 
-       })
-       .catch(error => {
-           // error message
-           this.setState({ 
-            loading:false,
-            errorMasg:error.message
-           })
-       })
-    }
+    //    const url = "./idiom.json"//{$searchIdiom}
+    //    axios.get(url).then(response => {
+    //    //client/src/components/Searchresult/index.js
+    //    //client/public/idiom.json
+    //        //get idiom
+    //        const result = response.data
+    //        console.log(result)
+    //        const idioms = result.idioms.map(idioms=>{
+    //            return{idiom:idioms.idiom, meaning:idioms.meaning}
+    //        })
+    //        console.log(result.idioms[0])
+    //        // set stste "idioms"
+    //        this.setState({
+    //         initView:false,
+    //         loading:false,
+    //         idioms 
+    //        })
+
+    //    })
+    //    .catch(error => {
+    //        // error message
+    //        this.setState({ 
+    //         loading:false,
+    //         errorMasg:error.message
+    //        })
+
+    //    })
+
+
 
 render(){
     const{initView,loading,idioms,errorMasg} = this.state
@@ -74,7 +87,9 @@ render(){
                     <div className="card-body">
                       <h5 className="card-title">{idioms.idiom}</h5>
                       <p className="card-text">{idioms.meaning}</p>
+                   
                       <button href="#" className="btn bg-warning text-dark">Go Translate !</button>
+                     
                     </div>
                   </div> 
                   ) )
