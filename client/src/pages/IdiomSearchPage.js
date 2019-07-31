@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import BananaLogo from "../components/BananaLogo";
 import SearchInput from "../components/Searchinput";
 import SearchResult from "../components/Searchresult";
-
+import API from "../utils/idiomsAPI"
 import axios from "axios"
 
 
@@ -19,7 +19,7 @@ class IdiomSearchPage extends Component {
 
   setSearchIdiom = (search) =>{
     //更新状态 update search idiom
-    debugger;
+    //debugger;
     console.log(`Looking for ${search}`);
     this.getIdiomsResults(search)
       .then(result => {
@@ -36,18 +36,16 @@ class IdiomSearchPage extends Component {
     return new Promise(function (resolve, reject) {
 
     let results = [];
-
+    //API.getIdioms().
     const url = "./idiom.json"//{$searchIdiom}
-    //const url = '/api/idioms'
     axios.get(url).then(response => {
-    //client/src/components/Searchresult/index.js
-    //client/public/idiom.json
+    
         //get idiom
         const result = response.data
-        //console.log(result)
-        debugger;
-        //const filterIdioms = result.idioms.filter(s => s.idiom === searchIdiom);
-        const filterIdioms = result.idioms;
+        console.log(result)
+        //debugger;
+        const filterIdioms = result.idioms.filter(s => s.idiom === searchIdiom);
+        //const filterIdioms = result.idioms;
 
         console.log(filterIdioms);
 
@@ -55,25 +53,10 @@ class IdiomSearchPage extends Component {
             return{idiom:idioms.idiom, meaning:idioms.meaning}
         })
         console.log(idioms)
-
-        //results[0] = result.idioms[0];
-        // set stste "idioms"
-        // this.setState({
-        //  initView:false,
-        //  loading:false,
-        //  idioms 
-        // })
-
         resolve(idioms);
 
     })
     .catch(error => {
-        // error message
-        // this.setState({ 
-        //  loading:false,
-        //  errorMasg:error.message
-        // })
-
         reject(error);
 
     })
