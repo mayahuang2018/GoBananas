@@ -30,7 +30,7 @@ module.exports = {
           message: "user exists and is logged in",
         });
       })
-    .catch(err => {err, "err"});
+      .catch(err => res.status(422).json(err));
   },
 
   // 
@@ -48,7 +48,7 @@ module.exports = {
               username: username,
             },
           })
-            .catch(err => console.log(err, "200"));
+          .catch(err => res.status(422).json(err));
         }
       }
     )(req, res, next)
@@ -81,7 +81,7 @@ module.exports = {
         //must return response
         return res.status(200).json({ success: "true" });
       })
-      .catch(err => console.log(err, "100"));
+      .catch(err => res.status(422).json(err));
   },
 
   update: function (req, res) {
