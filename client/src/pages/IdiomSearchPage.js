@@ -40,8 +40,7 @@ class IdiomSearchPage extends Component {
     // const url = "./idiom.json"//{$searchIdiom}
     const url = '/api/idioms'
     axios.get(url).then(response => {
-    //client/src/components/Searchresult/index.js
-    //client/public/idiom.json
+    
         //get idiom
         const result = response.data
         console.log(result)
@@ -55,25 +54,10 @@ class IdiomSearchPage extends Component {
             return{idiom:idioms.idiom, meaning:idioms.meaning}
         })
         console.log(idioms)
-
-        //results[0] = result.idioms[0];
-        // set stste "idioms"
-        // this.setState({
-        //  initView:false,
-        //  loading:false,
-        //  idioms 
-        // })
-
         resolve(idioms);
 
     })
     .catch(error => {
-        // error message
-        // this.setState({ 
-        //  loading:false,
-        //  errorMasg:error.message
-        // })
-
         reject(error);
 
     })
