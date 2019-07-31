@@ -8,7 +8,6 @@ mongoose.connect(
 );
 
 const idiomSeeds = [
-  [
     {
       "idiom": "A BIRD IN THE HAND IS WORTH TWO IN THE BUSH",
       "meaning": "Having something that is certain is much better than taking a risk for more, because chances are you might lose everything.",
@@ -1184,11 +1183,10 @@ const idiomSeeds = [
       "meaning": "No crime or law breaking big or small will be overlooked.",
       "translation": " "
     }
-  ]
 ];
 
 db.Idioms
-  .remove({})
+  .deleteMany({})
   .then(() => db.Idioms.collection.insertMany(idiomSeeds))
   .then(data => {
     console.log(data.result.n + " records inserted!");
