@@ -1,11 +1,8 @@
 import React, {Component} from "react";
 import propTypes from "prop-types"
+import axios from "axios"
 import "./Searchresult.css"
-
 import LanguageButton from"../LanguageButton"
-
-import API from "../../utils/idiomsAPI"
-
 
 export default class SearchResult extends Component{
 
@@ -28,7 +25,6 @@ export default class SearchResult extends Component{
        //指定了新的成语，需要发请求. get a new idiom
        //const {searchIdiom} = newProps
 
-
        //更新状态（请求中). set loading...
        this.setState({
         initView:false,
@@ -37,7 +33,6 @@ export default class SearchResult extends Component{
        })
 
        //发ajax请求
-
     //    const url = "./idiom.json"//{$searchIdiom}
     //    axios.get(url).then(response => {
     //    //client/src/components/Searchresult/index.js
@@ -66,7 +61,7 @@ export default class SearchResult extends Component{
 
     //    })
 
-
+    }
 
 render(){
     const{initView,loading,idioms,errorMasg} = this.state

@@ -94,8 +94,6 @@ module.exports = passport => {
                 };
                 const userPassword = generateHash(password);
                 
-                
-
                 // looks to the db collection to find a username
                 Users.findOne({ username: req.body.username, password: userPassword }, (err, user) => {
                     if (err) { return done(err); } 
@@ -119,30 +117,30 @@ module.exports = passport => {
             }
         ));
 
-    const opts = {}
-    opts.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken("JWT");
-    opts.secretOrKey = keys.secret
+    // const opts = {}
+    // opts.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken("JWT");
+    // opts.secretOrKey = keys.secret
 
-    passport.use(
-        'jwt',
-        new JWTstrategy(opts, (jwt_payload, done) => {
-            console.log(jwt_payload)
-            Users.findOne({
-                id: jwt_payload.sub
-            }, (err, user) => {
-                if (err) {
-                    return done(err, false);
-                }
-                if (user) {
-                    console.log('user exists');
-                    done(null, user);
-                } else {
-                    console.log("not a user");
-                    done(null, false)
-                }
-            })
-        })
-    );
+    // passport.use(
+    //     'jwt',
+    //     new JWTstrategy(opts, (jwt_payload, done) => {
+    //         console.log(jwt_payload)
+    //         Users.findOne({
+    //             id: jwt_payload.sub
+    //         }, (err, user) => {
+    //             if (err) {
+    //                 return done(err, false);
+    //             }
+    //             if (user) {
+    //                 console.log('user exists');
+    //                 done(null, user);
+    //             } else {
+    //                 console.log("not a user");
+    //                 done(null, false)
+    //             }
+    //         })
+    //     })
+    // );
 
 
 

@@ -17,6 +17,8 @@ export default class SearchInput extends Component  {
             this.props.setSearchIdiom(searchIdiom)
         }
 
+      
+
     }
 
     render(){
