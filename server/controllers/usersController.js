@@ -2,55 +2,50 @@ const passport = require('passport');
 const users = require('../models/Users');
 const bc = require("bcryptjs");
 const keys = require("../config/jwtConfig");
+const jwt = require('jsonwebtoken')
 // fixed
 // Defining methods for the booksController
 module.exports = {
-  findAll: (req, res, next) => {
+  findAll: (req, res) => {
     console.log("jwt route");
-    passport.authenticate('jwt', { session: false }, (err, user, info) => {
-      if (err) {
-        console.log(err);
-      }
-      if (info != undefined) {
-        console.log(info.message);
-        return res.send(info.message);
-      } else {
-        console.log('user found in db');
-        return res.status(200).send({
-          loggedIn: true,
-          user: req.user,
-        });
-      }
-    })(req, res, next)
-    .then(keys => {
-        const token = ({ id: users.username }, keys);
-        return res.status(200).send({
-          auth: true,
-          token: token,
-          message: "user exists and is logged in",
-        });
-      })
-      .catch(err => res.status(422).json(err));
+    passport.authenticate('jwt', { session: false }, (user) => {
+      res.status(200).send({ user })
+    })
   },
-
-  // 
 
   findOne: (req, res, next) => {
     console.log("login route");
-    passport.authenticate('local-login', (err, username, info) => {
+    passport.authenticate('local-login', { session: false }, (err, username, info) => {
       if (err) { console.log(err) }
-      else if (info != undefined) {
+      else if (info) {
         console.log(info.message);
-         return res.send(info.message);
-      } else {
-          users.findOne({
-            where: {
-              username: username,
-            },
-          })
-          .catch(err => res.status(422).json(err));
-        }
+        // return res.send(info.message);
+        // based off of freecodecamp example
+        const payload = {
+          username: username,
+        };
+        console.log(123)
+
+        req.logIn(payload, { session: false }, (error => {
+          if (error) {
+            res.status(400).send({ error });
+          }
+
+
+          const stuffInsideToken = ({ id: users.username });
+          const token = jwt.sign(stuffInsideToken, keys.secret)
+          res.cookie('jwt', token, { httpOnly: true, secure: true });
+          return res.status(200).send({
+            auth: true,
+            token: token,
+            message: "user exists and is logged in",
+          });
+
+          // res.send(token);
+        })
+        )
       }
+    }
     )(req, res, next)
   },
 
