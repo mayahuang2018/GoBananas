@@ -31,7 +31,6 @@ module.exports = {
             res.status(400).send({ error });
           }
 
-
           const stuffInsideToken = ({ id: users.username });
           const token = jwt.sign(stuffInsideToken, keys.secret)
           res.cookie('jwt', token, { httpOnly: true, secure: true });
