@@ -16,6 +16,7 @@ module.exports = {
   findOne: (req, res, next) => {
     console.log("login route");
     passport.authenticate('local-login', { session: false }, (err, username, info) => {
+      console.log("passport local-login")
       if (err) { console.log(err) }
       else if (info) {
         console.log(info.message);

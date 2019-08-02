@@ -14,5 +14,6 @@ networks:
     external:
       name: ga-tech
 
+#needs a mongo seeds
 # CLI Access:
 # docker-compose run --rm mongo-server mongo --host mongo-server

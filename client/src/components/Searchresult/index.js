@@ -1,9 +1,9 @@
   
  import React, {Component} from "react";
  import propTypes from "prop-types"
- import axios from "axios"
  import "./Searchresult.css"
  import LanguageButton from"../LanguageButton"
+//  import TranslatedDescription from "../TranslatedDescription"
  
  export default class SearchResult extends Component{
  
@@ -54,9 +54,10 @@
                      <div className="card-body">
                        <h5 className="card-title">{idioms.idiom} </h5>
                        <p className="card-text">{idioms.meaning}</p>
-                    
+                       <LanguageButton />
                        <button href="#" className="btn bg-warning text-dark">Go Translate !</button>
                        <button className="btn bg-warning text-dark"><i className="far fa-heart"></i></button>
+                       {/* <TranslatedDescription /> */}
                      </div>
                    </div> 
                    ) )

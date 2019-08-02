@@ -59,7 +59,6 @@ module.exports = passport => {
                         });
                     }
 
-
                     if (!user) {
                         return done(null, false, {
                                 message: "some message #1"
