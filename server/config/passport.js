@@ -53,6 +53,12 @@ module.exports = passport => {
                 Users.findOne({ username: req.body.username }, (err, user) => {
                     if (err) { return done(err); } 
 
+                    if (user) {
+                        return done(null, true, {
+                            message: "user"
+                        });
+                    }
+
                     if (!user) {
                         return done(null, false, {
                                 message: "some message #1"
