@@ -15,6 +15,8 @@ class IdiomSearchPage extends Component {
   state = {
     searchIdiom: '',
     searchResults: [],
+    auth: "",
+
   }
 
   setSearchIdiom = (search) =>{
@@ -37,13 +39,16 @@ class IdiomSearchPage extends Component {
 
     let results = [];
     //API.getIdioms().
+
     //const url = "./idiom.json"
     const url ="/api/idioms"
     axios.get(url).then(response => {
     
+      console.log("new")
         //get idiom
         const result = response.data
         console.log(result)
+
 
         //const filterIdioms = result.idioms.filter(s => s.idiom === searchIdiom);
         const filterIdioms = result.filter(s => s.idiom === searchIdiom);

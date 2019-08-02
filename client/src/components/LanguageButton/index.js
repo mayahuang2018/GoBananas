@@ -15,6 +15,7 @@ class LanguageButton extends Component {
                 const buttonLanguagesArray = res.data;
                 this.setState({ buttonLanguagesArray })
             })
+            .catch(err => {console.log("error:", err)})
     }
 
     render() {
