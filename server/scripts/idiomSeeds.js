@@ -1187,7 +1187,7 @@ const idiomSeeds = [
 ];
 
 db.Idioms
-  .deleteMany({})
+  .remove({})
   .then(() => db.Idioms.collection.insertMany(idiomSeeds))
   .then(data => {
     console.log(data.result.n + " records inserted!");

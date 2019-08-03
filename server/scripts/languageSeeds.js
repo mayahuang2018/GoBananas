@@ -268,7 +268,7 @@ const languageSeeds = [
    ]
 
    db.Languages
-  .deleteMany({})
+  .remove({})
   .then(() => db.Languages.collection.insertMany(languageSeeds))
   .then(data => {
     console.log(data.result.n + " records inserted!");
