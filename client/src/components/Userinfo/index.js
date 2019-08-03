@@ -1,6 +1,5 @@
 import React from "react";
 import SavedIdiomCard from "../Savedidiom/index"
-import Carousel from "../Carousel/index";
 import "./Userinfo.css"
 
 // make axios call to get user info
@@ -20,7 +19,6 @@ function UserInfoSection(props) {
             </div>
             <div className="container">
             <SavedIdiomCard />
-            {/* <Carousel /> */}
             </div>
             
       </div>
