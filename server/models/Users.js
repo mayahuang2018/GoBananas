@@ -7,7 +7,7 @@ const UsersSchema = new Schema({
   last_name: { type: String, required: true, trim: true },
   email: { type: String, require: true, trim: true, match: [/.+@.+\..+/, "Please enter a valid e-mail address"] },
   password: { type: String, required: true, trim: true, validate: [input => input.length >= 6] },
-  saved_idioms: { type: Sring }
+  saved_idioms: { type: String }
 });
 
 const Users = mongoose.model("Users", UsersSchema);
