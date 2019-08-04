@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_t906tgsp:pr9oig0jc05d6lcd9br4b6i3pf@ds113169.mlab.com:13169/heroku_t906tgsp", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/goBananas", { useNewUrlParser: true });
   // "mongodb://heroku_t906tgsp:pr9oig0jc05d6lcd9br4b6i3pf@ds113169.mlab.com:13169/heroku_t906tgsp"
   mongoose.set('useNewUrlParser', true);
   mongoose.set('useFindAndModify', false);
@@ -11,259 +11,259 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_t906tgsp:pr9oig0jc
 const languageSeeds = [
     {
       language: "Afrikaans",
-      language_code: "af"
+      languageCode: "af"
     },
     {
       language: "Arabic",
-      language_code: "ar"
+      languageCode: "ar"
     },
     {
       language: "Bangla",
-      language_code: "bn"
+      languageCode: "bn"
     },
     {
       language: "Bosnian (Latin)",
-      language_code: "bs"
+      languageCode: "bs"
     },
     {
       language: "Bulgarian",
-      language_code: "bg"
+      languageCode: "bg"
     },
     {
       language: "Cantonese (Traditional)",
-      language_code: "yue"
+      languageCode: "yue"
     },
     {
       language: "Catalan",
-      language_code: "ca"
+      languageCode: "ca"
     },
     {
       language: "Chinese Simplified",
-      language_code: "zh-Hans"
+      languageCode: "zh-Hans"
     },
     {
       language: "Chinese Traditional",
-      language_code: "zh-Hant"
+      languageCode: "zh-Hant"
     },
     {
       language: "Croatian",
-      language_code: "hr"
+      languageCode: "hr"
     },
     {
       language: "Czech",
-      language_code: "cs"
+      languageCode: "cs"
     },
     {
       language: "Danish",
-      language_code: "da"
+      languageCode: "da"
     },
     {
       language: "Dutch",
-      language_code: "nl"
+      languageCode: "nl"
     },
     {
       language: "English",
-      language_code: "en"
+      languageCode: "en"
     },
     {
       language: "Estonian",
-      language_code: "et"
+      languageCode: "et"
     },
     {
       language: "Fijian",
-      language_code: "fj"
+      languageCode: "fj"
     },
     {
       language: "Filipino",
-      language_code: "fil"
+      languageCode: "fil"
     },
     {
       language: "Finnish",
-      language_code: "fi"
+      languageCode: "fi"
     },
     {
       language: "French",
-      language_code: "fr"
+      languageCode: "fr"
     },
     {
       language: "German",
-      language_code: "de"
+      languageCode: "de"
     },
     {
       language: "Greek",
-      language_code: "el"
+      languageCode: "el"
     },
     {
       language: "Haitian Creole",
-      language_code: "ht"
+      languageCode: "ht"
     },
     {
       language: "Hebrew",
-      language_code: "he"
+      languageCode: "he"
     },
     {
       language: "Hindi",
-      language_code: "hi"
+      languageCode: "hi"
     },
     {
       language: "Hmong Daw",
-      language_code: "mww"
+      languageCode: "mww"
     },
     {
       language: "Hungarian",
-      language_code: "hu"
+      languageCode: "hu"
     },
     {
       language: "Icelandic",
-      language_code: "is"
+      languageCode: "is"
     },
     {
       language: "Indonesian",
-      language_code: "id"
+      languageCode: "id"
     },
     {
       language: "Italian",
-      language_code: "it"
+      languageCode: "it"
     },
     {
       language: "Japanese",
-      language_code: "ja"
+      languageCode: "ja"
     },
     {
       language: "Kiswahili",
-      language_code: "sw"
+      languageCode: "sw"
     },
     {
       language: "Klingon",
-      language_code: "tlh"
+      languageCode: "tlh"
     },
     {
       language: "Klingon (plqaD)",
-      language_code: "tlh-Qaak"
+      languageCode: "tlh-Qaak"
     },
     {
       language: "Korean",
-      language_code: "ko"
+      languageCode: "ko"
     },
     {
       language: "latvian",
-      language_code: "lv"
+      languageCode: "lv"
     },
     {
       language: "lithuanian",
-      language_code: "lt"
+      languageCode: "lt"
     },
     {
       language: "Malagasy",
-      language_code: "mg"
+      languageCode: "mg"
     },
     {
       language: "Malay",
-      language_code: "ms"
+      languageCode: "ms"
     },
     {
       language: "Maltese",
-      language_code: "mt"
+      languageCode: "mt"
     },
     {
       language: "Norwegian",
-      language_code: "nb"
+      languageCode: "nb"
     },
     {
       language: "Persian",
-      language_code: "fa"
+      languageCode: "fa"
     },
     {
       language: "Polish",
-      language_code: "pl"
+      languageCode: "pl"
     },
     {
       language: "Portuguese",
-      language_code: "pt"
+      languageCode: "pt"
     },
     {
       language: "Queretaro Otomi",
-      language_code: "otq"
+      languageCode: "otq"
     },
     {
       language: "Romanian",
-      language_code: "ro"
+      languageCode: "ro"
     },
     {
       language: "Russian",
-      language_code: "ru"
+      languageCode: "ru"
     },
     {
       language: "Samoan",
-      language_code: "sm"
+      languageCode: "sm"
     },
     {
       language: "Serbian (Cyrillic)",
-      language_code: "sr-Cyrl"
+      languageCode: "sr-Cyrl"
     },
     {
       language: "Serbian (Latin)",
-      language_code: "sr-Latn"
+      languageCode: "sr-Latn"
     },
     {
       language: "Slovak",
-      language_code: "sk"
+      languageCode: "sk"
     },
     {
       language: "Slovenian",
-      language_code: "sl"
+      languageCode: "sl"
     },
     {
       language: "Spanish",
-      language_code: "es"
+      languageCode: "es"
     },
     {
       language: "Swedish",
-      language_code: "sv"
+      languageCode: "sv"
     },
     {
       language: "Tahitian",
-      language_code: "ty"
+      languageCode: "ty"
     },
     {
       language: "Tamil",
-      language_code: "ta"
+      languageCode: "ta"
     },
     {
       language: "Telugu",
-      language_code: "te"
+      languageCode: "te"
     },
     {
       language: "Thai",
-      language_code: "th"
+      languageCode: "th"
     },
     {
       language: "Tongan",
-      language_code: "to"
+      languageCode: "to"
     },
     {
       language: "Turkish",
-      language_code: "tr"
+      languageCode: "tr"
     },
     {
       language: "Ukrainian",
-      language_code: "uk"
+      languageCode: "uk"
     },
     {
       language: "Urdu",
-      language_code: "ur"
+      languageCode: "ur"
     },
     {
       language: "Vietnamese",
-      language_code: "vi"
+      languageCode: "vi"
     },
     {
       language: "Welsh",
-      language_code: "cy"
+      languageCode: "cy"
     },
     {
       language: "Yucatec Maya",
-      language_code: "yua"
+      languageCode: "yua"
     }
    ]
 

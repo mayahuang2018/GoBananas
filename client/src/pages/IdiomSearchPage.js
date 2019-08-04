@@ -38,8 +38,8 @@ class IdiomSearchPage extends Component {
     return new Promise(function (resolve, reject) {
 
     let results = [];
-    const url = "./idiom.json"
-    //const url ="/api/idioms"
+    // const url = "./idiom.json"
+    const url ="/api/idioms"
     axios.get(url).then(response => {
     
       console.log("new")
