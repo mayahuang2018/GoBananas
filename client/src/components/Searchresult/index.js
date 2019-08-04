@@ -35,7 +35,7 @@
         })
  
      }
-//   comment
+//   comment comment
 
  render(){
      const{initView,loading,idioms,errorMasg} = this.state
