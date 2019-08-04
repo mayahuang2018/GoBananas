@@ -44,12 +44,12 @@ function App() {
       <div>
         <Switch>
           {/* <Route exact path="/" component={} /> */}
-          <Route exact path="/SignupPage" component={SignupPage} />
+          <Route exact path="/" component={StartPage} />
           <Route path="/LoginPage" component={LoginPage} />
           <Route path ="/IdiomSearchPage" component={IdiomSearchPage} />
           {/* <Route exact path ="/ProfilePage" component={ProfilePage} /> */}
           <Route path="/Carousel" component={Carousel} />
-          <Route path="/" component={StartPage} />
+          <Route path="/Signup" component={SignupPage} />
           <Route path="/TranslatePage" component={TranslatePage} />
         </Switch>
         <Footer />
