@@ -18,5 +18,10 @@ export default {
   saveUser: function(usersData) {
     console.log(usersData)
     return axios.post("/api/signup", usersData);
+  },
+
+  saveIdiom: function(idiom, meaning, translation) {
+    console.log(idiom);
+    return axios.post("api/users", {idiom: idiom, meaning: meaning, translation: translation })
   }
 };
