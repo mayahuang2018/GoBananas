@@ -35,7 +35,8 @@
         })
  
      }
- 
+//   comment
+
  render(){
      const{initView,loading,idioms,errorMasg} = this.state
      const {searchIdiom} = this.props
