@@ -35,7 +35,7 @@ import Carousel from "./pages/Carousel";
 //          path="/grants" component={Grants}/>
 //       <Redirect from="/" to={lastTab}/>
 //     </Switch>
-
+// https://medium.com/@s4y.solutions/react-route-4-protected-route-even-simpler-9b89dc129cde
 
 
 function App() {
@@ -45,12 +45,12 @@ function App() {
         <Switch>
           {/* <Route exact path="/" component={} /> */}
           <Route exact path="/SignupPage" component={SignupPage} />
-          <Route exact path="/LoginPage" component={LoginPage} />
-          <Route exact path ="/IdiomSearchPage" component={IdiomSearchPage} />
+          <Route path="/LoginPage" component={LoginPage} />
+          <Route path ="/IdiomSearchPage" component={IdiomSearchPage} />
           {/* <Route exact path ="/ProfilePage" component={ProfilePage} /> */}
-          <Route exact path="/Carousel" component={Carousel} />
-          <Route exact path="/" component={StartPage} />
-          <Route exact path="/TranslatePage" component={TranslatePage} />
+          <Route path="/Carousel" component={Carousel} />
+          <Route path="/" component={StartPage} />
+          <Route path="/TranslatePage" component={TranslatePage} />
         </Switch>
         <Footer />
       </div>
@@ -58,7 +58,7 @@ function App() {
   );
 }
 
-
+// https://reacttraining.com/react-router/web/example/auth-workflow
 // function AuthExample() {
 //   return (
 //     <Router>
