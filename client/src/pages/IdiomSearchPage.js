@@ -15,8 +15,6 @@ class IdiomSearchPage extends Component {
   state = {
     searchIdiom: '',
     searchResults: [],
-    auth: "",
-
   }
 
   setSearchIdiom = (search) =>{
@@ -48,7 +46,7 @@ class IdiomSearchPage extends Component {
         console.log(result)
 
 
-        const filterIdioms = result.idioms.filter(s => s.idiom === searchIdiom);
+        const filterIdioms = result.filter(s => s.idiom === searchIdiom);
         //const filterIdioms = result.filter(s => s.idiom === searchIdiom);
         //const filterIdioms = result.idioms;
 
