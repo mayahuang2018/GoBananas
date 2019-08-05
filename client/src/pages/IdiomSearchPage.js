@@ -41,7 +41,7 @@ class IdiomSearchPage extends Component {
     //API.getIdioms().
 
     //const url = "./idiom.json"
-    const url ="/api/idioms"
+     const url ="/api/idioms"
     axios.get(url).then(response => {
     
       console.log("new")
@@ -51,7 +51,7 @@ class IdiomSearchPage extends Component {
 
 
         //const filterIdioms = result.idioms.filter(s => s.idiom === searchIdiom);
-        const filterIdioms = result.filter(s => s.idiom === searchIdiom);
+      const filterIdioms = result.filter(s => s.idiom === searchIdiom);
         //const filterIdioms = result.idioms;
 
         console.log(filterIdioms);
