@@ -1,4 +1,3 @@
-  
  import React, {Component} from "react";
  import propTypes from "prop-types"
  import "./Searchresult.css"
@@ -35,8 +34,7 @@
         })
  
      }
-//   comment comment
-
+ 
  render(){
      const{initView,loading,idioms,errorMasg} = this.state
      const {searchIdiom} = this.props
