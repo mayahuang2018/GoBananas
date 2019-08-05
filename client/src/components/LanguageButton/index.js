@@ -1,36 +1,51 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import "./Language.css";
 import API from "../../utils/languagesAPI"
-import 'react-dropdown/style.css';
+
 
 class LanguageButton extends Component {
-
-    state = {
-        buttonLanguagesArray: [],
+    constructor(props) {
+        super(props);
+        this.state = {
+            buttonLanguagesArray: [],
+        };
+        console.log(this.state.value)
     }
 
     componentDidMount() {
         API.getLanguagesAll()
             .then(res => {
                 const buttonLanguagesArray = res.data;
-                this.setState({ buttonLanguagesArray })
+                this.setState({ buttonLanguagesArray });
+                console.log(buttonLanguagesArray);
             })
-            .catch(err => {console.log("error:", err)})
+            .catch(err => { console.log("error:", err) })
     }
 
+    handleChange = event => {
+        this.setState({
+            value: event.target.value
+        });
+        console.log(event.target.value)
+    };
+
     render() {
+        const { buttonLanguagesArray } = this.state;
+
+        let buttonLanguagesArrayList = buttonLanguagesArray.length >= 0
+            && buttonLanguagesArray.map((item, i) => {
+                return (
+                    <option key={i} value={item.languageCode}>{item.language}</option>
+                )
+            }, this);
+
         return (
             <div>
-                <div className="dropdown">
-                    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Language
-                    </button>
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    { this.state.buttonLanguagesArray.map((buttonLanguage, index) => <div className="dropdown-item" type="button" key={index}>{ buttonLanguage.language }</div>)}
-                    </div>       
-                </div>
+                <select onChange={this.handleChange}> 
+                    {buttonLanguagesArrayList}
+                </select>
             </div>
-        )
+        );
     }
 }
 
