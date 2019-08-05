@@ -39,7 +39,7 @@ module.exports = passport => {
 
                 // compares the password the user enters at login to the stored hashed password 
                 const isValidPassword = (userpass, password) => {
-                    console.log(password, userpass)
+                    console.log(password, userpass, "userpass")
                     return bc.compareSync(password, userpass);
                 };
                 
@@ -52,6 +52,12 @@ module.exports = passport => {
                 // looks to the db collection to find a username
                 Users.findOne({ username: req.body.username }, (err, user) => {
                     if (err) { return done(err); } 
+
+                    if (user) {
+                        return done(null, true, {
+                            message: "user"
+                        });
+                    }
 
                     if (!user) {
                         return done(null, false, {

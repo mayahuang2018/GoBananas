@@ -13,6 +13,8 @@ RUN yarn
 # Adding  server-side / api files to image
 ADD server /app
 
+#seedDB
+
 # Preparing client files for production and docker image
 RUN mkdir /client
 COPY client/package.json /client
