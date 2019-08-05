@@ -13,6 +13,8 @@ class LikeButton extends React.Component {
       this.setState({
         liked: !this.state.liked
       });
+      
+
     }
     
     render() {

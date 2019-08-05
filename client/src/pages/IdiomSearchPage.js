@@ -20,7 +20,7 @@ class IdiomSearchPage extends Component {
   }
 
   setSearchIdiom = (search) =>{
-    //更新状态 update search idiom
+    //update search idiom
 
     console.log(`Looking for ${search}`);
     this.getIdiomsResults(search)
@@ -38,8 +38,8 @@ class IdiomSearchPage extends Component {
     return new Promise(function (resolve, reject) {
 
     let results = [];
-    const url = "./idiom.json"
-    //const url ="/api/idioms"
+    //const url = "./idiom.json"
+    const url ="/api/idioms"
     axios.get(url).then(response => {
     
       console.log("new")
@@ -47,9 +47,7 @@ class IdiomSearchPage extends Component {
         const result = response.data
         console.log(result)
 
-
-        const filterIdioms = result.idioms.filter(s => s.idiom === searchIdiom);
-        //const filterIdioms = result.filter(s => s.idiom === searchIdiom);
+        const filterIdioms = result.filter(s => s.idiom === searchIdiom);
         //const filterIdioms = result.idioms;
 
         console.log(filterIdioms);

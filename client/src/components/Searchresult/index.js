@@ -4,7 +4,7 @@
  import "./Searchresult.css"
  import LanguageButton from"../LanguageButton"
  import LikeButton from "../LikeButton"
-//  import TranslatedDescription from "../TranslatedDescription"
+ import TranslatedDescription from "../TranslatedDescription"
  
  export default class SearchResult extends Component{
  
@@ -18,14 +18,11 @@
          idioms:null,
          errorMasg:null
      }
- 
+
      //call back when the component receive a new idiom
      componentWillReceiveProps (newProps){
          //debugger;
          console.log(newProps);
- 
-        //get a new idiom
-        //const {searchIdiom} = newProps
  
         //set loading...
         this.setState({
@@ -34,7 +31,7 @@
          idioms: newProps.searchResults
         })
  
-     }
+     };
  
  render(){
      const{initView,loading,idioms,errorMasg} = this.state
@@ -47,7 +44,7 @@
      }else if(errorMasg){
          return <h3>{errorMasg}</h3>
      }else{
-         return (
+         return (           
              <div className="SearchResult">
                  {
                      idioms.map((idioms,index) => (
@@ -58,7 +55,7 @@
                        <LanguageButton />
                        <button href="#" className="btn bg-warning text-dark">Go Translate !</button>
                        <LikeButton />
-                       {/* <TranslatedDescription /> */}
+                       <TranslatedDescription />
                      </div>
                    </div> 
                    ) )

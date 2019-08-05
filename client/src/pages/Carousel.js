@@ -13,7 +13,7 @@ class CardSave extends Component {
       <NavBar />
             <UserInfoSection /> 
              {/* <Carousel />  */}
-            <Footer /> 
+      <Footer /> 
    </div>
   );
 }
