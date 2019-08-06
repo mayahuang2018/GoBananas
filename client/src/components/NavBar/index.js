@@ -8,11 +8,9 @@ function NavBar(props) {
 
   <div id="navbarSupportedContent">
     <ul className="navbar-nav">
+
       <li className="nav-item active">
-        {/* <button onClick = {foo}>执行操作 Perform Action</ button> */}
-      </li>
-      <li className="nav-item active">
-      <a className="nav-link" href="/Carousel">My idioms</a>
+      <a className="nav-link" href="/User">My idioms</a>
       </li>
     </ul>
    

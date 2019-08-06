@@ -1,6 +1,6 @@
 import React from "react";
 import "./Savedidiom.css"
-import { Input, FormBtn } from "../Loginform/index";
+import DeleteBtn from "../DeleteBtn/index";
 
 
 function SavedIdiomCard(props) {
@@ -13,9 +13,7 @@ function SavedIdiomCard(props) {
                 <div className="back">
                     Explanation
                     <br></br>
-                    <FormBtn >
-                    <i className="fas fa-trash-alt"></i>
-                    </ FormBtn>
+                    <DeleteBtn />
                 </div>
         </div>
     );

@@ -48,8 +48,8 @@ function App() {
           <Route path="/LoginPage" component={LoginPage} />
           <Route path ="/IdiomSearchPage" component={IdiomSearchPage} />
           {/* <Route exact path ="/ProfilePage" component={ProfilePage} /> */}
-          <Route path="/Carousel" component={Carousel} />
-          <Route path="/Signup" component={SignupPage} />
+          <Route path="/User" component={Carousel} />
+          <Route path="/SignupPage" component={SignupPage} />
           <Route path="/TranslatePage" component={TranslatePage} />
         </Switch>
         <Footer />

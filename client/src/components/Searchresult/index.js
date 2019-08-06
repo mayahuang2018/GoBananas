@@ -48,7 +48,7 @@
                  {
                      idioms.map((idioms,index) => (
                      <div className="card rearchCard col-6" key={index}>
-                     <div className="card-body">
+                     <div className="card-body" data-id={idioms._id}>
                        <h5 className="card-title">{idioms.idiom} </h5>
                        <p className="card-text">{idioms.meaning}</p>
                        <LanguageButton />
