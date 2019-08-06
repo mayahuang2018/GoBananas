@@ -10,10 +10,12 @@ class LikeButton extends React.Component {
     } 
     
     handleClick() {
+      
       this.setState({
         saved: !this.state.saved
        //data-id={Users._id}
       });
+
     }
     
     render() {
