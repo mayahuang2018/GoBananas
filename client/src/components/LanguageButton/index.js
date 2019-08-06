@@ -10,7 +10,13 @@ if (!subscriptionKey) {
 };
 
 class LanguageButton extends Component {
- 
+
+    state = {
+        buttonLanguagesArray: [],
+        languageCode: "",
+        idioms: null
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -20,6 +26,16 @@ class LanguageButton extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
+
+    componentWillReceiveProps(newProps) {
+        console.log(newProps);
+        //set loading...
+        this.setState({
+            idioms: newProps.searchResults,  
+        })
+
+    }   
+    
     componentDidMount() {
         API.getLanguagesAll()
             .then(res => {

@@ -8,15 +8,15 @@ import UserInfoSection from "../components/Userinfo"
 
 class CardSave extends Component {
   render() {
-  return (
-    <div className ="CarouselPage">
-      <NavBar />
-            <UserInfoSection /> 
-             {/* <Carousel />  */}
-            <Footer /> 
-   </div>
-  );
-}
+    return (
+      <div className="CarouselPage">
+        <NavBar />
+        <UserInfoSection />
+        {/* <Carousel />  */}
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default CardSave;
