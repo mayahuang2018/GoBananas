@@ -18,16 +18,12 @@ export default class SearchResult extends Component {
         loading: false,
         idioms: null,
         errorMasg: null,
-        languageCode: ""
     }
 
     //call back when the component receive a new idiom
     componentWillReceiveProps(newProps) {
         //debugger;
         console.log(newProps);
-
-        //get a new idiom
-        //const {searchIdiom} = newProps
 
         //set loading...
         this.setState({
@@ -38,7 +34,6 @@ export default class SearchResult extends Component {
         })
 
     }
-    //   comment
 
     render() {
         const { initView, loading, idioms, errorMasg } = this.state
@@ -60,7 +55,6 @@ export default class SearchResult extends Component {
                                     <h5 className="card-title">{idioms.idiom} </h5>
                                     <p className="card-text">{idioms.meaning}</p>
                                     <LanguageButton  />
-                                    <button href="#" className="btn bg-warning text-dark">Go Translate !</button>
                                     <LikeButton />
                                     {/* <TranslatedDescription /> */}
                                 </div>
