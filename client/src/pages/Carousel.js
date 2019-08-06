@@ -8,6 +8,7 @@ import UserInfoSection from "../components/Userinfo"
 
 class CardSave extends Component {
   render() {
+<<<<<<< HEAD
   return (
     <div className ="CarouselPage">
       <NavBar />
@@ -17,6 +18,17 @@ class CardSave extends Component {
    </div>
   );
 }
+=======
+    return (
+      <div className="CarouselPage">
+        <NavBar />
+        <UserInfoSection />
+        {/* <Carousel />  */}
+        <Footer />
+      </div>
+    );
+  }
+>>>>>>> 05ed957e50f6e081d43011ecb3d32a59eb06b5ad
 }
 
 export default CardSave;

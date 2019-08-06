@@ -31,4 +31,3 @@ class LikeButton extends React.Component {
   }
 
   export default LikeButton;
-

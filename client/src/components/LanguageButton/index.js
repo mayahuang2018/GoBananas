@@ -1,17 +1,41 @@
 import React, { Component } from 'react';
 import "./Language.css";
-import API from "../../utils/languagesAPI"
-
+import API from "../../utils/languagesAPI";
+// import propTypes from 'prop-types';
+const request = require('request');
+const uuidv4 = require('uuid/v4');
+const subscriptionKey = "aa4b796d586a40bc9e33ba503ea1d3c4";
+if (!subscriptionKey) {
+    throw new Error('Environment variable for your subscription key is not set.')
+};
 
 class LanguageButton extends Component {
+
+    state = {
+        buttonLanguagesArray: [],
+        languageCode: "",
+        idioms: null
+    }
+
     constructor(props) {
         super(props);
         this.state = {
             buttonLanguagesArray: [],
+            languageCode: "",
         };
-        console.log(this.state.value)
+        this.handleChange = this.handleChange.bind(this)
     }
 
+
+    componentWillReceiveProps(newProps) {
+        console.log(newProps);
+        //set loading...
+        this.setState({
+            idioms: newProps.searchResults,  
+        })
+
+    }   
+    
     componentDidMount() {
         API.getLanguagesAll()
             .then(res => {
@@ -24,10 +48,37 @@ class LanguageButton extends Component {
 
     handleChange = event => {
         this.setState({
-            value: event.target.value
+            languageCode: event.target.value
         });
-        console.log(event.target.value)
+        console.log(event.target.value);
+        this.translateText(event.target.value); //need to pass the selected idiom to be translated
     };
+
+    translateText = (l, i) => {    // need to pass the selected idiom to be translated
+
+        let options = {
+            method: 'POST',
+            baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+            url: 'translate',
+            qs: {
+                'api-version': '3.0',
+                'to': [l]
+            },
+            headers: {
+                'Ocp-Apim-Subscription-Key': subscriptionKey,
+                'Content-type': 'application/json',
+                'X-ClientTraceId': uuidv4().toString()
+            },
+            body: [{
+                'text': i
+            }],
+            json: true,
+        };
+
+        request(options, function (err, res, body) {
+            console.log(JSON.stringify(body, null, 4));
+        });
+    }
 
     render() {
         const { buttonLanguagesArray } = this.state;
@@ -41,7 +92,7 @@ class LanguageButton extends Component {
 
         return (
             <div>
-                <select onChange={this.handleChange}> 
+                <select onChange={this.handleChange}>
                     {buttonLanguagesArrayList}
                 </select>
             </div>

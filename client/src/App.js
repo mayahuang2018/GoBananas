@@ -9,6 +9,7 @@ import StartPage from "./pages/StartPage";
 import Footer from "./components/Footer";
 import "./App.css";
 import Carousel from "./pages/Carousel";
+// import PrivateRoute from ".//components/PrivateRoutes"
 
 // const ProtectedRoute 
 //   = ({ isAllowed, ...props }) => 
