@@ -15,7 +15,7 @@ const usersSeeds = [
     username: "tester1",
     email: "testy@tester.com",
     password: "1234567890",
-    saved_idioms: ""
+    saved_idioms: "",
   }]
 
 db.Users

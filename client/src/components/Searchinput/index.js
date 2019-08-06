@@ -16,9 +16,6 @@ export default class SearchInput extends Component  {
             //搜索 search
             this.props.setSearchIdiom(searchIdiom)
         }     
-
-      
-
     }
 
     render(){
