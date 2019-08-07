@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
-import propTypes from "prop-types"
+import propTypes from "prop-types";
+import Carousel from "../Carousel"
 import "./Searchresult.css"
 // import LanguageButton from "../LanguageButton"
 import LikeButton from "../LikeButton"
@@ -128,6 +129,7 @@ export default class SearchResult extends Component {
                             </div>
                         ))
                     }
+                   
                 </div>
             );
         }
