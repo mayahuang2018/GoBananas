@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
+import Carousel from "../components/Carousel"
 // import { Input, FormBtn } from "../components/Loginform/index";
 import BananaLogo from "../components/BananaLogo";
 import SearchInput from "../components/Searchinput";
@@ -35,7 +36,8 @@ class IdiomSearchPage extends Component {
 
   getIdiomsResults = (searchIdiom) => {
     return new Promise(function (resolve, reject) {
-    const url ="/api/idioms"
+    //const url ="/api/idioms"
+    const url = "idiom.json"
     axios.get(url).then(response => {
       console.log("new")
         //get idiom
@@ -62,6 +64,7 @@ class IdiomSearchPage extends Component {
         <BananaLogo />
         <SearchInput setSearchIdiom={this.setSearchIdiom}/>
         <SearchResult searchResults={this.state.searchResults}/>
+        
         <Footer />
       </div>
     );
