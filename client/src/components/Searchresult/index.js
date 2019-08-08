@@ -84,7 +84,7 @@ export default class SearchResult extends Component {
 
         const setText = (text) => {
             console.log("setText function")
-            this.setState({translatedText: text})
+            this.setState({ translatedText: text })
             console.log("this works")
         };
 
@@ -143,30 +143,30 @@ export default class SearchResult extends Component {
             return (
                 <div className="row d-flex">
                     <div className="col-lg-12">
-                <div className="SearchResult ml5">
-                    {
-                        idioms.map((idioms, index) => (
-                            <div className="card rearchCard col-6" key={index}>
-                                <div className="card-body">
-                                    <h5 className="card-title">{idioms.idiom} </h5>
-                                    <p className="card-text">{idioms.meaning}</p>
-                                    <br></br>
-                                    <div>
-                                        <select onChange={this.handleChange}>
-                                            {/* <option value="es"> Spanish </option> */}
-                                            {buttonLanguagesArrayList}
-                                        </select>
+                        <div className="SearchResult ml5">
+                            {
+                                idioms.map((idioms, index) => (
+                                    <div className="card rearchCard col-6" key={index}>
+                                        <div className="card-body">
+                                            <h5 className="card-title">{idioms.idiom} </h5>
+                                            <p className="card-text">{idioms.meaning}</p>
+                                            <br></br>
+                                            <div>
+                                                <select onChange={this.handleChange}>
+                                                    {/* <option value="es"> Spanish </option> */}
+                                                    {buttonLanguagesArrayList}
+                                                </select>
+                                            </div>
+                                            <br></br>
+                                            <h5 className="card-title">{translatedText} </h5>
+                                            {/* <p className="card-text">Placeholder - translation</p> */}
+                                            <LikeButton />
+                                        </div>
                                     </div>
-                                    <br></br>
-                                    <h5 className="card-title">{translatedText} </h5>
-                                    {/* <p className="card-text">Placeholder - translation</p> */}
-                                    <LikeButton />
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-                </div>
+                                ))
+                            }
+                        </div>
+                    </div>
                 </div>
             );
         }
