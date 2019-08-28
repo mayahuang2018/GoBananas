@@ -11,6 +11,11 @@ const path = require("path");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());  
+
+app.get("/health",function (req, res) {
+    res.status(200).send("OK");
+});
+
 app.use("/api", router);
 
 
@@ -27,14 +32,15 @@ if (process.env.NODE_ENV === "development") {
   app.use(express.static("./public"));
 }
 
-
-// mongoose.set('useCreateIndex, true');
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/goBananas", { useNewUrlParser: true });
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_t906tgsp:pr9oig0jc05d6lcd9br4b6i3pf@ds113169.mlab.com:13169/heroku_t906tgsp", { useNewUrlParser: true });
-
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
+
+// mongoose.set('useCreateIndex, true');
+mongoose.connect(process.env.MONGO_URI || "mongodb://localhost/goBananas", { useNewUrlParser: true });
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_t906tgsp:pr9oig0jc05d6lcd9br4b6i3pf@ds113169.mlab.com:13169/heroku_t906tgsp", { useNewUrlParser: true });
+
+
   
 
 

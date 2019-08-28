@@ -53,15 +53,9 @@ module.exports = passport => {
                 Users.findOne({ username: req.body.username }, (err, user) => {
                     if (err) { return done(err); } 
 
-                    if (user) {
-                        return done(null, true, {
-                            message: "user"
-                        });
-                    }
-
                     if (!user) {
                         return done(null, false, {
-                                message: "some message #1"
+                                message: "not a user"
                             });
                         }
                     
@@ -69,6 +63,12 @@ module.exports = passport => {
                         
                         return done(null, false, {
                                 message: "Oops, wrong password!"
+                            });
+                        }
+                    
+                        if (user) {
+                            return done(null, true, {
+                                message: "user - passport local-login"
                             });
                         }
                 });

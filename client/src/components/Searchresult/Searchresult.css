@@ -1,3 +1,7 @@
 h3{
     color:rgb(156, 148, 131)
 }
+
+SearchResults, rearchCard {
+    width: 250px
+}

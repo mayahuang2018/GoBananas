@@ -13,6 +13,7 @@ class LoginPage extends Component {
     password: '',
     loggedIn: false,
     redirectTo: null,
+    auth: false
   };
 
   handleChange = event => {
@@ -31,13 +32,17 @@ class LoginPage extends Component {
         .then(response => {
           console.log(response, 'login response');
 
-          if (response.status === 200) {
+          if (response.data.auth === true) {
             console.log("successful login");
             this.setState({
-              loggedIn: true,
               username: this.state.username,
-              redirectTo: '/IdiomSearchPage'
+              loggedIn: true,
+              auth: true
             })
+          }
+
+          if (this.state.auth === true) {
+            this.setState({redirectTo: '/IdiomSearchPage'})
           }
         }).catch(error => console.log('login error: ', error))
     }
